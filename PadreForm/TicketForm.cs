@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace PadreForm
+{
+    public partial class TicketForm : Form
+    {
+        public TicketForm()
+        {
+            InitializeComponent();
+        }
+
+        private void TicketForm_Load(object sender, EventArgs e)
+        {
+             PadreForm.CambiarColores(this, PadreForm.colorFondo, PadreForm.colorLetra);
+        }
+
+        private void txbticket_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+    }
+}

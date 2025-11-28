@@ -1,0 +1,92 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace PadreForm
+{
+    public partial class UsuariosForm : Form
+    {
+        public UsuariosForm()
+        {
+            InitializeComponent();
+        }
+
+        private void abrirAgregarUsuario()
+        {
+            AgregarUsuarioForm agregarUsuario = new AgregarUsuarioForm();
+            agregarUsuario.ShowDialog();
+        }
+
+        private void abrirEditarUsuario(int index)
+        {
+            EditarUsuarioForm editarUsuario = new EditarUsuarioForm();
+            editarUsuario.indice = index;
+            editarUsuario.nombreUsuario = dgvusuarios.Rows[index].Cells[0].Value.ToString();
+            editarUsuario.contraseña = PadreForm.Contraseñas[index];
+            editarUsuario.rol = dgvusuarios.Rows[index].Cells[1].Value.ToString();
+            editarUsuario.nombre = dgvusuarios.Rows[index].Cells[2].Value.ToString();
+            editarUsuario.ShowDialog();
+        }
+        private void txbbuscador_TextChanged(object sender, EventArgs e)
+        {
+            PadreForm.FiltrarUsuarios(dgvusuarios, cbrol.Text, txbbuscador.Text);
+        }
+
+        private void UsuariosForm_Load(object sender, EventArgs e)
+        {
+            PadreForm.CambiarColores(this, PadreForm.colorFondo, PadreForm.colorLetra);
+            PadreForm.rolesUsuariosAdd(cbrol);
+            PadreForm.importacionUsuariosDTG(dgvusuarios);
+        }
+
+        private void cbrol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PadreForm.FiltrarUsuarios(dgvusuarios, cbrol.Text, txbbuscador.Text);
+        }
+
+        private void btnagregar_Click(object sender, EventArgs e)
+        {
+            abrirAgregarUsuario();
+            PadreForm.importacionUsuariosDTG(dgvusuarios);
+        }
+
+        private void btnborrar_Click(object sender, EventArgs e)
+        {
+            if (PadreForm.NombreUsuarios[PadreForm.Roles.IndexOf("Admin")] == dgvusuarios.CurrentRow.Cells[0].Value.ToString())
+            {
+                if (MessageBox.Show("Este usuario es un administrador, ¿Está seguro de eliminarlo?", "Confirmar eliminación", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    bool restart = false;
+                    if (PadreForm.usuarioActual == dgvusuarios.CurrentRow.Cells[0].Value.ToString())
+                    {
+                        restart = true;
+                    }
+                    PadreForm.eliminaUsuario(dgvusuarios.CurrentRow.Index);
+                    PadreForm.importacionUsuariosDTG(dgvusuarios);
+                    MessageBox.Show("Se ha eliminado el usuario");
+                    if (restart)
+                    {
+                        Application.Restart();
+                    }
+                }
+            }
+            else
+            {
+                PadreForm.eliminaUsuario(dgvusuarios.CurrentRow.Index);
+                PadreForm.importacionUsuariosDTG(dgvusuarios);
+                MessageBox.Show("Se ha eliminado el usuario");
+            }
+        }
+
+        private void btneditar_Click(object sender, EventArgs e)
+        {
+            abrirEditarUsuario(dgvusuarios.CurrentRow.Index);
+        }
+    }
+}
