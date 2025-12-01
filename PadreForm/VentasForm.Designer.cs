@@ -204,6 +204,7 @@
             this.dgvinventarioventas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvinventarioventas.Size = new System.Drawing.Size(448, 295);
             this.dgvinventarioventas.TabIndex = 6;
+            this.dgvinventarioventas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvinventarioventas_CellContentDoubleClick);
             // 
             // dataGridViewTextBoxColumn1
             // 

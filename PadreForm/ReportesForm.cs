@@ -32,8 +32,15 @@ namespace PadreForm
         private void ReportesForm_Load(object sender, EventArgs e)
         {
             PadreForm.CambiarColores(this, PadreForm.colorFondo, PadreForm.colorLetra);
-            PadreForm.importacionTickets();
-            PadreForm.importacioTicketsDTG(dgvtickets);
+            try
+            {
+                PadreForm.importacionTickets();
+                PadreForm.importacioTicketsDTG(dgvtickets);
+            }
+            catch
+            {
+                PadreForm.registrarTickets();
+            }
         }
 
         private void dgvtickets_CellContentClick(object sender, DataGridViewCellEventArgs e)

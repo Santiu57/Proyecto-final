@@ -35,7 +35,7 @@ namespace PadreForm
             PadreForm.FiltrarInventario(dgvinventarioventas, cbcategoria.Text, txbbuscador.Text);
         }
 
-        private void dgvinventarioventas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvinventarioventas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
@@ -118,7 +118,7 @@ namespace PadreForm
             lbltotal.Text = total.ToString("C");
         }
 
-        public static void FinalizarVenta(DataGridView tablaVenta)
+        private void FinalizarVenta(DataGridView tablaVenta)
         {
             try
             {
@@ -133,6 +133,7 @@ namespace PadreForm
                     {
                         PadreForm.Pcantidad[index] -= cantidadVendida;
                         guardarCambios(index, nombre);
+                        lbltotal.Text = "$0.00";
 
                         if (PadreForm.Pcantidad[index] < 0)
                             PadreForm.Pcantidad[index] = 0; // evitar negativos
@@ -149,15 +150,15 @@ namespace PadreForm
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al finalizar venta: " + ex.Message);
+                MessageBox.Show("Error al finalizar la venta: " + ex.Message);
             }
         }
 
         private static void guardarCambios(int index, string nombre)
         {
-            string[] linea = PadreForm.Productos[index].Split('/');
+            string[] linea = PadreForm.Productos[index].Split('|');
             linea[5] = PadreForm.Pcantidad[index].ToString();
-            PadreForm.Productos[index] = string.Join("/", linea);
+            PadreForm.Productos[index] = string.Join("|", linea);
             PadreForm.registraProductos();
         }
 
