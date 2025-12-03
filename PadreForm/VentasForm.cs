@@ -169,6 +169,8 @@ namespace PadreForm
             ticket.AppendLine("Fecha: " + DateTime.Now.ToString());
             ticket.AppendLine("Vendedor: " + PadreForm.usuarioActual);
             ticket.AppendLine("Ticket: " + PadreForm.numeroTicket);
+            ticket.AppendLine("Tienda: " + PadreForm.nombreTienda);
+            ticket.AppendLine("Direccion: " + PadreForm.direccionTienda);
             ticket.AppendLine("-------------------------------");
 
             double total = 0;
@@ -196,7 +198,9 @@ namespace PadreForm
                 DateTime.Now,
                 (decimal)total,
                 PadreForm.usuarioActual, 
-                PadreForm.Tickets.Count + 1
+                PadreForm.numeroTicket,
+                PadreForm.nombreTienda,
+                PadreForm.direccionTienda
             );
             PadreForm.Tickets.Add(newticket);
             PadreForm.registrarTickets();
@@ -208,8 +212,8 @@ namespace PadreForm
 
         private void btnfinalizarVenta_Click(object sender, EventArgs e)
         {
-            FinalizarVenta(dgvproductosregistrados);
             GenerarTicket(dgvproductosregistrados);
+            FinalizarVenta(dgvproductosregistrados);
         }
     }
 }

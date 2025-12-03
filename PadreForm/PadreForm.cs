@@ -171,6 +171,8 @@ namespace PadreForm
                 Ticketsfile.WriteLine("TOTAL|" + t.Total);
                 Ticketsfile.WriteLine("VENDEDOR|" + t.Vendedor);
                 Ticketsfile.WriteLine("NUM TICKET|" + t.NumTicket);
+                Ticketsfile.WriteLine("TIENDA|" + t.Nombre);
+                Ticketsfile.WriteLine("DIRECCION|" + t.Direccion);
                 Ticketsfile.WriteLine("CONTENIDO|");
                 Ticketsfile.WriteLine(t.Contenido.TrimEnd());
                 Ticketsfile.WriteLine("END_TICKET");
@@ -194,6 +196,8 @@ namespace PadreForm
             decimal total = 0;
             string vendedor = "";
             int numTicket = 0;
+            string nombreTienda = "";
+            string direccionTienda = "";
 
             while ((line = leer.ReadLine()) != null)
             {
@@ -217,6 +221,14 @@ namespace PadreForm
                 {
                     numTicket = int.Parse(line.Substring(11));
                 }
+                else if (line.StartsWith("TIENDA|"))
+                {
+                    nombreTienda = (line.Substring(7));
+                }
+                else if (line.StartsWith("DIRECCION|"))
+                {
+                    direccionTienda = (line.Substring(10));
+                }
                 else if (line == "CONTENIDO|")
                 {
                     // Leer contenido hasta END_TICKET
@@ -229,7 +241,7 @@ namespace PadreForm
                     }
 
                     // Guardar ticket
-                    Tickets.Add(new Ticket(contenido, fecha, total, vendedor, numTicket));
+                    Tickets.Add(new Ticket(contenido, fecha, total, vendedor, numTicket, nombreTienda,direccionTienda));
                 }
             }
             leer.Close();
@@ -629,14 +641,18 @@ namespace PadreForm
             public DateTime FechaCreacion { get; set; }
             public decimal Total { get; set; }
             public int NumTicket { get; set; }
+            public string Nombre { get; set; }
+            public string Direccion { get; set; }
 
-            public Ticket(string contenido, DateTime fecha, decimal total, string vendedor, int numTicket)
+            public Ticket(string contenido, DateTime fecha, decimal total, string vendedor, int numTicket, string nombre, string direccion)
             {
                 Contenido = contenido;
                 FechaCreacion = fecha;
                 Total = total;
                 Vendedor = vendedor;
                 NumTicket = numTicket;
+                Nombre = nombre;
+                Direccion = direccion;
             }
         }
 

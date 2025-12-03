@@ -107,10 +107,21 @@ namespace PadreForm
                 {
                     int index = cbusuarios.SelectedIndex;
                     int Altindex = PadreForm.NombreUsuarios.IndexOf(txbNombreUsuario.Text);
-                    if (txbContraseña.Text == (PadreForm.Contraseñas[index] ?? PadreForm.Contraseñas[Altindex]))
+                    if (index > 0)
                     {
-                        PadreForm.usuarioActual = (PadreForm.NombreUsuarios[index] ?? PadreForm.NombreUsuarios[Altindex]);
-                        openPadre();
+                        if (txbContraseña.Text == PadreForm.Contraseñas[index])
+                        {
+                            PadreForm.usuarioActual = PadreForm.NombreUsuarios[index];
+                            openPadre();
+                        }
+                    }
+                    else
+                    {
+                        if (txbContraseña.Text == PadreForm.Contraseñas[Altindex])
+                        {
+                            PadreForm.usuarioActual = PadreForm.NombreUsuarios[Altindex];
+                            openPadre();
+                        }
                     }
                 }
             }
