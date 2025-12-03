@@ -53,7 +53,8 @@ namespace PadreForm
             control.BackColor = back;
 
             // Ajustes especiales según el tipo de control
-            if (control is DataGridView dgv)
+            var dgv = control as DataGridView;
+            if (dgv != null)
             {
                 dgv.BackgroundColor = back;
                 dgv.GridColor = fore;
@@ -68,19 +69,28 @@ namespace PadreForm
                 dgv.RowHeadersDefaultCellStyle.BackColor = back;
                 dgv.RowHeadersDefaultCellStyle.ForeColor = fore;
             }
-            else if (control is TextBox tb)
+            else
             {
-                if (tb.ReadOnly) tb.BackColor = Color.White;
-                else tb.BackColor = back;
-            }
-            else if (control is ToolStrip ts)
-            {
-                ts.BackColor = back;
-                ts.ForeColor = fore;
-                foreach (ToolStripItem item in ts.Items)
+                var tb = control as TextBox;
+                if (tb != null)
                 {
-                    item.ForeColor = fore;
-                    item.BackColor = back;
+                    if (tb.ReadOnly) tb.BackColor = Color.White;
+                    else tb.BackColor = back;
+                }
+                else
+                {
+                    var ts = control as ToolStrip;
+                    if (ts != null)
+                    {
+                        ts.BackColor = back;
+                        ts.ForeColor = fore;
+
+                        foreach (ToolStripItem item in ts.Items)
+                        {
+                            item.ForeColor = fore;
+                            item.BackColor = back;
+                        }
+                    }
                 }
             }
 
@@ -391,7 +401,9 @@ namespace PadreForm
                         Pproovedor.Add(valores[6]);
                         PfechaRegistro.Add(valores[7]);
 
-                        if (int.TryParse(valores[5], out int cant)) Pcantidad.Add(cant);
+
+                        int cant;
+                        if (int.TryParse(valores[5], out cant)) Pcantidad.Add(cant);
                         else Pcantidad.Add(0);
                     }
                 }
