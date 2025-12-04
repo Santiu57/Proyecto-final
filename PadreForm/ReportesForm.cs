@@ -15,6 +15,7 @@ namespace PadreForm
         public ReportesForm()
         {
             InitializeComponent();
+            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
         }
 
         private void openTicket(int index) 

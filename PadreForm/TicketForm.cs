@@ -15,6 +15,7 @@ namespace PadreForm
         public TicketForm()
         {
             InitializeComponent();
+            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
         }
 
         private void TicketForm_Load(object sender, EventArgs e)

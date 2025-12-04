@@ -16,6 +16,7 @@ namespace PadreForm
         public ConfiguracionForm()
         {
             InitializeComponent();
+            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

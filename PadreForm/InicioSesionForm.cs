@@ -16,6 +16,7 @@ namespace PadreForm
         public InicioSesionForm()
         {
             InitializeComponent();
+            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
         }
 
         private bool hasSafefile()

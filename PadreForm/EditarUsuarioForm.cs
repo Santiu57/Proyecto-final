@@ -15,6 +15,7 @@ namespace PadreForm
         public EditarUsuarioForm()
         {
             InitializeComponent();
+            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
         }
 
         public int indice;

@@ -15,6 +15,7 @@ namespace PadreForm
         public InventarioForm()
         {
             InitializeComponent();
+            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
         }
 
         private void fullErase(int index)

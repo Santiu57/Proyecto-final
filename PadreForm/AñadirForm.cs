@@ -15,6 +15,7 @@ namespace PadreForm
         public AñadirForm()
         {
             InitializeComponent();
+            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
         }
 
         private bool allTxbfull()

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PadreForm.PadreForm;
 
 namespace PadreForm
 {
@@ -15,8 +16,8 @@ namespace PadreForm
         public VentasForm()
         {
             InitializeComponent();
+            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
         }
-
         private void VentasForm_Load(object sender, EventArgs e)
         {
             PadreForm.CambiarColores(this, PadreForm.colorFondo, PadreForm.colorLetra);
@@ -209,7 +210,6 @@ namespace PadreForm
 
             MessageBox.Show("Ticket generado");
         }
-
 
         private void btnfinalizarVenta_Click(object sender, EventArgs e)
         {

@@ -102,6 +102,58 @@ namespace PadreForm
             }
         }
 
+        public static void AutoScaleControls(Form form)
+        {
+            if (form.Tag == null)
+                form.Tag = new SizeF(form.Width, form.Height);
+
+            SizeF originalFormSize = (SizeF)form.Tag;
+
+            float scaleX = form.Width / originalFormSize.Width;
+            float scaleY = form.Height / originalFormSize.Height;
+
+            foreach (Control c in form.Controls)
+            {
+                // Guardar datos originales una sola vez
+                if (c.Tag == null)
+                    c.Tag = new object[] { c.Width, c.Height, c.Left, c.Top, c.Font.Size };
+
+                object[] data = (object[])c.Tag;
+
+                c.Width = (int)((int)data[0] * scaleX);
+                c.Height = (int)((int)data[1] * scaleY);
+                c.Left = (int)((int)data[2] * scaleX);
+                c.Top = (int)((int)data[3] * scaleY);
+
+                float originalFont = (float)data[4];
+                c.Font = new Font(c.Font.FontFamily, originalFont * Math.Min(scaleX, scaleY));
+
+                ScaleChildren(c, scaleX, scaleY);
+            }
+        }
+
+        private static void ScaleChildren(Control parent, float scaleX, float scaleY)
+        {
+            foreach (Control c in parent.Controls)
+            {
+                if (c.Tag == null)
+                    c.Tag = new object[] { c.Width, c.Height, c.Left, c.Top, c.Font.Size };
+
+                object[] data = (object[])c.Tag;
+
+                c.Width = (int)((int)data[0] * scaleX);
+                c.Height = (int)((int)data[1] * scaleY);
+                c.Left = (int)((int)data[2] * scaleX);
+                c.Top = (int)((int)data[3] * scaleY);
+
+                float originalFont = (float)data[4];
+                c.Font = new Font(c.Font.FontFamily, originalFont * Math.Min(scaleX, scaleY));
+
+                if (c.Controls.Count > 0)
+                    ScaleChildren(c, scaleX, scaleY);
+            }
+        }
+
         private int MaxTicketnumber()
         {
             int Tnum = 1000;
@@ -196,9 +248,10 @@ namespace PadreForm
 
         public static void importacionTickets()
         {
-            try {
-            
-            if (!File.Exists("Tickets")) return;
+            try
+            {
+
+                if (!File.Exists("Tickets")) return;
                 Tickets.Clear();
                 StreamReader leer = new StreamReader("Tickets");
                 string line;
@@ -261,7 +314,7 @@ namespace PadreForm
             {
                 registrarTickets();
             }
-            
+
         }
 
         public static void registraUsuario(
@@ -311,7 +364,7 @@ namespace PadreForm
 
         public static bool isAdmin()
         {
-            if(Roles[NombreUsuarios.IndexOf(usuarioActual)] != "Admin")
+            if (Roles[NombreUsuarios.IndexOf(usuarioActual)] != "Admin")
             {
                 MessageBox.Show("No tienes permisos para realizar esta acción.");
                 return false;
@@ -341,8 +394,8 @@ namespace PadreForm
         {
             try
             {
-            tabla.Rows.Clear();
-            for (int i = 0;Tickets.Count() > i; i++)
+                tabla.Rows.Clear();
+                for (int i = 0; Tickets.Count() > i; i++)
                 {
                     int nuevaFila = tabla.Rows.Add();
                     tabla.Rows[nuevaFila].Cells[0].Value = Tickets[i].FechaCreacion.ToString();
@@ -735,3 +788,5 @@ namespace PadreForm
         }
     }
 }
+
+

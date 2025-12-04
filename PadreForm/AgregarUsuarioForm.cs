@@ -15,6 +15,7 @@ namespace PadreForm
         public AgregarUsuarioForm()
         {
             InitializeComponent();
+            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
         }
 
         private void allfieldsfilled()
