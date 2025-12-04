@@ -196,63 +196,72 @@ namespace PadreForm
 
         public static void importacionTickets()
         {
-            Tickets.Clear();
-            StreamReader leer = new StreamReader("Tickets");
-            string line;
-            string contenido = "";
-            DateTime fecha = DateTime.Now;
-            decimal total = 0;
-            string vendedor = "";
-            int numTicket = 0;
-            string nombreTienda = "";
-            string direccionTienda = "";
+            try {
+            
+            if (!File.Exists("Tickets")) return;
+                Tickets.Clear();
+                StreamReader leer = new StreamReader("Tickets");
+                string line;
+                string contenido = "";
+                DateTime fecha = DateTime.Now;
+                decimal total = 0;
+                string vendedor = "";
+                int numTicket = 0;
+                string nombreTienda = "";
+                string direccionTienda = "";
 
-            while ((line = leer.ReadLine()) != null)
-            {
-                if (line == "BEGIN_TICKET")
+                while ((line = leer.ReadLine()) != null)
                 {
-                    contenido = "";
-                }
-                else if (line.StartsWith("FECHA|"))
-                {
-                    fecha = DateTime.Parse(line.Substring(6));
-                }
-                else if (line.StartsWith("TOTAL|"))
-                {
-                    total = decimal.Parse(line.Substring(6));
-                }
-                else if (line.StartsWith("VENDEDOR|"))
-                {
-                    vendedor = line.Substring(9);
-                }
-                else if (line.StartsWith("NUM TICKET|"))
-                {
-                    numTicket = int.Parse(line.Substring(11));
-                }
-                else if (line.StartsWith("TIENDA|"))
-                {
-                    nombreTienda = (line.Substring(7));
-                }
-                else if (line.StartsWith("DIRECCION|"))
-                {
-                    direccionTienda = (line.Substring(10));
-                }
-                else if (line == "CONTENIDO|")
-                {
-                    // Leer contenido hasta END_TICKET
-                    string cLine;
-                    contenido = "";
-
-                    while ((cLine = leer.ReadLine()) != null && cLine != "END_TICKET")
+                    if (line == "BEGIN_TICKET")
                     {
-                        contenido += cLine + Environment.NewLine;
+                        contenido = "";
                     }
+                    else if (line.StartsWith("FECHA|"))
+                    {
+                        fecha = DateTime.Parse(line.Substring(6));
+                    }
+                    else if (line.StartsWith("TOTAL|"))
+                    {
+                        total = decimal.Parse(line.Substring(6));
+                    }
+                    else if (line.StartsWith("VENDEDOR|"))
+                    {
+                        vendedor = line.Substring(9);
+                    }
+                    else if (line.StartsWith("NUM TICKET|"))
+                    {
+                        numTicket = int.Parse(line.Substring(11));
+                    }
+                    else if (line.StartsWith("TIENDA|"))
+                    {
+                        nombreTienda = (line.Substring(7));
+                    }
+                    else if (line.StartsWith("DIRECCION|"))
+                    {
+                        direccionTienda = (line.Substring(10));
+                    }
+                    else if (line == "CONTENIDO|")
+                    {
+                        // Leer contenido hasta END_TICKET
+                        string cLine;
+                        contenido = "";
 
-                    // Guardar ticket
-                    Tickets.Add(new Ticket(contenido, fecha, total, vendedor, numTicket, nombreTienda,direccionTienda));
+                        while ((cLine = leer.ReadLine()) != null && cLine != "END_TICKET")
+                        {
+                            contenido += cLine + Environment.NewLine;
+                        }
+
+                        // Guardar ticket
+                        Tickets.Add(new Ticket(contenido, fecha, total, vendedor, numTicket, nombreTienda, direccionTienda));
+                    }
                 }
+                leer.Close();
             }
-            leer.Close();
+            catch
+            {
+                registrarTickets();
+            }
+            
         }
 
         public static void registraUsuario(
