@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using WMPLib;
 using System.Windows.Forms;
 
 namespace PadreForm
@@ -101,13 +102,19 @@ namespace PadreForm
             }
         }
 
-
+        private int MaxTicketnumber()
+        {
+            int Tnum = 1000;
+            importacionTickets();
+            Tnum += Tickets.Count();
+            return Tnum;
+        }
 
         public static void configSafe()
         {
             using (var fs = new StreamWriter("Configuracion"))
             {
-                string config = nombreTienda + "/" + direccionTienda + "/" + colorFondo.ToArgb() + "/" + colorLetra.ToArgb();
+                string config = nombreTienda + "/" + direccionTienda + "/" + colorFondo.ToArgb() + "/" + colorLetra.ToArgb() + "/" + wmp.settings.volume.ToString();
                 fs.WriteLine(config);
             }
         }
@@ -121,8 +128,9 @@ namespace PadreForm
                 var valores = linea.Split('/');
                 nombreTienda = valores[0];
                 direccionTienda = valores[1];
-                colorFondo = Color.FromArgb(int.Parse(valores[2]));
-                colorLetra = Color.FromArgb(int.Parse(valores[3]));
+                colorFondo = Color.FromArgb(int.Parse(valores[3]));
+                colorLetra = Color.FromArgb(int.Parse(valores[2]));
+                wmp.settings.volume = int.Parse(valores[4]);
 
                 try
                 {
@@ -596,6 +604,17 @@ namespace PadreForm
             tlslusuarioActual.Text = "Usuario Actual: " + usuarioActual;
             tssUsuarioActual.Text = "Usuario Actual: " + usuarioActual;
             CambiarColores(this, colorFondo, colorLetra);
+            numeroTicket = MaxTicketnumber();
+            Play("Polyphonic.mp3");
+        }
+
+        // Metodos de los sonidos
+        public static WindowsMediaPlayer wmp = new WindowsMediaPlayer();
+        public void Play(string archivo)
+        {
+            string ruta = Path.Combine(Application.StartupPath, "sonidos", archivo);
+            wmp.URL = ruta;
+            wmp.controls.play();
         }
 
         private void PadreForm_FormClosed(object sender, FormClosedEventArgs e)

@@ -45,7 +45,10 @@
             this.pnlletra = new System.Windows.Forms.Panel();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.pblogo = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.trbVolumen = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.pblogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trbVolumen)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -153,7 +156,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(155, 230);
+            this.btnAceptar.Location = new System.Drawing.Point(148, 281);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(126, 23);
             this.btnAceptar.TabIndex = 12;
@@ -170,11 +173,30 @@
             this.pblogo.TabIndex = 13;
             this.pblogo.TabStop = false;
             // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(39, 224);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(138, 23);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Volumen:";
+            // 
+            // trbVolumen
+            // 
+            this.trbVolumen.Location = new System.Drawing.Point(192, 224);
+            this.trbVolumen.Maximum = 100;
+            this.trbVolumen.Name = "trbVolumen";
+            this.trbVolumen.Size = new System.Drawing.Size(238, 56);
+            this.trbVolumen.TabIndex = 15;
+            this.trbVolumen.Value = 50;
+            // 
             // ConfiguracionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 265);
+            this.ClientSize = new System.Drawing.Size(459, 316);
+            this.Controls.Add(this.trbVolumen);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.pblogo);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.pnlletra);
@@ -193,6 +215,7 @@
             this.Text = "ConfiguracionForm";
             this.Load += new System.EventHandler(this.ConfiguracionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pblogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trbVolumen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,5 +240,7 @@
         private System.Windows.Forms.Panel pnlletra;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.PictureBox pblogo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TrackBar trbVolumen;
     }
 }

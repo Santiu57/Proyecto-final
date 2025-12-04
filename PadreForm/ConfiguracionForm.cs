@@ -24,6 +24,7 @@ namespace PadreForm
             PadreForm.direccionTienda = txbubicaciontienda.Text;
             PadreForm.colorLetra = cdletra.Color;
             PadreForm.colorFondo = cdfondo.Color;
+            PadreForm.wmp.settings.volume = trbVolumen.Value;
 
             if (PadreForm.logo != null)
             {
@@ -31,15 +32,11 @@ namespace PadreForm
                 {
                     PadreForm.logo.Save("logo.png", System.Drawing.Imaging.ImageFormat.Png);
                 }
-                catch (Exception ex)
+                catch 
                 {
-                    MessageBox.Show("No se pudo guardar el logo: " + ex.Message);
-                    // opcional: intentar guardar en ruta temporal o con FileMode.Create
+                    
                 }
             }
-
-            pnlfondo.BackColor = PadreForm.colorFondo;
-            pnlletra.BackColor = PadreForm.colorLetra;
 
             PadreForm.configSafe();
             Application.Restart();
@@ -65,16 +62,17 @@ namespace PadreForm
 
                     pblogo.Image = PadreForm.logo;
                 }
-                catch (Exception ex)
+                catch
                 {
-                    MessageBox.Show("Error cargando logo: " + ex.Message);
+
                 }
             }
         }
-
+        
         private void btnfondo_Click(object sender, EventArgs e)
         {
             cdfondo.ShowDialog();
+            pnlfondo.BackColor = cdfondo.Color;
         }
 
         private void ConfiguracionForm_Load(object sender, EventArgs e)
@@ -85,11 +83,13 @@ namespace PadreForm
             pblogo.Image = PadreForm.logo;
             cdfondo.Color = PadreForm.colorFondo;
             cdletra.Color = PadreForm.colorLetra;
+            trbVolumen.Value = PadreForm.wmp.settings.volume;
         }
 
         private void btnletra_Click(object sender, EventArgs e)
         {
             cdletra.ShowDialog();
+            pnlletra.BackColor = cdletra.Color;
         }
     }
 }

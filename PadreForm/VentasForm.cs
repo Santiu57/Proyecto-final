@@ -205,6 +205,7 @@ namespace PadreForm
             PadreForm.Tickets.Add(newticket);
             PadreForm.registrarTickets();
             PadreForm.numeroTicket++;
+            PadreForm.importacionTickets();
 
             MessageBox.Show("Ticket generado");
         }
