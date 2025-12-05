@@ -50,7 +50,7 @@
             this.usuario,
             this.rol,
             this.nombre});
-            this.dgvusuarios.Location = new System.Drawing.Point(35, 63);
+            this.dgvusuarios.Location = new System.Drawing.Point(4, 43);
             this.dgvusuarios.Margin = new System.Windows.Forms.Padding(4);
             this.dgvusuarios.MultiSelect = false;
             this.dgvusuarios.Name = "dgvusuarios";
@@ -87,7 +87,7 @@
             // 
             // btneditar
             // 
-            this.btneditar.Location = new System.Drawing.Point(299, 270);
+            this.btneditar.Location = new System.Drawing.Point(306, 250);
             this.btneditar.Margin = new System.Windows.Forms.Padding(4);
             this.btneditar.Name = "btneditar";
             this.btneditar.Size = new System.Drawing.Size(100, 28);
@@ -98,7 +98,7 @@
             // 
             // btnborrar
             // 
-            this.btnborrar.Location = new System.Drawing.Point(191, 270);
+            this.btnborrar.Location = new System.Drawing.Point(198, 250);
             this.btnborrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnborrar.Name = "btnborrar";
             this.btnborrar.Size = new System.Drawing.Size(100, 28);
@@ -109,7 +109,7 @@
             // 
             // btnagregar
             // 
-            this.btnagregar.Location = new System.Drawing.Point(83, 268);
+            this.btnagregar.Location = new System.Drawing.Point(90, 248);
             this.btnagregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnagregar.Name = "btnagregar";
             this.btnagregar.Size = new System.Drawing.Size(100, 28);
@@ -121,7 +121,7 @@
             // cbrol
             // 
             this.cbrol.FormattingEnabled = true;
-            this.cbrol.Location = new System.Drawing.Point(403, 32);
+            this.cbrol.Location = new System.Drawing.Point(382, 12);
             this.cbrol.Name = "cbrol";
             this.cbrol.Size = new System.Drawing.Size(145, 24);
             this.cbrol.TabIndex = 22;
@@ -130,16 +130,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 32);
+            this.label1.Location = new System.Drawing.Point(11, 12);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 16);
+            this.label1.Size = new System.Drawing.Size(72, 17);
             this.label1.TabIndex = 21;
             this.label1.Text = "Buscador:";
             // 
             // txbbuscador
             // 
-            this.txbbuscador.Location = new System.Drawing.Point(111, 32);
+            this.txbbuscador.Location = new System.Drawing.Point(90, 12);
             this.txbbuscador.Margin = new System.Windows.Forms.Padding(4);
             this.txbbuscador.Name = "txbbuscador";
             this.txbbuscador.Size = new System.Drawing.Size(285, 22);
@@ -150,7 +150,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 358);
+            this.ClientSize = new System.Drawing.Size(549, 288);
             this.Controls.Add(this.cbrol);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txbbuscador);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentasForm));
             this.txbbuscador = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbcategoria = new System.Windows.Forms.ComboBox();
@@ -49,9 +50,11 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.proovedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvproductosregistrados)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvinventarioventas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txbbuscador
@@ -69,7 +72,7 @@
             this.label2.Location = new System.Drawing.Point(16, 23);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 16);
+            this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Buscador:";
             // 
@@ -98,7 +101,7 @@
             this.dgvproductosregistrados.RowHeadersVisible = false;
             this.dgvproductosregistrados.RowHeadersWidth = 51;
             this.dgvproductosregistrados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvproductosregistrados.Size = new System.Drawing.Size(284, 212);
+            this.dgvproductosregistrados.Size = new System.Drawing.Size(354, 311);
             this.dgvproductosregistrados.TabIndex = 0;
             // 
             // producto
@@ -128,10 +131,10 @@
             // btnfinalizarVenta
             // 
             this.btnfinalizarVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnfinalizarVenta.Location = new System.Drawing.Point(0, 268);
+            this.btnfinalizarVenta.Location = new System.Drawing.Point(2, 367);
             this.btnfinalizarVenta.Margin = new System.Windows.Forms.Padding(4);
             this.btnfinalizarVenta.Name = "btnfinalizarVenta";
-            this.btnfinalizarVenta.Size = new System.Drawing.Size(288, 59);
+            this.btnfinalizarVenta.Size = new System.Drawing.Size(356, 59);
             this.btnfinalizarVenta.TabIndex = 1;
             this.btnfinalizarVenta.Text = "Finalizar venta";
             this.btnfinalizarVenta.UseVisualStyleBackColor = true;
@@ -144,18 +147,18 @@
             this.panel1.Controls.Add(this.btneliminar);
             this.panel1.Controls.Add(this.btnfinalizarVenta);
             this.panel1.Controls.Add(this.dgvproductosregistrados);
-            this.panel1.Location = new System.Drawing.Point(468, 23);
+            this.panel1.Location = new System.Drawing.Point(930, 55);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(293, 331);
+            this.panel1.Size = new System.Drawing.Size(359, 460);
             this.panel1.TabIndex = 0;
             // 
             // lbltotal
             // 
-            this.lbltotal.Location = new System.Drawing.Point(53, 246);
+            this.lbltotal.Location = new System.Drawing.Point(67, 345);
             this.lbltotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbltotal.Name = "lbltotal";
-            this.lbltotal.Size = new System.Drawing.Size(235, 16);
+            this.lbltotal.Size = new System.Drawing.Size(288, 18);
             this.lbltotal.TabIndex = 7;
             this.lbltotal.Text = "00";
             this.lbltotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -163,16 +166,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 246);
+            this.label1.Location = new System.Drawing.Point(7, 345);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 16);
+            this.label1.Size = new System.Drawing.Size(44, 17);
             this.label1.TabIndex = 6;
             this.label1.Text = "Total:";
             // 
             // btneliminar
             // 
-            this.btneliminar.Location = new System.Drawing.Point(185, 3);
+            this.btneliminar.Location = new System.Drawing.Point(253, 3);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(103, 23);
             this.btneliminar.TabIndex = 2;
@@ -202,7 +205,7 @@
             this.dgvinventarioventas.RowHeadersVisible = false;
             this.dgvinventarioventas.RowHeadersWidth = 51;
             this.dgvinventarioventas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvinventarioventas.Size = new System.Drawing.Size(448, 295);
+            this.dgvinventarioventas.Size = new System.Drawing.Size(921, 434);
             this.dgvinventarioventas.TabIndex = 6;
             this.dgvinventarioventas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvinventarioventas_CellContentDoubleClick);
             // 
@@ -270,17 +273,31 @@
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             this.dataGridViewTextBoxColumn7.Width = 125;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(940, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(96, 79);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // VentasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 368);
+            this.ClientSize = new System.Drawing.Size(1288, 494);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dgvinventarioventas);
             this.Controls.Add(this.cbcategoria);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txbbuscador);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "VentasForm";
             this.Text = "Ventas";
             this.Load += new System.EventHandler(this.VentasForm_Load);
@@ -288,6 +305,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvinventarioventas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,5 +333,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn proovedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

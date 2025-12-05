@@ -216,5 +216,10 @@ namespace PadreForm
             GenerarTicket(dgvproductosregistrados);
             FinalizarVenta(dgvproductosregistrados);
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

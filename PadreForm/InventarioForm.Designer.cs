@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvinventario = new System.Windows.Forms.DataGridView();
-            this.btnborrar = new System.Windows.Forms.Button();
-            this.btnagregar = new System.Windows.Forms.Button();
-            this.txbbuscador = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btneditar = new System.Windows.Forms.Button();
-            this.cbcategoria = new System.Windows.Forms.ComboBox();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +37,12 @@
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.proovedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnborrar = new System.Windows.Forms.Button();
+            this.btnagregar = new System.Windows.Forms.Button();
+            this.txbbuscador = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btneditar = new System.Windows.Forms.Button();
+            this.cbcategoria = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvinventario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +60,7 @@
             this.cantidad,
             this.proovedor,
             this.registro});
-            this.dgvinventario.Location = new System.Drawing.Point(16, 68);
+            this.dgvinventario.Location = new System.Drawing.Point(13, 43);
             this.dgvinventario.Margin = new System.Windows.Forms.Padding(4);
             this.dgvinventario.MultiSelect = false;
             this.dgvinventario.Name = "dgvinventario";
@@ -70,67 +70,6 @@
             this.dgvinventario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvinventario.Size = new System.Drawing.Size(668, 297);
             this.dgvinventario.TabIndex = 0;
-            // 
-            // btnborrar
-            // 
-            this.btnborrar.Location = new System.Drawing.Point(303, 374);
-            this.btnborrar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnborrar.Name = "btnborrar";
-            this.btnborrar.Size = new System.Drawing.Size(100, 28);
-            this.btnborrar.TabIndex = 13;
-            this.btnborrar.Text = "Borrar";
-            this.btnborrar.UseVisualStyleBackColor = true;
-            this.btnborrar.Click += new System.EventHandler(this.btnborrar_Click);
-            // 
-            // btnagregar
-            // 
-            this.btnagregar.Location = new System.Drawing.Point(195, 372);
-            this.btnagregar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnagregar.Name = "btnagregar";
-            this.btnagregar.Size = new System.Drawing.Size(100, 28);
-            this.btnagregar.TabIndex = 12;
-            this.btnagregar.Text = "Agregar";
-            this.btnagregar.UseVisualStyleBackColor = true;
-            this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
-            // 
-            // txbbuscador
-            // 
-            this.txbbuscador.Location = new System.Drawing.Point(95, 36);
-            this.txbbuscador.Margin = new System.Windows.Forms.Padding(4);
-            this.txbbuscador.Name = "txbbuscador";
-            this.txbbuscador.Size = new System.Drawing.Size(285, 22);
-            this.txbbuscador.TabIndex = 14;
-            this.txbbuscador.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 36);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 16);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Buscador:";
-            // 
-            // btneditar
-            // 
-            this.btneditar.Location = new System.Drawing.Point(411, 374);
-            this.btneditar.Margin = new System.Windows.Forms.Padding(4);
-            this.btneditar.Name = "btneditar";
-            this.btneditar.Size = new System.Drawing.Size(100, 28);
-            this.btneditar.TabIndex = 16;
-            this.btneditar.Text = "Editar";
-            this.btneditar.UseVisualStyleBackColor = true;
-            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
-            // 
-            // cbcategoria
-            // 
-            this.cbcategoria.FormattingEnabled = true;
-            this.cbcategoria.Location = new System.Drawing.Point(387, 36);
-            this.cbcategoria.Name = "cbcategoria";
-            this.cbcategoria.Size = new System.Drawing.Size(145, 24);
-            this.cbcategoria.TabIndex = 17;
-            this.cbcategoria.SelectedIndexChanged += new System.EventHandler(this.cbcategoria_SelectedIndexChanged);
             // 
             // codigo
             // 
@@ -196,11 +135,72 @@
             this.registro.ReadOnly = true;
             this.registro.Width = 125;
             // 
+            // btnborrar
+            // 
+            this.btnborrar.Location = new System.Drawing.Point(301, 346);
+            this.btnborrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnborrar.Name = "btnborrar";
+            this.btnborrar.Size = new System.Drawing.Size(100, 28);
+            this.btnborrar.TabIndex = 13;
+            this.btnborrar.Text = "Borrar";
+            this.btnborrar.UseVisualStyleBackColor = true;
+            this.btnborrar.Click += new System.EventHandler(this.btnborrar_Click);
+            // 
+            // btnagregar
+            // 
+            this.btnagregar.Location = new System.Drawing.Point(193, 346);
+            this.btnagregar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnagregar.Name = "btnagregar";
+            this.btnagregar.Size = new System.Drawing.Size(100, 28);
+            this.btnagregar.TabIndex = 12;
+            this.btnagregar.Text = "Agregar";
+            this.btnagregar.UseVisualStyleBackColor = true;
+            this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
+            // 
+            // txbbuscador
+            // 
+            this.txbbuscador.Location = new System.Drawing.Point(92, 11);
+            this.txbbuscador.Margin = new System.Windows.Forms.Padding(4);
+            this.txbbuscador.Name = "txbbuscador";
+            this.txbbuscador.Size = new System.Drawing.Size(285, 22);
+            this.txbbuscador.TabIndex = 14;
+            this.txbbuscador.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 17);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Buscador:";
+            // 
+            // btneditar
+            // 
+            this.btneditar.Location = new System.Drawing.Point(409, 346);
+            this.btneditar.Margin = new System.Windows.Forms.Padding(4);
+            this.btneditar.Name = "btneditar";
+            this.btneditar.Size = new System.Drawing.Size(100, 28);
+            this.btneditar.TabIndex = 16;
+            this.btneditar.Text = "Editar";
+            this.btneditar.UseVisualStyleBackColor = true;
+            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
+            // 
+            // cbcategoria
+            // 
+            this.cbcategoria.FormattingEnabled = true;
+            this.cbcategoria.Location = new System.Drawing.Point(384, 11);
+            this.cbcategoria.Name = "cbcategoria";
+            this.cbcategoria.Size = new System.Drawing.Size(145, 24);
+            this.cbcategoria.TabIndex = 17;
+            this.cbcategoria.SelectedIndexChanged += new System.EventHandler(this.cbcategoria_SelectedIndexChanged);
+            // 
             // InventarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 415);
+            this.ClientSize = new System.Drawing.Size(689, 387);
             this.Controls.Add(this.cbcategoria);
             this.Controls.Add(this.btneditar);
             this.Controls.Add(this.label1);

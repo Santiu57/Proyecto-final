@@ -1,0 +1,22 @@
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\bin\Debug\PadreForm.exe.config
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\Interop.WMPLib.dll
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\proyecto final.csproj.ResolveComReference.cache
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\bin\Debug\PadreForm.exe
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\bin\Debug\PadreForm.pdb
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\PadreForm.AgregarUsuarioForm.resources
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\PadreForm.AñadirForm.resources
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\PadreForm.ConfiguracionForm.resources
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\PadreForm.EditarForm.resources
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\PadreForm.EditarUsuarioForm.resources
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\PadreForm.InicioSesionForm.resources
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\PadreForm.InventarioForm.resources
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\PadreForm.PadreForm.resources
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\PadreForm.Properties.Resources.resources
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\PadreForm.ReportesForm.resources
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\PadreForm.TicketForm.resources
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\PadreForm.UsuariosForm.resources
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\PadreForm.VentasForm.resources
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\proyecto final.csproj.GenerateResource.Cache
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\PadreForm.exe
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\PadreForm.pdb
+C:\Users\omarvillanueva\Desktop\Nueva carpeta (4)\Proyecto-final-master\PadreForm\obj\Debug\proyecto final.csprojResolveAssemblyReference.cache

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportesForm));
             this.dgvtickets = new System.Windows.Forms.DataGridView();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,7 +47,7 @@
             this.vendedor,
             this.numticket,
             this.costofinal});
-            this.dgvtickets.Location = new System.Drawing.Point(25, 82);
+            this.dgvtickets.Location = new System.Drawing.Point(0, -1);
             this.dgvtickets.Margin = new System.Windows.Forms.Padding(4);
             this.dgvtickets.MultiSelect = false;
             this.dgvtickets.Name = "dgvtickets";
@@ -54,7 +55,7 @@
             this.dgvtickets.RowHeadersVisible = false;
             this.dgvtickets.RowHeadersWidth = 51;
             this.dgvtickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvtickets.Size = new System.Drawing.Size(668, 297);
+            this.dgvtickets.Size = new System.Drawing.Size(705, 226);
             this.dgvtickets.TabIndex = 1;
             this.dgvtickets.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvtickets_CellContentClick);
             this.dgvtickets.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvinventario_CellContentDoubleClick);
@@ -95,8 +96,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(702, 227);
             this.Controls.Add(this.dgvtickets);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReportesForm";
             this.Text = "ReportesForm";
             this.Load += new System.EventHandler(this.ReportesForm_Load);

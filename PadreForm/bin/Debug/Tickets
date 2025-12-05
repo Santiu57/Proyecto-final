@@ -1,0 +1,19 @@
+BEGIN_TICKET
+FECHA|04/12/2025 04:37:07 p. m.
+TOTAL|0
+VENDEDOR|DE
+NUM TICKET|1000
+TIENDA|Mi Tienda
+DIRECCION|Calle Falsa 123
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 04/12/2025 04:37:07 p. m.
+Vendedor: DE
+Ticket: 1000
+Tienda: Mi Tienda
+Direccion: Calle Falsa 123
+-------------------------------
+-------------------------------
+TOTAL: $0
+===============================
+END_TICKET

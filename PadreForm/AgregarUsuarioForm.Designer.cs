@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarUsuarioForm));
             this.btnAceptar = new System.Windows.Forms.Button();
             this.lblnombre = new System.Windows.Forms.Label();
             this.lblrol = new System.Windows.Forms.Label();
@@ -37,11 +38,13 @@
             this.txbRol = new System.Windows.Forms.TextBox();
             this.txbContraseña = new System.Windows.Forms.TextBox();
             this.txbNombreUsuario = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(78, 146);
+            this.btnAceptar.Location = new System.Drawing.Point(58, 162);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 31);
             this.btnAceptar.TabIndex = 12;
@@ -51,7 +54,7 @@
             // 
             // lblnombre
             // 
-            this.lblnombre.Location = new System.Drawing.Point(20, 118);
+            this.lblnombre.Location = new System.Drawing.Point(0, 134);
             this.lblnombre.Name = "lblnombre";
             this.lblnombre.Size = new System.Drawing.Size(69, 26);
             this.lblnombre.TabIndex = 21;
@@ -59,7 +62,7 @@
             // 
             // lblrol
             // 
-            this.lblrol.Location = new System.Drawing.Point(20, 85);
+            this.lblrol.Location = new System.Drawing.Point(0, 101);
             this.lblrol.Name = "lblrol";
             this.lblrol.Size = new System.Drawing.Size(43, 26);
             this.lblrol.TabIndex = 20;
@@ -67,7 +70,7 @@
             // 
             // lblcontraseña
             // 
-            this.lblcontraseña.Location = new System.Drawing.Point(20, 52);
+            this.lblcontraseña.Location = new System.Drawing.Point(0, 68);
             this.lblcontraseña.Name = "lblcontraseña";
             this.lblcontraseña.Size = new System.Drawing.Size(99, 26);
             this.lblcontraseña.TabIndex = 19;
@@ -75,7 +78,7 @@
             // 
             // lblusuario
             // 
-            this.lblusuario.Location = new System.Drawing.Point(20, 19);
+            this.lblusuario.Location = new System.Drawing.Point(0, 35);
             this.lblusuario.Name = "lblusuario";
             this.lblusuario.Size = new System.Drawing.Size(69, 26);
             this.lblusuario.TabIndex = 18;
@@ -83,7 +86,7 @@
             // 
             // txbNombre
             // 
-            this.txbNombre.Location = new System.Drawing.Point(95, 118);
+            this.txbNombre.Location = new System.Drawing.Point(75, 134);
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(130, 22);
             this.txbNombre.TabIndex = 17;
@@ -91,7 +94,7 @@
             // 
             // txbRol
             // 
-            this.txbRol.Location = new System.Drawing.Point(63, 85);
+            this.txbRol.Location = new System.Drawing.Point(43, 101);
             this.txbRol.Name = "txbRol";
             this.txbRol.Size = new System.Drawing.Size(162, 22);
             this.txbRol.TabIndex = 16;
@@ -99,7 +102,7 @@
             // 
             // txbContraseña
             // 
-            this.txbContraseña.Location = new System.Drawing.Point(125, 52);
+            this.txbContraseña.Location = new System.Drawing.Point(105, 68);
             this.txbContraseña.Name = "txbContraseña";
             this.txbContraseña.Size = new System.Drawing.Size(100, 22);
             this.txbContraseña.TabIndex = 14;
@@ -107,11 +110,21 @@
             // 
             // txbNombreUsuario
             // 
-            this.txbNombreUsuario.Location = new System.Drawing.Point(95, 19);
+            this.txbNombreUsuario.Location = new System.Drawing.Point(75, 35);
             this.txbNombreUsuario.Name = "txbNombreUsuario";
             this.txbNombreUsuario.Size = new System.Drawing.Size(130, 22);
             this.txbNombreUsuario.TabIndex = 13;
             this.txbNombreUsuario.TextChanged += new System.EventHandler(this.txbNombreUsuario_TextChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(193, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(65, 45);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
             // 
             // AgregarUsuarioForm
             // 
@@ -127,10 +140,12 @@
             this.Controls.Add(this.txbRol);
             this.Controls.Add(this.txbContraseña);
             this.Controls.Add(this.txbNombreUsuario);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AgregarUsuarioForm";
             this.Text = "AgregarUsuarioForm";
             this.Load += new System.EventHandler(this.AgregarUsuarioForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +162,6 @@
         private System.Windows.Forms.TextBox txbRol;
         private System.Windows.Forms.TextBox txbContraseña;
         private System.Windows.Forms.TextBox txbNombreUsuario;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
