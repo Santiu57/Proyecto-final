@@ -1,4 +1,5 @@
-Proyecto final para la escuela
+Proyecto final para la escuela (Echo para Net.4.6) idkw
+
 Punto de venta con Windows Forms
 --Con inicio de sesion
 --manejo de usuarios
@@ -6,4 +7,6 @@ Punto de venta con Windows Forms
 --manejo de reportes (Tickets)
 --sistema de venta
 
-La interfaz sera basada en un monton de shitpost de los gustos del equipo
+La interfaz es sencilla y personalizable
+con algun que otro sonido
+
