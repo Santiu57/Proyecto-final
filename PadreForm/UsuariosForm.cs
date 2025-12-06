@@ -29,7 +29,7 @@ namespace PadreForm
             EditarUsuarioForm editarUsuario = new EditarUsuarioForm();
             editarUsuario.indice = index;
             editarUsuario.nombreUsuario = dgvusuarios.Rows[index].Cells[0].Value.ToString();
-            editarUsuario.contraseña = PadreForm.Contraseñas[index];
+            editarUsuario.contraseña = PadreForm.Usuarios[index].Contraseña;
             editarUsuario.rol = dgvusuarios.Rows[index].Cells[1].Value.ToString();
             editarUsuario.nombre = dgvusuarios.Rows[index].Cells[2].Value.ToString();
             editarUsuario.ShowDialog();
@@ -41,7 +41,7 @@ namespace PadreForm
 
         private void UsuariosForm_Load(object sender, EventArgs e)
         {
-            PadreForm.CambiarColores(this, PadreForm.colorFondo, PadreForm.colorLetra);
+            PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
             PadreForm.rolesUsuariosAdd(cbrol);
             PadreForm.importacionUsuariosDTG(dgvusuarios);
         }
@@ -59,7 +59,7 @@ namespace PadreForm
 
         private void btnborrar_Click(object sender, EventArgs e)
         {
-            if (PadreForm.NombreUsuarios[PadreForm.Roles.IndexOf("Admin")] == dgvusuarios.CurrentRow.Cells[0].Value.ToString())
+            if (dgvusuarios.CurrentRow.Cells[1].Value.ToString() == "Admin")
             {
                 if (MessageBox.Show("Este usuario es un administrador, ¿Está seguro de eliminarlo?", "Confirmar eliminación", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -88,6 +88,12 @@ namespace PadreForm
         private void btneditar_Click(object sender, EventArgs e)
         {
             abrirEditarUsuario(dgvusuarios.CurrentRow.Index);
+        }
+
+        private void UsuariosForm_Activated(object sender, EventArgs e)
+        {
+            PadreForm.rolesUsuariosAdd(cbrol);
+            PadreForm.importacionUsuariosDTG(dgvusuarios);
         }
     }
 }

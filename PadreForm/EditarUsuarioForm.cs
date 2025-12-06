@@ -66,7 +66,7 @@ namespace PadreForm
         }
         private void EditarUsuarioForm_Load(object sender, EventArgs e)
         {
-            PadreForm.CambiarColores(this, PadreForm.colorFondo, PadreForm.colorLetra);
+            PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
             txbContraseña.Text = contraseña;
             txbNombre.Text = nombre;
             txbNombreUsuario.Text = nombreUsuario;

@@ -58,7 +58,7 @@ namespace PadreForm
 
         private void AgregarUsuarioForm_Load(object sender, EventArgs e)
         {
-            PadreForm.CambiarColores(this, PadreForm.colorFondo, PadreForm.colorLetra);
+            PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
         }
     }
 }

@@ -128,7 +128,7 @@
             this.Controls.Add(this.txbContraseña);
             this.Controls.Add(this.txbNombreUsuario);
             this.Name = "EditarUsuarioForm";
-            this.Text = "EditarUsuarioForm";
+            this.Text = "Editar Usuario";
             this.Load += new System.EventHandler(this.EditarUsuarioForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

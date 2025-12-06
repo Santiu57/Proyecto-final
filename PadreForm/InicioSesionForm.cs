@@ -24,10 +24,7 @@ namespace PadreForm
             try
             {
                 PadreForm.importacionUsuarios();
-                for (int i = 0; i < PadreForm.NombreUsuarios.Count(); i++)
-                {
-                    cbusuarios.Items.Add(PadreForm.NombreUsuarios[i]);
-                }
+                PadreForm.usuariosAdd(cbusuarios);
                 return true;
             }
             catch
@@ -71,7 +68,7 @@ namespace PadreForm
         private void InicioSesionForm_Load(object sender, EventArgs e)
         {
             PadreForm.importacionConfig();
-            PadreForm.CambiarColores(this,PadreForm.colorFondo,PadreForm.colorLetra);
+            PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
             if (isFirstSesion())
             {
                 firstSesion();
@@ -97,7 +94,7 @@ namespace PadreForm
                 {
 
                     PadreForm.registraUsuario(txbNombreUsuario.Text, txbContraseña.Text, txbRol.Text, txbNombre.Text);
-                    PadreForm.usuarioActual = PadreForm.NombreUsuarios[0];
+                    PadreForm.usuarioActual = PadreForm.Usuarios[0].NombreUsuario;
                     openPadre();
                 }
             }
@@ -107,23 +104,11 @@ namespace PadreForm
                 if (dataVerification())
                 {
                     int index = cbusuarios.SelectedIndex;
-                    int Altindex = PadreForm.NombreUsuarios.IndexOf(txbNombreUsuario.Text);
-                    if (index > 0)
+                    if (txbContraseña.Text == PadreForm.Usuarios[index].Contraseña)
                     {
-                        if (txbContraseña.Text == PadreForm.Contraseñas[index])
-                        {
-                            PadreForm.usuarioActual = PadreForm.NombreUsuarios[index];
-                            openPadre();
-                        }
-                    }
-                    else
-                    {
-                        if (txbContraseña.Text == PadreForm.Contraseñas[Altindex])
-                        {
-                            PadreForm.usuarioActual = PadreForm.NombreUsuarios[Altindex];
-                            openPadre();
-                        }
-                    }
+                        PadreForm.usuarioActual = PadreForm.Usuarios[index].NombreUsuario;
+                        openPadre();
+                    } 
                 }
             }
         }

@@ -43,13 +43,13 @@
             // 
             // cbusuarios
             // 
+            this.cbusuarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbusuarios.FormattingEnabled = true;
             this.cbusuarios.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cbusuarios.Location = new System.Drawing.Point(55, 39);
             this.cbusuarios.Name = "cbusuarios";
             this.cbusuarios.Size = new System.Drawing.Size(121, 33);
             this.cbusuarios.TabIndex = 0;
-            this.cbusuarios.Text = "Usuarios";
             this.cbusuarios.SelectedIndexChanged += new System.EventHandler(this.cbusuarios_SelectedIndexChanged);
             // 
             // btnAceptar
@@ -155,7 +155,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "InicioSesionForm";
-            this.Text = "InicioSesionForm";
+            this.Text = "Inicio de Sesion";
             this.Load += new System.EventHandler(this.InicioSesionForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

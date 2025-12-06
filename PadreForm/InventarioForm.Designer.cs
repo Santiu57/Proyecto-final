@@ -172,7 +172,7 @@
             this.label1.Location = new System.Drawing.Point(14, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 17);
+            this.label1.Size = new System.Drawing.Size(68, 16);
             this.label1.TabIndex = 15;
             this.label1.Text = "Buscador:";
             // 
@@ -210,7 +210,8 @@
             this.Controls.Add(this.dgvinventario);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "InventarioForm";
-            this.Text = "InventarioForm";
+            this.Text = "Inventario";
+            this.Activated += new System.EventHandler(this.InventarioForm_Activated);
             this.Load += new System.EventHandler(this.InventarioForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvinventario)).EndInit();
             this.ResumeLayout(false);

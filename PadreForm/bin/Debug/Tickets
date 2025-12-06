@@ -1,19 +1,176 @@
 BEGIN_TICKET
-FECHA|04/12/2025 04:37:07 p. m.
-TOTAL|0
-VENDEDOR|DE
-NUM TICKET|1000
-TIENDA|Mi Tienda
-DIRECCION|Calle Falsa 123
+FECHA|06/12/2025 02:17:44 a. m.
+TOTAL|89692
+VENDEDOR|as
+NUM TICKET|1001
+TIENDA|as
+DIRECCION|as
+RFC|as
 CONTENIDO|
 ====== TICKET DE COMPRA ======
-Fecha: 04/12/2025 04:37:07 p. m.
-Vendedor: DE
-Ticket: 1000
-Tienda: Mi Tienda
-Direccion: Calle Falsa 123
+Fecha: 06/12/2025 02:17:44 a. m.
+Vendedor: as
+Ticket: 1001
+Tienda: as
+Direccion: as
+RFC: as
 -------------------------------
+df x4  = $89692
 -------------------------------
-TOTAL: $0
+TOTAL: $89692
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 02:17:47 a. m.
+TOTAL|67269
+VENDEDOR|as
+NUM TICKET|1002
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 02:17:47 a. m.
+Vendedor: as
+Ticket: 1002
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+df x3  = $67269
+-------------------------------
+TOTAL: $67269
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 02:17:50 a. m.
+TOTAL|67269
+VENDEDOR|as
+NUM TICKET|1003
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 02:17:50 a. m.
+Vendedor: as
+Ticket: 1003
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+df x3  = $67269
+-------------------------------
+TOTAL: $67269
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 02:17:52 a. m.
+TOTAL|44846
+VENDEDOR|as
+NUM TICKET|1004
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 02:17:52 a. m.
+Vendedor: as
+Ticket: 1004
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+df x2  = $44846
+-------------------------------
+TOTAL: $44846
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 02:18:10 a. m.
+TOTAL|44846
+VENDEDOR|as
+NUM TICKET|1005
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 02:18:10 a. m.
+Vendedor: as
+Ticket: 1005
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+df x2  = $44846
+-------------------------------
+TOTAL: $44846
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 02:18:14 a. m.
+TOTAL|44846
+VENDEDOR|as
+NUM TICKET|1006
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 02:18:14 a. m.
+Vendedor: as
+Ticket: 1006
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+df x2  = $44846
+-------------------------------
+TOTAL: $44846
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 02:18:16 a. m.
+TOTAL|44846
+VENDEDOR|as
+NUM TICKET|1007
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 02:18:16 a. m.
+Vendedor: as
+Ticket: 1007
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+df x2  = $44846
+-------------------------------
+TOTAL: $44846
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 02:18:19 a. m.
+TOTAL|44846
+VENDEDOR|as
+NUM TICKET|1008
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 02:18:19 a. m.
+Vendedor: as
+Ticket: 1008
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+df x2  = $44846
+-------------------------------
+TOTAL: $44846
 ===============================
 END_TICKET

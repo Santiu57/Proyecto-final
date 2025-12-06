@@ -22,18 +22,17 @@ namespace PadreForm
 
         private void EditarForm_Load(object sender, EventArgs e)
         {
-            PadreForm.CambiarColores(this, PadreForm.colorFondo, PadreForm.colorLetra);
+            PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
             PadreForm.categoriasProductosAdd(cbcategoria);
             if (indice != -1)
             {
-                string[] producto = PadreForm.Productos[indice].Split('|');
-                txbcodigo.Text = producto[0];
-                txbnombre.Text = producto[1];
-                txbcategoria.Text = producto[2];
-                txbPcompra.Text = producto[3];
-                txbPventa.Text = producto[4];
-                txbCantidad.Text = producto[5];
-                txbproovedor.Text = producto[6];
+                txbcodigo.Text = PadreForm.Productos[indice].Codigo;
+                txbnombre.Text = PadreForm.Productos[indice].Nombre;
+                txbcategoria.Text = PadreForm.Productos[indice].Categoria;
+                txbPcompra.Text = PadreForm.Productos[indice].PrecioCompra.ToString();
+                txbPventa.Text = PadreForm.Productos[indice].PrecioVenta.ToString();
+                txbCantidad.Text = PadreForm.Productos[indice].Cantidad.ToString();
+                txbproovedor.Text = PadreForm.Productos[indice].Proveedor;
             }
         }
 
@@ -44,8 +43,14 @@ namespace PadreForm
 
         private void btneditar_Click(object sender, EventArgs e)
         {
-            string producto = txbcodigo.Text + "|" + txbnombre.Text + "|" + txbcategoria.Text + "|" + txbPcompra.Text + "|" + txbPventa.Text + "|" + txbCantidad.Text + "|" + txbproovedor.Text + "|" + DateTime.Now.ToString();
-            PadreForm.Productos[indice] = producto;
+            PadreForm.Productos[indice].Codigo = txbcodigo.Text;
+            PadreForm.Productos[indice].Nombre = txbnombre.Text;
+            PadreForm.Productos[indice].Categoria = txbcategoria.Text;
+            PadreForm.Productos[indice].PrecioCompra = decimal.Parse(txbPcompra.Text);
+            PadreForm.Productos[indice].PrecioVenta = decimal.Parse(txbPventa.Text);
+            PadreForm.Productos[indice].Cantidad = int.Parse(txbCantidad.Text);
+            PadreForm.Productos[indice].Proveedor = txbproovedor.Text;
+            PadreForm.Productos[indice].FechaRegistro = DateTime.Now;
             this.Close();
         }
     }

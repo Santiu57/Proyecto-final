@@ -19,28 +19,15 @@ namespace PadreForm
             InitializeComponent();
         }
 
-        public static string usuarioActual;
-        public static List<string> Usuarios = new List<string> { };
-        public static List<string> NombreUsuarios = new List<string> { };
-        public static List<string> Contraseñas = new List<string> { };
-        public static List<string> Roles = new List<string> { };
-        public static List<string> Nombres = new List<string> { };
-
-        public static List<string> Productos = new List<string> { };
-        public static List<string> Pcodigo = new List<string> { };
-        public static List<string> Pnombre = new List<string> { };
-        public static List<int> Pcantidad = new List<int> { };
-        public static List<string> Pcategoria = new List<string> { };
-        public static List<string> Pprecio_compra = new List<string> { };
-        public static List<string> Pprecio_venta = new List<string> { };
-        public static List<string> Pproovedor = new List<string> { };
-        public static List<string> PfechaRegistro = new List<string> { };
-
+        public static List<Producto> Productos = new List<Producto> { };
+        public static List<Usuario> Usuarios = new List<Usuario> { };
         public static List<Ticket> Tickets = new List<Ticket> { };
         public static int numeroTicket = 1000;
 
+        public static string usuarioActual;
         public static string nombreTienda = "Mi Tienda";
-        public static string direccionTienda = "Calle Falsa 123";
+        public static string direccionTienda = "Alguna";
+        public static string rfcTienda = "01100011 01110101 01101110 01101110 01111001";
         public static System.Drawing.Image logo = null;
         public static Color colorFondo = Color.White;
         public static Color colorLetra = Color.Black;
@@ -154,24 +141,29 @@ namespace PadreForm
             }
         }
 
-        private int MaxTicketnumber()
+        public static bool noRepeatForms(Form mdiParent, Type formType)
         {
-            int Tnum = 1000;
-            importacionTickets();
-            Tnum += Tickets.Count();
-            return Tnum;
+            foreach (Form form in mdiParent.MdiChildren)
+            {
+                if (form.GetType() == formType)
+                {
+                    form.Activate();
+                    return false;
+                }
+            }
+            return true;
         }
 
-        public static void configSafe()
+        public static void configSafe() // Guarda la configuración en un archivo de texto
         {
             using (var fs = new StreamWriter("Configuracion"))
             {
-                string config = nombreTienda + "/" + direccionTienda + "/" + colorFondo.ToArgb() + "/" + colorLetra.ToArgb() + "/" + wmp.settings.volume.ToString();
+                string config = nombreTienda + "/" + direccionTienda + "/" + colorFondo.ToArgb() + "/" + colorLetra.ToArgb() + "/" + wmp.settings.volume.ToString() + "/" + numeroTicket.ToString() + "/" + rfcTienda;
                 fs.WriteLine(config);
             }
         }
 
-        public static void importacionConfig()
+        public static void importacionConfig() // Importa la configuración desde un archivo de texto
         {
             if (!File.Exists("Configuracion")) return;
             using (var fr = new StreamReader("Configuracion"))
@@ -180,9 +172,11 @@ namespace PadreForm
                 var valores = linea.Split('/');
                 nombreTienda = valores[0];
                 direccionTienda = valores[1];
-                colorFondo = Color.FromArgb(int.Parse(valores[3]));
-                colorLetra = Color.FromArgb(int.Parse(valores[2]));
+                colorFondo = Color.FromArgb(int.Parse(valores[2]));
+                colorLetra = Color.FromArgb(int.Parse(valores[3]));
                 wmp.settings.volume = int.Parse(valores[4]);
+                numeroTicket = int.Parse(valores[5]);
+                rfcTienda = valores[6];
 
                 try
                 {
@@ -204,14 +198,14 @@ namespace PadreForm
             }
         }
 
-        private static void CrearLogoGenerico()
+        private static void CrearLogoGenerico() // Crea un logo genérico si no existe uno personalizado
         {
             int w = 200, h = 200;
 
             using (Bitmap bmp = new Bitmap(w, h))
             using (Graphics g = Graphics.FromImage(bmp))
             {
-                g.Clear(Color.Gray);  // Fondo genérico
+                g.Clear(Color.Gray);
                 g.DrawString("LOGO",
                     new Font("Arial", 24, FontStyle.Bold),
                     Brushes.White,
@@ -221,7 +215,7 @@ namespace PadreForm
             }
         }
 
-        public static void registrarTickets()
+        public static void registrarTickets() // Guarda los tickets en un archivo de texto
         {
             StreamWriter Ticketsfile = new StreamWriter("Tickets");
             foreach (var t in Tickets)
@@ -233,6 +227,7 @@ namespace PadreForm
                 Ticketsfile.WriteLine("NUM TICKET|" + t.NumTicket);
                 Ticketsfile.WriteLine("TIENDA|" + t.Nombre);
                 Ticketsfile.WriteLine("DIRECCION|" + t.Direccion);
+                Ticketsfile.WriteLine("RFC|" + t.RFC);
                 Ticketsfile.WriteLine("CONTENIDO|");
                 Ticketsfile.WriteLine(t.Contenido.TrimEnd());
                 Ticketsfile.WriteLine("END_TICKET");
@@ -240,10 +235,14 @@ namespace PadreForm
             Ticketsfile.Close();
         }
 
-        public static void registrarUsuarios()
+        public static void registrarUsuarios() // Guarda los usuarios en un archivo de texto
         {
-            // Sobrescribe el fichero y cierra automáticamente
-            File.WriteAllLines("Usuarios", Usuarios);
+            StreamWriter Usuariosfile = new StreamWriter("Usuarios");
+            foreach (var u in Usuarios)
+            {
+                Usuariosfile.WriteLine(u.NombreUsuario + "/" + u.Contraseña + "/" + u.Rol + "/" + u.Nombre);
+            }
+            Usuariosfile.Close();
         }
 
         public static void importacionTickets()
@@ -262,6 +261,7 @@ namespace PadreForm
                 int numTicket = 0;
                 string nombreTienda = "";
                 string direccionTienda = "";
+                string rfcTienda = "";
 
                 while ((line = leer.ReadLine()) != null)
                 {
@@ -293,6 +293,10 @@ namespace PadreForm
                     {
                         direccionTienda = (line.Substring(10));
                     }
+                    else if (line.StartsWith("RFC|"))
+                    {
+                        rfcTienda = (line.Substring(4));
+                    }
                     else if (line == "CONTENIDO|")
                     {
                         // Leer contenido hasta END_TICKET
@@ -305,7 +309,7 @@ namespace PadreForm
                         }
 
                         // Guardar ticket
-                        Tickets.Add(new Ticket(contenido, fecha, total, vendedor, numTicket, nombreTienda, direccionTienda));
+                        Tickets.Add(new Ticket(contenido, fecha, total, vendedor, numTicket, nombreTienda, direccionTienda,rfcTienda));
                     }
                 }
                 leer.Close();
@@ -323,7 +327,7 @@ namespace PadreForm
             string rol,
             string nombre)
         {
-            string usuario = nombreUsuario + "/" + contraseña + "/" + rol + "/" + nombre;
+            Usuario usuario = new Usuario(nombreUsuario, contraseña, rol, nombre);
             Usuarios.Add(usuario);
             registrarUsuarios();
             importacionUsuarios();
@@ -339,9 +343,9 @@ namespace PadreForm
         public static int adminscount()
         {
             int count = 0;
-            for (int i = 0; i < Roles.Count(); i++)
+            for (int i = 0; i < Usuarios.Count(); i++)
             {
-                if (Roles[i] == "Admin")
+                if (Usuarios[i].Rol == "Admin")
                 {
                     count++;
                 }
@@ -356,25 +360,34 @@ namespace PadreForm
             string rol,
             string nombre)
         {
-            string usuario = nombreUsuario + "/" + contraseña + "/" + rol + "/" + nombre;
-            Usuarios[indice] = usuario;
+            Usuarios[indice].NombreUsuario = nombreUsuario;
             registrarUsuarios();
             importacionUsuarios();
         }
 
-        public static bool isAdmin()
+        public static bool isAdmin() // Verifica si el usuario actual es admin
         {
-            if (Roles[NombreUsuarios.IndexOf(usuarioActual)] != "Admin")
+            foreach (var u in Usuarios)
             {
-                MessageBox.Show("No tienes permisos para realizar esta acción.");
-                return false;
+                if (u.NombreUsuario == usuarioActual)
+                {
+                    if (u.Rol == "Admin")
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No tienes permisos para realizar esta acción.");
+                        return false;
+                    }
+                }
             }
-            return true;
+            return false;
         }
 
         public static void importacionUsuarios()
         {
-            Usuarios.Clear(); NombreUsuarios.Clear(); Contraseñas.Clear(); Roles.Clear(); Nombres.Clear();
+            Usuarios.Clear();
 
             if (!File.Exists("Usuarios")) return;
 
@@ -382,11 +395,8 @@ namespace PadreForm
             {
                 if (string.IsNullOrWhiteSpace(linea)) continue;
                 var valores = linea.Split('/');
-                Usuarios.Add(linea);
-                NombreUsuarios.Add(valores[0]);
-                Contraseñas.Add(valores[1]);
-                Roles.Add(valores[2]);
-                Nombres.Add(valores[3]);
+                Usuario usuario = new Usuario(valores[0], valores[1], valores[2], valores[3]);
+                Usuarios.Add(usuario);
             }
         }
 
@@ -467,62 +477,83 @@ namespace PadreForm
         {
             try
             {
-                Productos.Clear(); Pcodigo.Clear(); Pnombre.Clear(); Pcantidad.Clear(); Pcategoria.Clear(); Pprecio_compra.Clear(); Pprecio_venta.Clear(); PfechaRegistro.Clear();
+                Productos.Clear(); 
                 using (var leer = new StreamReader("Productos"))
                 {
                     string linea;
                     while ((linea = leer.ReadLine()) != null)
                     {
                         var valores = linea.Split('|');
-                        Productos.Add(linea);
-                        Pcodigo.Add(valores[0]);
-                        Pnombre.Add(valores[1]);
-                        Pcategoria.Add(valores[2]);
-                        Pprecio_compra.Add(valores[3]);
-                        Pprecio_venta.Add(valores[4]);
-                        Pproovedor.Add(valores[6]);
-                        PfechaRegistro.Add(valores[7]);
-
-
-                        int cant;
-                        if (int.TryParse(valores[5], out cant)) Pcantidad.Add(cant);
-                        else Pcantidad.Add(0);
+                        Producto producto = new Producto(
+                            valores[0],
+                            valores[1],
+                            valores[2],
+                            decimal.Parse(valores[3]),
+                            decimal.Parse(valores[4]),
+                            int.Parse(valores[5]),
+                            valores[6],
+                            DateTime.Parse(valores[7])
+                        );
+                        Productos.Add(producto);
                     }
                 }
             }
             catch
             {
-                // aquí el StreamReader ya está cerrado si se lanzó excepción dentro del using
                 registraProductos();
             }
         }
 
         public static void categoriasProductosAdd(ComboBox caja)
         {
-            for (int i = 0; i < Pcategoria.Count(); i++)
+            for (int i = 0; i < Productos.Count(); i++)
             {
-                if (!caja.Items.Contains(Pcategoria[i]))
+                if (!caja.Items.Contains(Productos[i].Categoria))
                 {
-                    caja.Items.Add(Pcategoria[i]);
+                    caja.Items.Add(Productos[i].Categoria);
+                }
+            }
+        }
+
+        public static void usuariosAdd(ComboBox caja)
+        {
+            for (int i = 0; i < Usuarios.Count(); i++)
+            {
+                if (!caja.Items.Contains(Usuarios[i].NombreUsuario))
+                {
+                    caja.Items.Add(Usuarios[i].NombreUsuario);
                 }
             }
         }
 
         public static void rolesUsuariosAdd(ComboBox caja)
         {
-            for (int i = 0; i < Roles.Count(); i++)
+            for (int i = 0; i < Usuarios.Count(); i++)
             {
-                if (!caja.Items.Contains(Roles[i]))
+                if (!caja.Items.Contains(Usuarios[i].Rol))
                 {
-                    caja.Items.Add(Roles[i]);
+                    caja.Items.Add(Usuarios[i].Rol);
                 }
             }
         }
 
         public static void registraProductos()
         {
-            // Sobrescribe el fichero con el contenido actual de la lista y cierra inmediatamente.
-            File.WriteAllLines("Productos", Productos);
+            StreamWriter Productosfile = new StreamWriter("Productos");
+            foreach (var p in Productos)
+            {
+                Productosfile.WriteLine(
+                    p.Codigo + "|" +
+                    p.Nombre + "|" +
+                    p.Categoria + "|" +
+                    p.PrecioCompra + "|" +
+                    p.PrecioVenta + "|" +
+                    p.Cantidad + "|" +
+                    p.Proveedor + "|" +
+                    p.FechaRegistro
+                );
+            }
+            Productosfile.Close();
         }
 
         public static void fullregistration()
@@ -541,7 +572,7 @@ namespace PadreForm
             string categoriaFiltro = categoria?.ToUpper() ?? "";
             string buscadorFiltro = buscador?.ToUpper() ?? "";
 
-            for (int i = 0; i < Pcodigo.Count; i++)
+            for (int i = 0; i < Productos.Count; i++)
             {
                 bool coincideCategoria = true;
                 bool coincideBusqueda = true;
@@ -550,30 +581,30 @@ namespace PadreForm
                 if (!string.IsNullOrWhiteSpace(categoria))
                 {
                     coincideCategoria =
-                        Pcategoria[i].ToUpper().Contains(categoriaFiltro);
+                        Productos[i].Categoria.ToUpper().Contains(categoriaFiltro);
                 }
 
                 // Filtrar por código o nombre
                 if (!string.IsNullOrWhiteSpace(buscador))
                 {
                     coincideBusqueda =
-                        Pcodigo[i].ToUpper().Contains(buscadorFiltro) ||
-                        Pnombre[i].ToUpper().Contains(buscadorFiltro) ||
-                        Pproovedor[i].ToUpper().Contains(buscadorFiltro);
+                        Productos[i].Codigo.ToUpper().Contains(buscadorFiltro) ||
+                        Productos[i].Nombre.ToUpper().Contains(buscadorFiltro) ||
+                        Productos[i].Proveedor.ToUpper().Contains(buscadorFiltro);
                 }
 
                 // Si cumple ambos filtros
                 if (coincideCategoria && coincideBusqueda)
                 {
                     tabla.Rows.Add(
-                        Pcodigo[i],
-                        Pnombre[i],
-                        Pcategoria[i],
-                        Pprecio_compra[i],
-                        Pprecio_venta[i],
-                        Pcantidad[i],
-                        Pproovedor[i],
-                        PfechaRegistro[i]
+                        Productos[i].Codigo,
+                        Productos[i].Nombre,
+                        Productos[i].Categoria,
+                        Productos[i].PrecioCompra,
+                        Productos[i].PrecioVenta,
+                        Productos[i].Cantidad,
+                        Productos[i].Proveedor,
+                        Productos[i].FechaRegistro.ToShortDateString()
                     );
                 }
             }
@@ -589,7 +620,7 @@ namespace PadreForm
             string categoriaFiltro = categoria?.ToUpper() ?? "";
             string buscadorFiltro = buscador?.ToUpper() ?? "";
 
-            for (int i = 0; i < NombreUsuarios.Count; i++)
+            for (int i = 0; i < Usuarios.Count; i++)
             {
                 bool coincideCategoria = true;
                 bool coincideBusqueda = true;
@@ -598,24 +629,24 @@ namespace PadreForm
                 if (!string.IsNullOrWhiteSpace(categoria))
                 {
                     coincideCategoria =
-                        Roles[i].ToUpper().Contains(categoriaFiltro);
+                        Usuarios[i].Rol.ToUpper().Contains(categoriaFiltro);
                 }
 
                 // Filtrar por usuario o nombre
                 if (!string.IsNullOrWhiteSpace(buscador))
                 {
                     coincideBusqueda =
-                        NombreUsuarios[i].ToUpper().Contains(buscadorFiltro) ||
-                        Nombres[i].ToUpper().Contains(buscadorFiltro);
+                        Usuarios[i].NombreUsuario.ToUpper().Contains(buscadorFiltro) ||
+                        Usuarios[i].Nombre.ToUpper().Contains(buscadorFiltro);
                 }
 
                 // Si cumple ambos filtros
                 if (coincideCategoria && coincideBusqueda)
                 {
                     tabla.Rows.Add(
-                        NombreUsuarios[i],
-                        Roles[i],
-                        Nombres[i]
+                        Usuarios[i].NombreUsuario,
+                        Usuarios[i].Rol,
+                        Usuarios[i].Nombre
                     );
                 }
             }
@@ -632,6 +663,7 @@ namespace PadreForm
 
         private void openVentas()
         {
+            if (!noRepeatForms(this, typeof(VentasForm))) return;
             VentasForm ventas = new VentasForm();
             ventas.MdiParent = this;
             ventas.Show();
@@ -639,6 +671,7 @@ namespace PadreForm
 
         private void openInventario()
         {
+            if (!noRepeatForms(this, typeof(InventarioForm))) return;
             InventarioForm inventario = new InventarioForm();
             inventario.MdiParent = this;
             inventario.Show();
@@ -648,6 +681,7 @@ namespace PadreForm
         {
             if (isAdmin())
             {
+                if (!noRepeatForms(this, typeof(UsuariosForm))) return;
                 UsuariosForm usuarios = new UsuariosForm();
                 usuarios.MdiParent = this;
                 usuarios.Show();
@@ -655,6 +689,7 @@ namespace PadreForm
         }
         private void openReportes()
         {
+            if (!noRepeatForms(this, typeof(ReportesForm))) return;
             ReportesForm reportes = new ReportesForm();
             reportes.MdiParent = this;
             reportes.Show();
@@ -665,9 +700,16 @@ namespace PadreForm
             importacionProductos();
             tlslusuarioActual.Text = "Usuario Actual: " + usuarioActual;
             tssUsuarioActual.Text = "Usuario Actual: " + usuarioActual;
-            CambiarColores(this, colorFondo, colorLetra);
-            numeroTicket = MaxTicketnumber();
+            CambiarColores(this, colorLetra, colorFondo);
             Play("Polyphonic.mp3");
+            try
+            {
+                PadreForm.importacionTickets();
+            }
+            catch
+            {
+                PadreForm.registrarTickets();
+            }
         }
 
         // Metodos de los sonidos
@@ -681,6 +723,7 @@ namespace PadreForm
 
         private void PadreForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            configSafe();
             Application.Exit();
         }
 
@@ -710,6 +753,7 @@ namespace PadreForm
         }
         private void openConfig()
         {
+            if (!noRepeatForms(this, typeof(ConfiguracionForm))) return;
             if (!isAdmin()) return;
             ConfiguracionForm config = new ConfiguracionForm();
             config.MdiParent = this;
@@ -724,8 +768,9 @@ namespace PadreForm
             public int NumTicket { get; set; }
             public string Nombre { get; set; }
             public string Direccion { get; set; }
+            public string RFC { get; set; }
 
-            public Ticket(string contenido, DateTime fecha, decimal total, string vendedor, int numTicket, string nombre, string direccion)
+            public Ticket(string contenido, DateTime fecha, decimal total, string vendedor, int numTicket, string nombre, string direccion, string rfc)
             {
                 Contenido = contenido;
                 FechaCreacion = fecha;
@@ -734,6 +779,43 @@ namespace PadreForm
                 NumTicket = numTicket;
                 Nombre = nombre;
                 Direccion = direccion;
+                RFC = rfc;
+            }
+        }
+        public class Producto
+        {
+            public string Codigo { get; set; }
+            public string Nombre { get; set; }
+            public string Categoria { get; set; }
+            public decimal PrecioCompra { get; set; }
+            public decimal PrecioVenta { get; set; }
+            public int Cantidad { get; set; }
+            public string Proveedor { get; set; }
+            public DateTime FechaRegistro { get; set; }
+            public Producto(string codigo, string nombre, string categoria, decimal precioCompra, decimal precioVenta, int cantidad, string proveedor, DateTime fechaRegistro)
+            {
+                Codigo = codigo;
+                Nombre = nombre;
+                Categoria = categoria;
+                PrecioCompra = precioCompra;
+                PrecioVenta = precioVenta;
+                Cantidad = cantidad;
+                Proveedor = proveedor;
+                FechaRegistro = fechaRegistro;
+            }
+        }
+        public class Usuario
+        {
+            public string NombreUsuario { get; set; }
+            public string Contraseña { get; set; }
+            public string Rol { get; set; }
+            public string Nombre { get; set; }
+            public Usuario(string nombreUsuario, string contraseña, string rol, string nombre)
+            {
+                NombreUsuario = nombreUsuario;
+                Contraseña = contraseña;
+                Rol = rol;
+                Nombre = nombre;
             }
         }
 
@@ -788,5 +870,3 @@ namespace PadreForm
         }
     }
 }
-
-

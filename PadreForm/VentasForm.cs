@@ -20,7 +20,7 @@ namespace PadreForm
         }
         private void VentasForm_Load(object sender, EventArgs e)
         {
-            PadreForm.CambiarColores(this, PadreForm.colorFondo, PadreForm.colorLetra);
+            PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
             PadreForm.categoriasProductosAdd(cbcategoria);
             PadreForm.importacionProductosInventario(dgvinventarioventas);
             PadreForm.fullregistration();
@@ -129,15 +129,15 @@ namespace PadreForm
                     int cantidadVendida = int.Parse(tablaVenta.Rows[i].Cells[2].Value.ToString());
 
                     // Buscar producto en la lista
-                    int index = PadreForm.Pnombre.IndexOf(nombre);
-                    if (index >= 0)
+                    foreach (var p in Productos)
                     {
-                        PadreForm.Pcantidad[index] -= cantidadVendida;
-                        guardarCambios(index, nombre);
-                        lbltotal.Text = "$0.00";
-
-                        if (PadreForm.Pcantidad[index] < 0)
-                            PadreForm.Pcantidad[index] = 0; // evitar negativos
+                        if(p.Nombre == nombre)
+                        {
+                            int index = Productos.IndexOf(p);
+                            p.Cantidad -= cantidadVendida;
+                            guardarCambios(index, nombre);
+                            lbltotal.Text = "$0.00";
+                        }
                     }
                 }
 
@@ -146,8 +146,6 @@ namespace PadreForm
 
                 // Guardar cambios
                 PadreForm.fullregistration();
-
-                MessageBox.Show("Venta finalizada. Existencias actualizadas.");
             }
             catch (Exception ex)
             {
@@ -157,9 +155,6 @@ namespace PadreForm
 
         private static void guardarCambios(int index, string nombre)
         {
-            string[] linea = PadreForm.Productos[index].Split('|');
-            linea[5] = PadreForm.Pcantidad[index].ToString();
-            PadreForm.Productos[index] = string.Join("|", linea);
             PadreForm.registraProductos();
         }
 
@@ -172,6 +167,7 @@ namespace PadreForm
             ticket.AppendLine("Ticket: " + PadreForm.numeroTicket);
             ticket.AppendLine("Tienda: " + PadreForm.nombreTienda);
             ticket.AppendLine("Direccion: " + PadreForm.direccionTienda);
+            ticket.AppendLine("RFC: " + PadreForm.rfcTienda);
             ticket.AppendLine("-------------------------------");
 
             double total = 0;
@@ -201,14 +197,14 @@ namespace PadreForm
                 PadreForm.usuarioActual, 
                 PadreForm.numeroTicket,
                 PadreForm.nombreTienda,
-                PadreForm.direccionTienda
+                PadreForm.direccionTienda,
+                PadreForm.rfcTienda
             );
             PadreForm.Tickets.Add(newticket);
             PadreForm.registrarTickets();
-            PadreForm.numeroTicket++;
             PadreForm.importacionTickets();
+            PadreForm.numeroTicket++;
 
-            MessageBox.Show("Ticket generado");
         }
 
         private void btnfinalizarVenta_Click(object sender, EventArgs e)
@@ -220,6 +216,13 @@ namespace PadreForm
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void VentasForm_Activated(object sender, EventArgs e)
+        {
+            PadreForm.categoriasProductosAdd(cbcategoria);
+            PadreForm.importacionProductosInventario(dgvinventarioventas);
+            PadreForm.fullregistration();
         }
     }
 }

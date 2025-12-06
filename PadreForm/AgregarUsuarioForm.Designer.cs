@@ -143,7 +143,7 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AgregarUsuarioForm";
-            this.Text = "AgregarUsuarioForm";
+            this.Text = "Agregar Usuario";
             this.Load += new System.EventHandler(this.AgregarUsuarioForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

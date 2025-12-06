@@ -72,7 +72,7 @@ namespace PadreForm
 
         private void InventarioForm_Load(object sender, EventArgs e)
         {
-            PadreForm.CambiarColores(this, PadreForm.colorFondo, PadreForm.colorLetra);
+            PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
             actualizarTabla();
             PadreForm.categoriasProductosAdd(cbcategoria);
         }
@@ -92,6 +92,12 @@ namespace PadreForm
         private void cbcategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
             PadreForm.FiltrarInventario(dgvinventario, cbcategoria.Text, txbbuscador.Text);
+        }
+
+        private void InventarioForm_Activated(object sender, EventArgs e)
+        {
+            actualizarTabla();
+            PadreForm.categoriasProductosAdd(cbcategoria);
         }
     }
 }

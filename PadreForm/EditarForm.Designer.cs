@@ -215,7 +215,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "EditarForm";
-            this.Text = "EditarForm";
+            this.Text = "Editar Producto";
             this.Load += new System.EventHandler(this.EditarForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

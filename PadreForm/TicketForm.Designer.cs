@@ -48,7 +48,7 @@
             this.ClientSize = new System.Drawing.Size(480, 421);
             this.Controls.Add(this.txbticket);
             this.Name = "TicketForm";
-            this.Text = "TicketForm";
+            this.Text = "Ticket";
             this.Load += new System.EventHandler(this.TicketForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

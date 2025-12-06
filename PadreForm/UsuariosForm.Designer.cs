@@ -133,7 +133,7 @@
             this.label1.Location = new System.Drawing.Point(11, 12);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 17);
+            this.label1.Size = new System.Drawing.Size(68, 16);
             this.label1.TabIndex = 21;
             this.label1.Text = "Buscador:";
             // 
@@ -159,7 +159,8 @@
             this.Controls.Add(this.btnagregar);
             this.Controls.Add(this.dgvusuarios);
             this.Name = "UsuariosForm";
-            this.Text = "UsuariosForm";
+            this.Text = "Usuarios";
+            this.Activated += new System.EventHandler(this.UsuariosForm_Activated);
             this.Load += new System.EventHandler(this.UsuariosForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvusuarios)).EndInit();
             this.ResumeLayout(false);

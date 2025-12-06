@@ -100,7 +100,8 @@
             this.Controls.Add(this.dgvtickets);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReportesForm";
-            this.Text = "ReportesForm";
+            this.Text = "Tickets";
+            this.Activated += new System.EventHandler(this.ReportesForm_Activated);
             this.Load += new System.EventHandler(this.ReportesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvtickets)).EndInit();
             this.ResumeLayout(false);

@@ -23,6 +23,7 @@ namespace PadreForm
         {
             PadreForm.nombreTienda = txbnombretienda.Text;
             PadreForm.direccionTienda = txbubicaciontienda.Text;
+            PadreForm.rfcTienda = txbrfcTienda.Text;
             PadreForm.colorLetra = cdletra.Color;
             PadreForm.colorFondo = cdfondo.Color;
             PadreForm.wmp.settings.volume = trbVolumen.Value;
@@ -78,13 +79,17 @@ namespace PadreForm
 
         private void ConfiguracionForm_Load(object sender, EventArgs e)
         {
-            PadreForm.CambiarColores(this, PadreForm.colorFondo, PadreForm.colorLetra);
-            pnlfondo.BackColor = PadreForm.colorLetra; 
-            pnlletra.BackColor = PadreForm.colorFondo;
+            PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
+            pnlfondo.BackColor = PadreForm.colorFondo;
+            pnlletra.BackColor = PadreForm.colorLetra;
             pblogo.Image = PadreForm.logo;
             cdfondo.Color = PadreForm.colorFondo;
             cdletra.Color = PadreForm.colorLetra;
             trbVolumen.Value = PadreForm.wmp.settings.volume;
+
+            txbnombretienda.Text = PadreForm.nombreTienda;
+            txbubicaciontienda.Text = PadreForm.direccionTienda;
+            txbrfcTienda.Text = PadreForm.rfcTienda;
         }
 
         private void btnletra_Click(object sender, EventArgs e)

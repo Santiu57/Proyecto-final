@@ -67,7 +67,17 @@ namespace PadreForm
         {
             if (allTxbfull())
             {
-                string producto = txbcodigo.Text + "|" + txbnombre.Text + "|" + txbcategoria.Text + "|" + txbPcompra.Text + "|" + txbPventa.Text + "|" + txbCantidad.Text + "|" + txbproovedor.Text + "|" + DateTime.Now.ToString();
+                PadreForm.Producto producto = new PadreForm.Producto
+                (
+                    txbcodigo.Text,
+                    txbnombre.Text,
+                    txbcategoria.Text,
+                    decimal.Parse(txbPcompra.Text),
+                    decimal.Parse(txbPventa.Text),
+                    int.Parse(txbCantidad.Text),
+                    txbproovedor.Text,
+                    DateTime.Now
+                );
                 PadreForm.Productos.Add(producto);
                 PadreForm.categoriasProductosAdd(cbcategoria);
                 PadreForm.fullregistration();
@@ -78,7 +88,7 @@ namespace PadreForm
         private void AñadirForm_Load(object sender, EventArgs e)
         {
             PadreForm.categoriasProductosAdd(cbcategoria);
-            PadreForm.CambiarColores(this, PadreForm.colorFondo, PadreForm.colorLetra);
+            PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
         }
 
         private void cbcategoria_SelectedIndexChanged(object sender, EventArgs e)

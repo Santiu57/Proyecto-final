@@ -47,6 +47,8 @@
             this.pblogo = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.trbVolumen = new System.Windows.Forms.TrackBar();
+            this.txbrfcTienda = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pblogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbVolumen)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +71,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(39, 111);
+            this.label3.Location = new System.Drawing.Point(40, 147);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(138, 23);
             this.label3.TabIndex = 2;
@@ -77,7 +79,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(39, 150);
+            this.label4.Location = new System.Drawing.Point(40, 186);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(138, 23);
             this.label4.TabIndex = 3;
@@ -85,7 +87,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(39, 189);
+            this.label5.Location = new System.Drawing.Point(40, 225);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(138, 23);
             this.label5.TabIndex = 4;
@@ -112,7 +114,7 @@
             // 
             // btnlogo
             // 
-            this.btnlogo.Location = new System.Drawing.Point(192, 108);
+            this.btnlogo.Location = new System.Drawing.Point(193, 144);
             this.btnlogo.Name = "btnlogo";
             this.btnlogo.Size = new System.Drawing.Size(126, 23);
             this.btnlogo.TabIndex = 7;
@@ -122,7 +124,7 @@
             // 
             // btnfondo
             // 
-            this.btnfondo.Location = new System.Drawing.Point(192, 150);
+            this.btnfondo.Location = new System.Drawing.Point(193, 186);
             this.btnfondo.Name = "btnfondo";
             this.btnfondo.Size = new System.Drawing.Size(126, 23);
             this.btnfondo.TabIndex = 8;
@@ -132,7 +134,7 @@
             // 
             // btnletra
             // 
-            this.btnletra.Location = new System.Drawing.Point(192, 189);
+            this.btnletra.Location = new System.Drawing.Point(193, 225);
             this.btnletra.Name = "btnletra";
             this.btnletra.Size = new System.Drawing.Size(126, 23);
             this.btnletra.TabIndex = 9;
@@ -142,21 +144,21 @@
             // 
             // pnlfondo
             // 
-            this.pnlfondo.Location = new System.Drawing.Point(324, 150);
+            this.pnlfondo.Location = new System.Drawing.Point(325, 186);
             this.pnlfondo.Name = "pnlfondo";
             this.pnlfondo.Size = new System.Drawing.Size(106, 22);
             this.pnlfondo.TabIndex = 10;
             // 
             // pnlletra
             // 
-            this.pnlletra.Location = new System.Drawing.Point(324, 189);
+            this.pnlletra.Location = new System.Drawing.Point(325, 225);
             this.pnlletra.Name = "pnlletra";
             this.pnlletra.Size = new System.Drawing.Size(106, 22);
             this.pnlletra.TabIndex = 11;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(148, 281);
+            this.btnAceptar.Location = new System.Drawing.Point(152, 308);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(126, 23);
             this.btnAceptar.TabIndex = 12;
@@ -166,7 +168,7 @@
             // 
             // pblogo
             // 
-            this.pblogo.Location = new System.Drawing.Point(325, 61);
+            this.pblogo.Location = new System.Drawing.Point(326, 97);
             this.pblogo.Name = "pblogo";
             this.pblogo.Size = new System.Drawing.Size(100, 83);
             this.pblogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -175,7 +177,7 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(39, 224);
+            this.label6.Location = new System.Drawing.Point(40, 260);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(138, 23);
             this.label6.TabIndex = 14;
@@ -183,22 +185,39 @@
             // 
             // trbVolumen
             // 
-            this.trbVolumen.Location = new System.Drawing.Point(192, 224);
+            this.trbVolumen.Location = new System.Drawing.Point(193, 260);
             this.trbVolumen.Maximum = 100;
             this.trbVolumen.Name = "trbVolumen";
             this.trbVolumen.Size = new System.Drawing.Size(238, 56);
             this.trbVolumen.TabIndex = 15;
             this.trbVolumen.Value = 50;
             // 
+            // txbrfcTienda
+            // 
+            this.txbrfcTienda.Location = new System.Drawing.Point(192, 107);
+            this.txbrfcTienda.Name = "txbrfcTienda";
+            this.txbrfcTienda.Size = new System.Drawing.Size(126, 22);
+            this.txbrfcTienda.TabIndex = 17;
+            // 
+            // label7
+            // 
+            this.label7.Location = new System.Drawing.Point(39, 110);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(156, 23);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "RFC de la tienda:";
+            // 
             // ConfiguracionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 316);
+            this.ClientSize = new System.Drawing.Size(459, 343);
+            this.Controls.Add(this.btnAceptar);
+            this.Controls.Add(this.txbrfcTienda);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.trbVolumen);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pblogo);
-            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.pnlletra);
             this.Controls.Add(this.pnlfondo);
             this.Controls.Add(this.btnletra);
@@ -212,7 +231,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ConfiguracionForm";
-            this.Text = "ConfiguracionForm";
+            this.Text = "Configuracion";
             this.Load += new System.EventHandler(this.ConfiguracionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pblogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbVolumen)).EndInit();
@@ -242,5 +261,7 @@
         private System.Windows.Forms.PictureBox pblogo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TrackBar trbVolumen;
+        private System.Windows.Forms.TextBox txbrfcTienda;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -20,7 +20,7 @@ namespace PadreForm
 
         private void TicketForm_Load(object sender, EventArgs e)
         {
-             PadreForm.CambiarColores(this, PadreForm.colorFondo, PadreForm.colorLetra);
+            PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
         }
 
         private void txbticket_TextChanged(object sender, EventArgs e)
