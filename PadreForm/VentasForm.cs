@@ -36,29 +36,6 @@ namespace PadreForm
         {
             PadreForm.FiltrarInventario(dgvinventarioventas, cbcategoria.Text, txbbuscador.Text);
         }
-
-        private void dgvinventarioventas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-
-            DataGridViewRow fila = dgvinventarioventas.Rows[e.RowIndex];
-
-            string nombre = fila.Cells[1].Value.ToString();
-            string precio = fila.Cells[4].Value.ToString();
-            int cantidadInventario = int.Parse(fila.Cells[5].Value.ToString());
-
-            if (cantidadInventario <= 0)
-            {
-                MessageBox.Show("No hay existencias de este producto.");
-                return;
-            }
-
-            AgregarProductoAVenta(nombre, precio);
-
-            fila.Cells[5].Value = cantidadInventario - 1;
-
-            CalcularTotal();
-        }
         private void AgregarProductoAVenta(string nombre, string precio)
         {
             foreach (DataGridViewRow fila in dgvproductosregistrados.Rows)
@@ -214,16 +191,34 @@ namespace PadreForm
             FinalizarVenta(dgvproductosregistrados);
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void VentasForm_Activated(object sender, EventArgs e)
         {
             PadreForm.categoriasProductosAdd(cbcategoria);
             PadreForm.importacionProductosInventario(dgvinventarioventas);
             PadreForm.fullregistration();
+        }
+
+        private void dgvinventarioventas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            DataGridViewRow fila = dgvinventarioventas.Rows[e.RowIndex];
+
+            string nombre = fila.Cells[1].Value.ToString();
+            string precio = fila.Cells[4].Value.ToString();
+            int cantidadInventario = int.Parse(fila.Cells[5].Value.ToString());
+
+            if (cantidadInventario <= 0)
+            {
+                MessageBox.Show("No hay existencias de este producto.");
+                return;
+            }
+
+            AgregarProductoAVenta(nombre, precio);
+
+            fila.Cells[5].Value = cantidadInventario - 1;
+
+            CalcularTotal();
         }
     }
 }

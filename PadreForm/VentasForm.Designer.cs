@@ -43,9 +43,9 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvproductosregistrados = new System.Windows.Forms.DataGridView();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnfinalizarVenta = new System.Windows.Forms.Button();
             this.btneliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -106,7 +106,7 @@
             this.dgvinventarioventas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvinventarioventas.Size = new System.Drawing.Size(686, 261);
             this.dgvinventarioventas.TabIndex = 6;
-            this.dgvinventarioventas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvinventarioventas_CellContentDoubleClick);
+            this.dgvinventarioventas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvinventarioventas_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -181,7 +181,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // dgvproductosregistrados
             // 
@@ -202,13 +201,13 @@
             this.dgvproductosregistrados.Size = new System.Drawing.Size(295, 192);
             this.dgvproductosregistrados.TabIndex = 0;
             // 
-            // cantidad
+            // producto
             // 
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.MinimumWidth = 6;
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
-            this.cantidad.Width = 70;
+            this.producto.HeaderText = "Producto";
+            this.producto.MinimumWidth = 6;
+            this.producto.Name = "producto";
+            this.producto.ReadOnly = true;
+            this.producto.Width = 125;
             // 
             // precio
             // 
@@ -218,13 +217,13 @@
             this.precio.ReadOnly = true;
             this.precio.Width = 70;
             // 
-            // producto
+            // cantidad
             // 
-            this.producto.HeaderText = "Producto";
-            this.producto.MinimumWidth = 6;
-            this.producto.Name = "producto";
-            this.producto.ReadOnly = true;
-            this.producto.Width = 125;
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.MinimumWidth = 6;
+            this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
+            this.cantidad.Width = 70;
             // 
             // btnfinalizarVenta
             // 

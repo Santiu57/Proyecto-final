@@ -25,12 +25,12 @@ namespace PadreForm
         public static int numeroTicket = 1000;
 
         public static string usuarioActual;
-        public static string nombreTienda = "Mi Tienda";
+        public static string nombreTienda = "Mini Super Kokona";
         public static string direccionTienda = "Alguna";
-        public static string rfcTienda = "01100011 01110101 01101110 01101110 01111001";
+        public static string rfcTienda = "MSK230606ABC";
         public static System.Drawing.Image logo = null;
-        public static Color colorFondo = Color.White;
-        public static Color colorLetra = Color.Black;
+        public static Color colorFondo = Color.Black;
+        public static Color colorLetra = Color.FromArgb(-50375);
         public static float tamanoLetra = 10f;
 
         public static void CambiarColores(Control control, Color fore, Color back)

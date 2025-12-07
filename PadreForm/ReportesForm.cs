@@ -18,16 +18,28 @@ namespace PadreForm
             this.Resize += (s, e) => PadreForm.EscalarControles(this);
         }
 
-        private void openTicket(int index) 
+        private void openTicket(int numTicket) 
         { 
             TicketForm ticketForm = new TicketForm();
+            
+            int index = -1;
+
+            for (int i = 0; i < PadreForm.Tickets.Count; i++)
+            {
+                if (PadreForm.Tickets[i].NumTicket == numTicket)
+                {
+                    index = i;
+                    break;
+                }
+            }
+
             ticketForm.txbticket.Text = PadreForm.Tickets[index].Contenido;
             ticketForm.ShowDialog();
         }
 
         private void dgvinventario_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            openTicket(dgvtickets.CurrentRow.Index);
+            
         }
 
         private void ReportesForm_Load(object sender, EventArgs e)
@@ -47,7 +59,21 @@ namespace PadreForm
 
         private void dgvtickets_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                int ticketnumero = 0;
 
+                var value = dgvtickets.Rows[e.RowIndex].Cells[2].Value;
+
+                if (value != null && int.TryParse(value.ToString(), out int n))
+                {
+                    ticketnumero = n;
+                }
+                openTicket(ticketnumero);
+            }
+            catch
+            {
+            }
         }
 
         private void ReportesForm_Activated(object sender, EventArgs e)

@@ -429,3 +429,27 @@ as x1  = $34
 TOTAL: $34
 ===============================
 END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 10:32:09 p. m.
+TOTAL|45276862
+VENDEDOR|as
+NUM TICKET|1000
+TIENDA|Mini Super Kokona
+DIRECCION|Alguna
+RFC|01100011 01110101 01101110 01101110 01111001
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 10:32:09 p. m.
+Vendedor: as
+Ticket: 1000
+Tienda: Mini Super Kokona
+Direccion: Alguna
+RFC: 01100011 01110101 01101110 01101110 01111001
+-------------------------------
+as x23  = $782
+df x17  = $381191
+wef x13  = $44894889
+-------------------------------
+TOTAL: $45276862
+===============================
+END_TICKET
