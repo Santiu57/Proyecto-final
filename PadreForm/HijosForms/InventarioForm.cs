@@ -20,7 +20,7 @@ namespace PadreForm
             this.Resize += (s, e) => PadreForm.EscalarControles(this);
         }
 
-        private void fullErase(string producto)
+        private void fullErase(string producto) //Elimina el producto seleccionado
         {
             try
             {
@@ -34,7 +34,7 @@ namespace PadreForm
             }
         }
 
-        private int getProductIndex(string nombre)
+        private int getProductIndex(string nombre) //Obtiene el indice del producto en la lista, buscandolo por el codigo
         {
             int index = -1;
             foreach (var p in PadreForm.Productos)
@@ -48,25 +48,25 @@ namespace PadreForm
             return index;
         }
 
-        private void openAgregar()
+        private void openAgregar() //Abre el form agregar
         {
             AñadirForm añadir = new AñadirForm();
             añadir.ShowDialog();
         }
 
-        private void openEditar(string nombre)
+        private void openEditar(string nombre)//Abre el form editar, proporcionando el indice del producto a editar 
         {
             EditarForm editar = new EditarForm();
             editar.indice = getProductIndex(nombre);
             editar.ShowDialog();
         }
 
-        private void actualizarTabla()
+        private void actualizarTabla()//actualiza el dtg
         {
             PadreForm.importacionProductosInventario(dgvinventario);
         }
 
-        private void btnborrar_Click(object sender, EventArgs e)
+        private void btnborrar_Click(object sender, EventArgs e) 
         {
             try
             {

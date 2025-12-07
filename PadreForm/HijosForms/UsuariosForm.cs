@@ -24,7 +24,7 @@ namespace PadreForm
             agregarUsuario.ShowDialog();
         }
 
-        private void abrirEditarUsuario(int index)
+        private void abrirEditarUsuario(int index) //Abre editar usuarios, mandando toda la informacion del usuario
         {
             EditarUsuarioForm editarUsuario = new EditarUsuarioForm();
             editarUsuario.indice = index;
@@ -58,7 +58,7 @@ namespace PadreForm
             PadreForm.importacionUsuariosDTG(dgvusuarios);
         }
 
-        private void btnborrar_Click(object sender, EventArgs e)
+        private void btnborrar_Click(object sender, EventArgs e)//Elimina el usuario, si es admin hay confirmacion, y si es el Usuario actual reinicia
         {
             string nombreUsuario = dgvusuarios.CurrentRow.Cells[0].Value.ToString();
             if (dgvusuarios.CurrentRow.Cells[1].Value.ToString() == "Admin")

@@ -18,7 +18,7 @@ namespace PadreForm
             this.Resize += (s, e) => PadreForm.EscalarControles(this);
         }
 
-        private void openTicket(int numTicket) 
+        private void openTicket(int numTicket) //Abre el ticet en el ticket Form, buscando por numero de ticket
         { 
             TicketForm ticketForm = new TicketForm();
             
@@ -57,7 +57,7 @@ namespace PadreForm
             }
         }
 
-        private void dgvtickets_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvtickets_CellContentClick(object sender, DataGridViewCellEventArgs e) //Al clickear en el contenido del dtg, abre su respectivo ticket
         {
             try
             {
@@ -76,7 +76,7 @@ namespace PadreForm
             }
         }
 
-        private void ReportesForm_Activated(object sender, EventArgs e)
+        private void ReportesForm_Activated(object sender, EventArgs e)//Cuando el form recupeta el foco, se actualiza
         {
             try
             {

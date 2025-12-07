@@ -18,7 +18,7 @@ namespace PadreForm
             InitializeComponent();
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e) //Reemplaza los valores globales
         {
             PadreForm.nombreTienda = txbnombretienda.Text;
             PadreForm.direccionTienda = txbubicaciontienda.Text;
@@ -27,7 +27,7 @@ namespace PadreForm
             PadreForm.colorFondo = cdfondo.Color;
             PadreForm.wmp.settings.volume = trbVolumen.Value;
 
-            if (PadreForm.logo != null)
+            if (PadreForm.logo != null)// Si el logo cambio, lo guarda
             {
                 try
                 {
@@ -45,7 +45,7 @@ namespace PadreForm
 
         private void btnlogo_Click(object sender, EventArgs e)
         {
-            if (ofdlogo.ShowDialog() == DialogResult.OK)
+            if (ofdlogo.ShowDialog() == DialogResult.OK)//Mustra el ofd para el logo y lo guarda
             {
                 try
                 {
@@ -70,13 +70,13 @@ namespace PadreForm
             }
         }
         
-        private void btnfondo_Click(object sender, EventArgs e)
+        private void btnfondo_Click(object sender, EventArgs e)// muetra el cd para el fondo y cambia el color del pnl como previsualizacion
         {
             cdfondo.ShowDialog();
             pnlfondo.BackColor = cdfondo.Color;
         }
 
-        private void ConfiguracionForm_Load(object sender, EventArgs e)
+        private void ConfiguracionForm_Load(object sender, EventArgs e)//Asigna los valores globales a los controles para que si solo se actualiza 1 los demas no se reinicien
         {
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
             PadreForm.SetFontSize(this);
@@ -93,14 +93,14 @@ namespace PadreForm
             txbrfcTienda.Text = PadreForm.rfcTienda;
         }
 
-        private void btnletra_Click(object sender, EventArgs e)
+        private void btnletra_Click(object sender, EventArgs e)// muetra el cd para el letra y cambia el color del pnl como previsualizacion
         {
             cdletra.ShowDialog();
             pnlletra.BackColor = cdletra.Color;
         }
 
 
-        private void tkbLetraTamaño_MouseUp(object sender, MouseEventArgs e)
+        private void tkbLetraTamaño_MouseUp(object sender, MouseEventArgs e)//Cuando se suelta el click se actualiza el font como previsualizacion
         {
             PadreForm.tamanoLetra = tkbLetraTamaño.Value;
             PadreForm.SetFontSize(this);

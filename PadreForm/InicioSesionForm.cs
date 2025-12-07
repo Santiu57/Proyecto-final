@@ -18,7 +18,7 @@ namespace PadreForm
             InitializeComponent();
         }
 
-        private bool hasSafefile()
+        private bool hasSafefile() //Intenta importar los usuarios y meterlos en el cb
         {
             try
             {
@@ -32,7 +32,7 @@ namespace PadreForm
             }
         }
 
-        private void firstSesion()
+        private void firstSesion()//Configuracion para una primera sesion
         {
             lblSesion.Text = "Registre Primer usuario";
             cbusuarios.Visible = false;
@@ -46,7 +46,7 @@ namespace PadreForm
             btnAceptar.Location = new Point(80, 204);
         }
 
-        private bool dataVerification()
+        private bool dataVerification()//verifica que los campos esten llenos
         {
             if(txbNombreUsuario.Text != "" && txbContraseña.Text != "" && txbRol.Text != "" && txbNombre.Text != "")
             {
@@ -55,7 +55,7 @@ namespace PadreForm
             return false;
         }
 
-        private bool isFirstSesion()
+        private bool isFirstSesion()//Verifica si es la primera sesion
         {
             if (hasSafefile() == false || cbusuarios.Items.Count == 0)
             {
@@ -69,7 +69,7 @@ namespace PadreForm
             PadreForm.importacionConfig();
             PadreForm.SetFontSize(this);
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
-            if (isFirstSesion())
+            if (isFirstSesion())//Si es primera sesion se carga la configuracion de primera sesion
             {
                 firstSesion();
             }
@@ -79,7 +79,7 @@ namespace PadreForm
             }
         }
 
-        private void openPadre()
+        private void openPadre()//habre el papá
         {
             this.Hide();
             PadreForm papa = new PadreForm();
@@ -88,7 +88,7 @@ namespace PadreForm
         
         private void Aceptar()
         {
-            if (isFirstSesion())
+            if (isFirstSesion())//registra el primer usuario y habre el papa
             {
                 if (dataVerification())
                 {
@@ -98,7 +98,7 @@ namespace PadreForm
                     openPadre();
                 }
             }
-            else
+            else //Verifica que la contraseña del usuario seleccionado sea correcta
             {
                 txbRol.Text = "x"; txbNombre.Text = "x";
                 if (dataVerification())
@@ -116,6 +116,10 @@ namespace PadreForm
                     {
                         PadreForm.usuarioActual = PadreForm.Usuarios[index].NombreUsuario;
                         openPadre();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Contraseña incorrecta");
                     }
                 }
             }

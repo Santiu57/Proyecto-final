@@ -20,3 +20,25 @@ Mari Fumo x10  = $15000
 TOTAL: $15000
 ===============================
 END_TICKET
+BEGIN_TICKET
+FECHA|07/12/2025 05:43:08 p. m.
+TOTAL|4500
+VENDEDOR|as
+NUM TICKET|1001
+TIENDA|Mini Super Mari
+DIRECCION|Marilandia
+RFC|MSK230606ABC
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 07/12/2025 05:43:08 p. m.
+Vendedor: as
+Ticket: 1001
+Tienda: Mini Super Mari
+Direccion: Marilandia
+RFC: MSK230606ABC
+-------------------------------
+Mari Fumo x3  = $4500
+-------------------------------
+TOTAL: $4500
+===============================
+END_TICKET

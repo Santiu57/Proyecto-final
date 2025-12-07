@@ -75,6 +75,7 @@
             this.txbContraseña.Name = "txbContraseña";
             this.txbContraseña.Size = new System.Drawing.Size(100, 30);
             this.txbContraseña.TabIndex = 3;
+            this.txbContraseña.UseSystemPasswordChar = true;
             // 
             // lblSesion
             // 

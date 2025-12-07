@@ -99,7 +99,7 @@
             // ofdlogo
             // 
             this.ofdlogo.FileName = "openFileDialog1";
-            this.ofdlogo.Filter = "Imágenes PNG (*.png)|*.png";
+            this.ofdlogo.Filter = " \"Imágenes|*.png;*.jpg;*.jpeg;*.bmp;*.gif;*.tif;*.tiff|Todos los archivos|*.*\";";
             // 
             // txbnombretienda
             // 

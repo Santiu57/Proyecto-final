@@ -53,7 +53,7 @@ namespace PadreForm
             dgvproductosregistrados.Rows.Add(nombre, precio, 1);//Si no existia ya, lo agrega
         }
 
-        private void btneliminar_Click(object sender, EventArgs e)//Elimina el producto seleccionado
+        private void btneliminar_Click(object sender, EventArgs e)//Elimina el producto seleccionado si el usuario es admin, sino, un admin tiene que verificarse
         {
             if (!PadreForm.isAdmin())
             {
@@ -85,7 +85,7 @@ namespace PadreForm
 
             CalcularTotal();
         }
-        private void CalcularTotal()
+        private void CalcularTotal() //Calcula el total
         {
             decimal total = 0;
 
@@ -102,7 +102,7 @@ namespace PadreForm
             lbltotal.Text = total.ToString("C");
         }
 
-        private void FinalizarVenta(DataGridView tablaVenta)
+        private void FinalizarVenta(DataGridView tablaVenta)//Limpia el carrito, y actualiza las existencias
         {
             try
             {
@@ -118,7 +118,7 @@ namespace PadreForm
                         {
                             int index = Productos.IndexOf(p);
                             p.Cantidad -= cantidadVendida;
-                            guardarCambios(index, nombre);
+                            PadreForm.registraProductos();
                             lbltotal.Text = "$0.00";
                         }
                     }
@@ -137,12 +137,7 @@ namespace PadreForm
             }
         }
 
-        private static void guardarCambios(int index, string nombre)
-        {
-            PadreForm.registraProductos();
-        }
-
-        public static void GenerarTicket(DataGridView tablaVenta)
+        public static void GenerarTicket(DataGridView tablaVenta) //Genera y guarda el ticket con todos los datos de la tienda
         {
             StringBuilder ticket = new StringBuilder();
             ticket.AppendLine("====== TICKET DE COMPRA ======");
@@ -197,14 +192,14 @@ namespace PadreForm
             FinalizarVenta(dgvproductosregistrados);
         }
 
-        private void VentasForm_Activated(object sender, EventArgs e)
+        private void VentasForm_Activated(object sender, EventArgs e) //Actualiza datos al tener el foco de nuevo
         {
             PadreForm.categoriasProductosAdd(cbcategoria);
             PadreForm.importacionProductosInventario(dgvinventarioventas);
             PadreForm.fullregistration();
         }
 
-        private void dgvinventarioventas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvinventarioventas_CellContentClick(object sender, DataGridViewCellEventArgs e)//Extrae los datos para el carrito, y si hay existencias lo añade al carrito
         {
             if (e.RowIndex < 0) return;
 

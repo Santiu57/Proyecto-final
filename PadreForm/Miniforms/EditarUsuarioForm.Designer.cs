@@ -103,6 +103,7 @@
             this.txbContraseña.Name = "txbContraseña";
             this.txbContraseña.Size = new System.Drawing.Size(100, 22);
             this.txbContraseña.TabIndex = 24;
+            this.txbContraseña.UseSystemPasswordChar = true;
             this.txbContraseña.TextChanged += new System.EventHandler(this.txbContraseña_TextChanged);
             // 
             // txbNombreUsuario
