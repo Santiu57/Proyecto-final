@@ -15,7 +15,7 @@ namespace PadreForm
         public ReportesForm()
         {
             InitializeComponent();
-            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
+            this.Resize += (s, e) => PadreForm.EscalarControles(this);
         }
 
         private void openTicket(int index) 
@@ -33,6 +33,7 @@ namespace PadreForm
         private void ReportesForm_Load(object sender, EventArgs e)
         {
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
+            PadreForm.SetFontSize(this);
             try
             {
                 PadreForm.importacionTickets();

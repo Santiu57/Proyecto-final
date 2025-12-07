@@ -15,12 +15,13 @@ namespace PadreForm
         public TicketForm()
         {
             InitializeComponent();
-            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
+            this.Resize += (s, e) => PadreForm.EscalarControles(this);
         }
 
         private void TicketForm_Load(object sender, EventArgs e)
         {
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
+            PadreForm.SetFontSize(this);
         }
 
         private void txbticket_TextChanged(object sender, EventArgs e)

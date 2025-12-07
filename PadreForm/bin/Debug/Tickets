@@ -174,3 +174,258 @@ df x2  = $44846
 TOTAL: $44846
 ===============================
 END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 08:39:39 p. m.
+TOTAL|100150409
+VENDEDOR|as
+NUM TICKET|1009
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 08:39:39 p. m.
+Vendedor: as
+Ticket: 1009
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+as x8  = $272
+wef x29  = $100150137
+-------------------------------
+TOTAL: $100150409
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 09:30:21 p. m.
+TOTAL|0
+VENDEDOR|as
+NUM TICKET|1010
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 09:30:21 p. m.
+Vendedor: as
+Ticket: 1010
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+-------------------------------
+TOTAL: $0
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 09:30:22 p. m.
+TOTAL|0
+VENDEDOR|as
+NUM TICKET|1011
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 09:30:22 p. m.
+Vendedor: as
+Ticket: 1011
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+-------------------------------
+TOTAL: $0
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 09:30:22 p. m.
+TOTAL|0
+VENDEDOR|as
+NUM TICKET|1012
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 09:30:22 p. m.
+Vendedor: as
+Ticket: 1012
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+-------------------------------
+TOTAL: $0
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 09:30:22 p. m.
+TOTAL|0
+VENDEDOR|as
+NUM TICKET|1013
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 09:30:22 p. m.
+Vendedor: as
+Ticket: 1013
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+-------------------------------
+TOTAL: $0
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 09:30:23 p. m.
+TOTAL|0
+VENDEDOR|as
+NUM TICKET|1014
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 09:30:23 p. m.
+Vendedor: as
+Ticket: 1014
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+-------------------------------
+TOTAL: $0
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 09:30:23 p. m.
+TOTAL|0
+VENDEDOR|as
+NUM TICKET|1015
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 09:30:23 p. m.
+Vendedor: as
+Ticket: 1015
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+-------------------------------
+TOTAL: $0
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 09:30:23 p. m.
+TOTAL|0
+VENDEDOR|as
+NUM TICKET|1016
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 09:30:23 p. m.
+Vendedor: as
+Ticket: 1016
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+-------------------------------
+TOTAL: $0
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 09:30:23 p. m.
+TOTAL|0
+VENDEDOR|as
+NUM TICKET|1017
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 09:30:23 p. m.
+Vendedor: as
+Ticket: 1017
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+-------------------------------
+TOTAL: $0
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 09:30:24 p. m.
+TOTAL|0
+VENDEDOR|as
+NUM TICKET|1018
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 09:30:24 p. m.
+Vendedor: as
+Ticket: 1018
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+-------------------------------
+TOTAL: $0
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 09:30:24 p. m.
+TOTAL|0
+VENDEDOR|as
+NUM TICKET|1019
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 09:30:24 p. m.
+Vendedor: as
+Ticket: 1019
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+-------------------------------
+TOTAL: $0
+===============================
+END_TICKET
+BEGIN_TICKET
+FECHA|06/12/2025 09:30:29 p. m.
+TOTAL|34
+VENDEDOR|as
+NUM TICKET|1020
+TIENDA|as
+DIRECCION|as
+RFC|as
+CONTENIDO|
+====== TICKET DE COMPRA ======
+Fecha: 06/12/2025 09:30:29 p. m.
+Vendedor: as
+Ticket: 1020
+Tienda: as
+Direccion: as
+RFC: as
+-------------------------------
+as x1  = $34
+-------------------------------
+TOTAL: $34
+===============================
+END_TICKET

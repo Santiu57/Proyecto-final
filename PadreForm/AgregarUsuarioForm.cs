@@ -15,7 +15,6 @@ namespace PadreForm
         public AgregarUsuarioForm()
         {
             InitializeComponent();
-            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
         }
 
         private void allfieldsfilled()
@@ -59,6 +58,7 @@ namespace PadreForm
         private void AgregarUsuarioForm_Load(object sender, EventArgs e)
         {
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
+            PadreForm.SetFontSize(this);
         }
     }
 }

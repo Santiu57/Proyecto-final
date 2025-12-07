@@ -16,7 +16,6 @@ namespace PadreForm
         public InicioSesionForm()
         {
             InitializeComponent();
-            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
         }
 
         private bool hasSafefile()
@@ -68,6 +67,7 @@ namespace PadreForm
         private void InicioSesionForm_Load(object sender, EventArgs e)
         {
             PadreForm.importacionConfig();
+            PadreForm.SetFontSize(this);
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
             if (isFirstSesion())
             {

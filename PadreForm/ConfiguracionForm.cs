@@ -16,7 +16,6 @@ namespace PadreForm
         public ConfiguracionForm()
         {
             InitializeComponent();
-            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -80,12 +79,14 @@ namespace PadreForm
         private void ConfiguracionForm_Load(object sender, EventArgs e)
         {
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
+            PadreForm.SetFontSize(this);
             pnlfondo.BackColor = PadreForm.colorFondo;
             pnlletra.BackColor = PadreForm.colorLetra;
             pblogo.Image = PadreForm.logo;
             cdfondo.Color = PadreForm.colorFondo;
             cdletra.Color = PadreForm.colorLetra;
             trbVolumen.Value = PadreForm.wmp.settings.volume;
+            tkbLetraTamaño.Value = (int)PadreForm.tamanoLetra;
 
             txbnombretienda.Text = PadreForm.nombreTienda;
             txbubicaciontienda.Text = PadreForm.direccionTienda;
@@ -96,6 +97,13 @@ namespace PadreForm
         {
             cdletra.ShowDialog();
             pnlletra.BackColor = cdletra.Color;
+        }
+
+
+        private void tkbLetraTamaño_MouseUp(object sender, MouseEventArgs e)
+        {
+            PadreForm.tamanoLetra = tkbLetraTamaño.Value;
+            PadreForm.SetFontSize(this);
         }
     }
 }

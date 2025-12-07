@@ -16,11 +16,12 @@ namespace PadreForm
         public VentasForm()
         {
             InitializeComponent();
-            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
+            this.Resize += (s, e) => PadreForm.EscalarControles(this);
         }
         private void VentasForm_Load(object sender, EventArgs e)
         {
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
+            PadreForm.SetFontSize(this);
             PadreForm.categoriasProductosAdd(cbcategoria);
             PadreForm.importacionProductosInventario(dgvinventarioventas);
             PadreForm.fullregistration();

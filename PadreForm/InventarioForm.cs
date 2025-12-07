@@ -15,7 +15,7 @@ namespace PadreForm
         public InventarioForm()
         {
             InitializeComponent();
-            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
+            this.Resize += (s, e) => PadreForm.EscalarControles(this);
         }
 
         private void fullErase(int index)
@@ -73,6 +73,7 @@ namespace PadreForm
         private void InventarioForm_Load(object sender, EventArgs e)
         {
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
+            PadreForm.SetFontSize(this);
             actualizarTabla();
             PadreForm.categoriasProductosAdd(cbcategoria);
         }

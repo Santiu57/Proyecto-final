@@ -15,7 +15,6 @@ namespace PadreForm
         public EditarForm()
         {
             InitializeComponent();
-            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
         }
 
         public int indice = -1;
@@ -23,6 +22,7 @@ namespace PadreForm
         private void EditarForm_Load(object sender, EventArgs e)
         {
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
+            PadreForm.SetFontSize(this);
             PadreForm.categoriasProductosAdd(cbcategoria);
             if (indice != -1)
             {

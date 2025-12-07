@@ -15,7 +15,7 @@ namespace PadreForm
         public UsuariosForm()
         {
             InitializeComponent();
-            this.Resize += (s, e) => PadreForm.AutoScaleControls(this);
+            this.Resize += (s, e) => PadreForm.EscalarControles(this);
         }
 
         private void abrirAgregarUsuario()
@@ -42,6 +42,7 @@ namespace PadreForm
         private void UsuariosForm_Load(object sender, EventArgs e)
         {
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
+            PadreForm.SetFontSize(this);
             PadreForm.rolesUsuariosAdd(cbrol);
             PadreForm.importacionUsuariosDTG(dgvusuarios);
         }

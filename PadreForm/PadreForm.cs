@@ -31,6 +31,7 @@ namespace PadreForm
         public static System.Drawing.Image logo = null;
         public static Color colorFondo = Color.White;
         public static Color colorLetra = Color.Black;
+        public static float tamanoLetra = 10f;
 
         public static void CambiarColores(Control control, Color fore, Color back)
         {
@@ -88,11 +89,28 @@ namespace PadreForm
                 CambiarColores(hijo, fore, back);
             }
         }
-
-        public static void AutoScaleControls(Form form)
+        public static void SetFontSize(Form form)
         {
             if (form.Tag == null)
-                form.Tag = new SizeF(form.Width, form.Height);
+                form.Tag = new SizeF(form.Width, form.Height); // Tamaño original del form
+
+            foreach (Control c in form.Controls)
+            {
+                if (c.Tag == null)
+                    c.Tag = new object[] { c.Location, c.Size, c.Font.Size }; // Valores originales
+
+                // Aplicar tamaño de letra global SOLO en el Load
+                c.Font = new Font(c.Font.FontFamily, PadreForm.tamanoLetra, c.Font.Style);
+            }
+
+            form.Font = new Font(form.Font.FontFamily, PadreForm.tamanoLetra, form.Font.Style);
+        }
+
+
+        public static void EscalarControles(Form form)
+        {
+            if (form.Tag == null)
+                return;
 
             SizeF originalFormSize = (SizeF)form.Tag;
 
@@ -101,45 +119,31 @@ namespace PadreForm
 
             foreach (Control c in form.Controls)
             {
-                // Guardar datos originales una sola vez
-                if (c.Tag == null)
-                    c.Tag = new object[] { c.Width, c.Height, c.Left, c.Top, c.Font.Size };
+                if (c.Tag is object[] data)
+                {
+                    Point originalLoc = (Point)data[0];
+                    Size originalSize = (Size)data[1];
+                    float originalFont = (float)data[2];
 
-                object[] data = (object[])c.Tag;
+                    // Escalar posición
+                    c.Location = new Point(
+                        (int)(originalLoc.X * scaleX),
+                        (int)(originalLoc.Y * scaleY)
+                    );
 
-                c.Width = (int)((int)data[0] * scaleX);
-                c.Height = (int)((int)data[1] * scaleY);
-                c.Left = (int)((int)data[2] * scaleX);
-                c.Top = (int)((int)data[3] * scaleY);
+                    // Escalar tamaño
+                    c.Size = new Size(
+                        (int)(originalSize.Width * scaleX),
+                        (int)(originalSize.Height * scaleY)
+                    );
 
-                float originalFont = (float)data[4];
-                c.Font = new Font(c.Font.FontFamily, originalFont * Math.Min(scaleX, scaleY));
-
-                ScaleChildren(c, scaleX, scaleY);
+                    // Escalar fuente
+                    float newFontSize = originalFont * Math.Min(scaleX, scaleY);
+                    c.Font = new Font(c.Font.FontFamily, newFontSize, c.Font.Style);
+                }
             }
         }
 
-        private static void ScaleChildren(Control parent, float scaleX, float scaleY)
-        {
-            foreach (Control c in parent.Controls)
-            {
-                if (c.Tag == null)
-                    c.Tag = new object[] { c.Width, c.Height, c.Left, c.Top, c.Font.Size };
-
-                object[] data = (object[])c.Tag;
-
-                c.Width = (int)((int)data[0] * scaleX);
-                c.Height = (int)((int)data[1] * scaleY);
-                c.Left = (int)((int)data[2] * scaleX);
-                c.Top = (int)((int)data[3] * scaleY);
-
-                float originalFont = (float)data[4];
-                c.Font = new Font(c.Font.FontFamily, originalFont * Math.Min(scaleX, scaleY));
-
-                if (c.Controls.Count > 0)
-                    ScaleChildren(c, scaleX, scaleY);
-            }
-        }
 
         public static bool noRepeatForms(Form mdiParent, Type formType)
         {
@@ -158,7 +162,7 @@ namespace PadreForm
         {
             using (var fs = new StreamWriter("Configuracion"))
             {
-                string config = nombreTienda + "/" + direccionTienda + "/" + colorFondo.ToArgb() + "/" + colorLetra.ToArgb() + "/" + wmp.settings.volume.ToString() + "/" + numeroTicket.ToString() + "/" + rfcTienda;
+                string config = nombreTienda + "/" + direccionTienda + "/" + colorFondo.ToArgb() + "/" + colorLetra.ToArgb() + "/" + wmp.settings.volume.ToString() + "/" + numeroTicket.ToString() + "/" + rfcTienda + "/" + tamanoLetra.ToString();
                 fs.WriteLine(config);
             }
         }
@@ -177,6 +181,7 @@ namespace PadreForm
                 wmp.settings.volume = int.Parse(valores[4]);
                 numeroTicket = int.Parse(valores[5]);
                 rfcTienda = valores[6];
+                tamanoLetra = float.Parse(valores[7]);
 
                 try
                 {
@@ -701,6 +706,7 @@ namespace PadreForm
             tlslusuarioActual.Text = "Usuario Actual: " + usuarioActual;
             tssUsuarioActual.Text = "Usuario Actual: " + usuarioActual;
             CambiarColores(this, colorLetra, colorFondo);
+            SetFontSize(this);
             Play("Polyphonic.mp3");
             try
             {
