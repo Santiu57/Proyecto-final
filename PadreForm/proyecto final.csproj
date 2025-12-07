@@ -49,34 +49,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgregarUsuarioForm.cs">
+    <Compile Include="Miniforms\AgregarUsuarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AgregarUsuarioForm.Designer.cs">
+    <Compile Include="Miniforms\AgregarUsuarioForm.Designer.cs">
       <DependentUpon>AgregarUsuarioForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AñadirForm.cs">
+    <Compile Include="Miniforms\AñadirForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AñadirForm.Designer.cs">
+    <Compile Include="Miniforms\AñadirForm.Designer.cs">
       <DependentUpon>AñadirForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConfiguracionForm.cs">
+    <Compile Include="HijosForms\ConfiguracionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConfiguracionForm.Designer.cs">
+    <Compile Include="HijosForms\ConfiguracionForm.Designer.cs">
       <DependentUpon>ConfiguracionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditarForm.cs">
+    <Compile Include="Miniforms\EditarForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditarForm.Designer.cs">
+    <Compile Include="Miniforms\EditarForm.Designer.cs">
       <DependentUpon>EditarForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditarUsuarioForm.cs">
+    <Compile Include="Miniforms\EditarUsuarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditarUsuarioForm.Designer.cs">
+    <Compile Include="Miniforms\EditarUsuarioForm.Designer.cs">
       <DependentUpon>EditarUsuarioForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InicioSesionForm.cs">
@@ -85,10 +85,10 @@
     <Compile Include="InicioSesionForm.Designer.cs">
       <DependentUpon>InicioSesionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InventarioForm.cs">
+    <Compile Include="HijosForms\InventarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InventarioForm.Designer.cs">
+    <Compile Include="HijosForms\InventarioForm.Designer.cs">
       <DependentUpon>InventarioForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PadreForm.cs">
@@ -99,49 +99,49 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReportesForm.cs">
+    <Compile Include="HijosForms\ReportesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportesForm.Designer.cs">
+    <Compile Include="HijosForms\ReportesForm.Designer.cs">
       <DependentUpon>ReportesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TicketForm.cs">
+    <Compile Include="Miniforms\TicketForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TicketForm.Designer.cs">
+    <Compile Include="Miniforms\TicketForm.Designer.cs">
       <DependentUpon>TicketForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UsuariosForm.cs">
+    <Compile Include="HijosForms\UsuariosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UsuariosForm.Designer.cs">
+    <Compile Include="HijosForms\UsuariosForm.Designer.cs">
       <DependentUpon>UsuariosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="VentasForm.cs">
+    <Compile Include="HijosForms\VentasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VentasForm.Designer.cs">
+    <Compile Include="HijosForms\VentasForm.Designer.cs">
       <DependentUpon>VentasForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AgregarUsuarioForm.resx">
+    <EmbeddedResource Include="Miniforms\AgregarUsuarioForm.resx">
       <DependentUpon>AgregarUsuarioForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AñadirForm.resx">
+    <EmbeddedResource Include="Miniforms\AñadirForm.resx">
       <DependentUpon>AñadirForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConfiguracionForm.resx">
+    <EmbeddedResource Include="HijosForms\ConfiguracionForm.resx">
       <DependentUpon>ConfiguracionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditarForm.resx">
+    <EmbeddedResource Include="Miniforms\EditarForm.resx">
       <DependentUpon>EditarForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditarUsuarioForm.resx">
+    <EmbeddedResource Include="Miniforms\EditarUsuarioForm.resx">
       <DependentUpon>EditarUsuarioForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioSesionForm.resx">
       <DependentUpon>InicioSesionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InventarioForm.resx">
+    <EmbeddedResource Include="HijosForms\InventarioForm.resx">
       <DependentUpon>InventarioForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PadreForm.resx">
@@ -157,16 +157,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ReportesForm.resx">
+    <EmbeddedResource Include="HijosForms\ReportesForm.resx">
       <DependentUpon>ReportesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TicketForm.resx">
+    <EmbeddedResource Include="Miniforms\TicketForm.resx">
       <DependentUpon>TicketForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UsuariosForm.resx">
+    <EmbeddedResource Include="HijosForms\UsuariosForm.resx">
       <DependentUpon>UsuariosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VentasForm.resx">
+    <EmbeddedResource Include="HijosForms\VentasForm.resx">
       <DependentUpon>VentasForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

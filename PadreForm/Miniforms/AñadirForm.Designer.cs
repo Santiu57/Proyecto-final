@@ -40,61 +40,61 @@
             this.txbPventa = new System.Windows.Forms.TextBox();
             this.cbcategoria = new System.Windows.Forms.ComboBox();
             this.btnañadir = new System.Windows.Forms.Button();
-            this.txbCantidad = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txbproovedor = new System.Windows.Forms.TextBox();
+            this.txbCantidad = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txbproovedor = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 16);
+            this.label1.Location = new System.Drawing.Point(16, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 16);
+            this.label1.Size = new System.Drawing.Size(132, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(204, 16);
+            this.label2.Location = new System.Drawing.Point(169, 16);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 16);
+            this.label2.Size = new System.Drawing.Size(132, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(177, 111);
+            this.label3.Location = new System.Drawing.Point(172, 111);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 16);
+            this.label3.Size = new System.Drawing.Size(129, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Precio de ventra";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(356, 16);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 16);
             this.label4.TabIndex = 3;
             this.label4.Text = "Categoria";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 111);
+            this.label5.Location = new System.Drawing.Point(16, 111);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 16);
+            this.label5.Size = new System.Drawing.Size(132, 16);
             this.label5.TabIndex = 4;
             this.label5.Text = "Precio de compra";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txbcodigo
             // 
@@ -157,6 +157,16 @@
             this.btnañadir.UseVisualStyleBackColor = true;
             this.btnañadir.Click += new System.EventHandler(this.btnañadir_Click);
             // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(320, 111);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(132, 16);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Cantidad";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // txbCantidad
             // 
             this.txbCantidad.Location = new System.Drawing.Point(320, 130);
@@ -165,15 +175,15 @@
             this.txbCantidad.Size = new System.Drawing.Size(132, 22);
             this.txbCantidad.TabIndex = 13;
             // 
-            // label6
+            // label7
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(356, 111);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 16);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Cantidad";
+            this.label7.Location = new System.Drawing.Point(169, 178);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(132, 16);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Proovedor";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txbproovedor
             // 
@@ -182,16 +192,6 @@
             this.txbproovedor.Name = "txbproovedor";
             this.txbproovedor.Size = new System.Drawing.Size(132, 22);
             this.txbproovedor.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(189, 178);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 16);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Proovedor";
             // 
             // AñadirForm
             // 
@@ -240,9 +240,9 @@
         private System.Windows.Forms.TextBox txbPventa;
         private System.Windows.Forms.ComboBox cbcategoria;
         private System.Windows.Forms.Button btnañadir;
-        private System.Windows.Forms.TextBox txbCantidad;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txbproovedor;
+        private System.Windows.Forms.TextBox txbCantidad;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txbproovedor;
     }
 }
