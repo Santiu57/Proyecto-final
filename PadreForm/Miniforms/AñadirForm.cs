@@ -18,7 +18,7 @@ namespace PadreForm
             this.Resize += (s, e) => PadreForm.EscalarControles(this);
         }
 
-        private bool allTxbfull()
+        private bool allTxbfull()//varifica que todos los campos esten llenos
         {
             if(txbnombre.Text == "")
             {
@@ -58,7 +58,7 @@ namespace PadreForm
             return true;
         }
 
-        private void Clear()
+        private void Clear() //limpia todos los campos
         {
             txbnombre.Clear(); txbcodigo.Clear(); txbcategoria.Clear(); txbPcompra.Clear(); txbPventa.Clear(); txbCantidad.Clear(); txbproovedor.Clear();
         }
@@ -68,7 +68,7 @@ namespace PadreForm
             añadir();
         }
 
-        private void añadir()
+        private void añadir() //Añade el producto a la lista de productos si no existe otro con el mismo codigo
         {
             if (allTxbfull())
             {

@@ -83,6 +83,7 @@
             // 
             this.txbNombreUsuario.Location = new System.Drawing.Point(88, 66);
             this.txbNombreUsuario.Name = "txbNombreUsuario";
+            this.txbNombreUsuario.ReadOnly = true;
             this.txbNombreUsuario.Size = new System.Drawing.Size(130, 22);
             this.txbNombreUsuario.TabIndex = 13;
             // 

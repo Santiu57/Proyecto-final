@@ -18,7 +18,7 @@ namespace PadreForm
             this.Resize += (s, e) => PadreForm.EscalarControles(this);
         }
 
-        private void allfieldsfilled()
+        private void allfieldsfilled() //verifica que todos los campos estan llenos
         {
             if(txbContraseña.Text != "" && txbNombre.Text != "" && txbNombreUsuario.Text != "" && txbRol.Text != "")
             {
@@ -35,7 +35,7 @@ namespace PadreForm
             agregar();
         }
 
-        private void agregar()
+        private void agregar() //agrega el usuario si no se repite
         {
             if(PadreForm.registraUsuario(txbNombreUsuario.Text, txbContraseña.Text, txbRol.Text, txbNombre.Text))
             {

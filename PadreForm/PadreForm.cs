@@ -406,6 +406,9 @@ namespace PadreForm
             string nombre)
         {
             Usuarios[indice].NombreUsuario = nombreUsuario;
+            Usuarios[indice].Contraseña = contraseña;
+            Usuarios[indice].Rol = rol;
+            Usuarios[indice].Nombre = nombre;
             registrarUsuarios();
             importacionUsuarios();
         }

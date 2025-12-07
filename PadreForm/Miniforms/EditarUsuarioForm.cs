@@ -54,18 +54,18 @@ namespace PadreForm
         {
             editar();
         }
-        private void editar()
+        private void editar()//Edita los datos, si no hay mas de 1 admin no se le puede quitar el rol
         {
-            if (esAdmin && rol != "Admin" && PadreForm.adminscount() < 1)
+            if (esAdmin && txbRol.Text != "Admin" && PadreForm.adminscount() <= 1)
             {
                 MessageBox.Show("No puede cambiar el rol de un administrador sin haber otro");
                 return;
             }
-            PadreForm.modificaUsuario(indice, nombreUsuario, contraseña, rol, nombre);
+            PadreForm.modificaUsuario(indice, txbNombreUsuario.Text, txbContraseña.Text, txbRol.Text, txbNombre.Text);
             this.Close();
         }
 
-        private void allfieldsfilled()
+        private void allfieldsfilled() //Verifica que todos los campos esten llenos
         {
             if (txbContraseña.Text != "" && txbNombre.Text != "" && txbNombreUsuario.Text != "" && txbRol.Text != "")
             {
@@ -82,7 +82,7 @@ namespace PadreForm
             PadreForm.SetFontSize(this);
             PadreForm.EscalarControles(this);
             this.Icon = PadreForm.ImageToIcon(PadreForm.logo);
-            txbContraseña.Text = contraseña;
+            txbContraseña.Text = contraseña; //Llena los campos con los datos del usuario
             txbNombre.Text = nombre;
             txbNombreUsuario.Text = nombreUsuario;
             txbRol.Text = rol;

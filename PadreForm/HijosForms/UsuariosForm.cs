@@ -90,6 +90,7 @@ namespace PadreForm
         private void btneditar_Click(object sender, EventArgs e)
         {
             abrirEditarUsuario(dgvusuarios.CurrentRow.Index);
+            PadreForm.importacionUsuariosDTG(dgvusuarios);
         }
 
         private void UsuariosForm_Activated(object sender, EventArgs e)

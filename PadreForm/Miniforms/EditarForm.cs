@@ -27,7 +27,7 @@ namespace PadreForm
             PadreForm.EscalarControles(this);
             this.Icon = PadreForm.ImageToIcon(PadreForm.logo);
             PadreForm.categoriasProductosAdd(cbcategoria);
-            if (indice != -1)
+            if (indice != -1) //llena los campos con los datos del producto
             {
                 txbcodigo.Text = PadreForm.Productos[indice].Codigo;
                 txbnombre.Text = PadreForm.Productos[indice].Nombre;
@@ -49,7 +49,7 @@ namespace PadreForm
             editar();
         }
 
-        private void editar()
+        private void editar() //edita los datos del producto
         {
             PadreForm.Productos[indice].Codigo = txbcodigo.Text;
             PadreForm.Productos[indice].Nombre = txbnombre.Text;

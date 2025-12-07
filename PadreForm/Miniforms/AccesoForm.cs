@@ -26,7 +26,7 @@ namespace PadreForm.Miniforms
             PadreForm.AdminsAdd(cbadmins);
         }
 
-        private void Aceptar()
+        private void Aceptar() //verifica que la contraseña del usuario sea correcta
         {
             string admin = txbNombreUsuario.Text;
             foreach (var n in PadreForm.Usuarios)
