@@ -22,6 +22,8 @@ namespace PadreForm
         {
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
             PadreForm.SetFontSize(this);
+            this.Icon = PadreForm.ImageToIcon(PadreForm.logo);
+            PadreForm.EscalarControles(this);
         }
 
         private void txbticket_TextChanged(object sender, EventArgs e)

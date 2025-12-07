@@ -15,6 +15,7 @@ namespace PadreForm
         public EditarUsuarioForm()
         {
             InitializeComponent();
+            this.Resize += (s, e) => PadreForm.EscalarControles(this);
         }
 
         public int indice;
@@ -79,6 +80,8 @@ namespace PadreForm
         {
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
             PadreForm.SetFontSize(this);
+            PadreForm.EscalarControles(this);
+            this.Icon = PadreForm.ImageToIcon(PadreForm.logo);
             txbContraseña.Text = contraseña;
             txbNombre.Text = nombre;
             txbNombreUsuario.Text = nombreUsuario;

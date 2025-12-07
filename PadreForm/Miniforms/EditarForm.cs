@@ -15,6 +15,7 @@ namespace PadreForm
         public EditarForm()
         {
             InitializeComponent();
+            this.Resize += (s, e) => PadreForm.EscalarControles(this);
         }
 
         public int indice = -1;
@@ -23,6 +24,8 @@ namespace PadreForm
         {
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
             PadreForm.SetFontSize(this);
+            PadreForm.EscalarControles(this);
+            this.Icon = PadreForm.ImageToIcon(PadreForm.logo);
             PadreForm.categoriasProductosAdd(cbcategoria);
             if (indice != -1)
             {

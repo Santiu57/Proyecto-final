@@ -15,6 +15,7 @@ namespace PadreForm
         public AñadirForm()
         {
             InitializeComponent();
+            this.Resize += (s, e) => PadreForm.EscalarControles(this);
         }
 
         private bool allTxbfull()
@@ -101,6 +102,8 @@ namespace PadreForm
             PadreForm.categoriasProductosAdd(cbcategoria);
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
             PadreForm.SetFontSize(this);
+            PadreForm.EscalarControles(this);
+            this.Icon = PadreForm.ImageToIcon(PadreForm.logo);
         }
 
         private void cbcategoria_SelectedIndexChanged(object sender, EventArgs e)

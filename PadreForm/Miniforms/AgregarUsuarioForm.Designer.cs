@@ -127,7 +127,6 @@
             this.Controls.Add(this.txbRol);
             this.Controls.Add(this.txbContraseña);
             this.Controls.Add(this.txbNombreUsuario);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.KeyPreview = true;
             this.Name = "AgregarUsuarioForm";
             this.Text = "Agregar Usuario";

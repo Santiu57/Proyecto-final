@@ -233,6 +233,12 @@ namespace PadreForm
 
         public static Icon ImageToIcon(Image img)
         {
+            if (img == null)
+            {
+                CrearLogoGenerico();
+                logo = Image.FromFile("logo.png");
+                img = logo;
+            }
             Bitmap bmp = new Bitmap(img);
 
             // Convertimos la imagen en un icono a partir del HICON

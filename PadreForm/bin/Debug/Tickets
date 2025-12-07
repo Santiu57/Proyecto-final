@@ -1,91 +1,22 @@
 BEGIN_TICKET
-FECHA|07/12/2025 01:30:09 p. m.
-TOTAL|502
+FECHA|07/12/2025 03:17:30 p. m.
+TOTAL|15000
 VENDEDOR|as
-NUM TICKET|1001
-TIENDA|Mini Super Kokona
-DIRECCION|Alguna
-RFC|01100011 01110101 01101110 01101110 01111001
+NUM TICKET|1000
+TIENDA|Mini Super Mari
+DIRECCION|Marilandia
+RFC|MSK230606ABC
 CONTENIDO|
 ====== TICKET DE COMPRA ======
-Fecha: 07/12/2025 01:30:09 p. m.
+Fecha: 07/12/2025 03:17:30 p. m.
 Vendedor: as
-Ticket: 1001
-Tienda: Mini Super Kokona
-Direccion: Alguna
-RFC: 01100011 01110101 01101110 01101110 01111001
+Ticket: 1000
+Tienda: Mini Super Mari
+Direccion: Marilandia
+RFC: MSK230606ABC
 -------------------------------
-as x1  = $34
-asd x2  = $468
+Mari Fumo x10  = $15000
 -------------------------------
-TOTAL: $502
-===============================
-END_TICKET
-BEGIN_TICKET
-FECHA|07/12/2025 01:39:10 p. m.
-TOTAL|0
-VENDEDOR|as
-NUM TICKET|1002
-TIENDA|Mini Super Kokona
-DIRECCION|Alguna
-RFC|01100011 01110101 01101110 01101110 01111001
-CONTENIDO|
-====== TICKET DE COMPRA ======
-Fecha: 07/12/2025 01:39:10 p. m.
-Vendedor: as
-Ticket: 1002
-Tienda: Mini Super Kokona
-Direccion: Alguna
-RFC: 01100011 01110101 01101110 01101110 01111001
--------------------------------
--------------------------------
-TOTAL: $0
-===============================
-END_TICKET
-BEGIN_TICKET
-FECHA|07/12/2025 01:44:45 p. m.
-TOTAL|268
-VENDEDOR|as
-NUM TICKET|1003
-TIENDA|Mini Super Kokona
-DIRECCION|Alguna
-RFC|01100011 01110101 01101110 01101110 01111001
-CONTENIDO|
-====== TICKET DE COMPRA ======
-Fecha: 07/12/2025 01:44:45 p. m.
-Vendedor: as
-Ticket: 1003
-Tienda: Mini Super Kokona
-Direccion: Alguna
-RFC: 01100011 01110101 01101110 01101110 01111001
--------------------------------
-asd x1  = $234
-as x1  = $34
--------------------------------
-TOTAL: $268
-===============================
-END_TICKET
-BEGIN_TICKET
-FECHA|07/12/2025 01:44:52 p. m.
-TOTAL|269
-VENDEDOR|as
-NUM TICKET|1004
-TIENDA|Mini Super Kokona
-DIRECCION|Alguna
-RFC|01100011 01110101 01101110 01101110 01111001
-CONTENIDO|
-====== TICKET DE COMPRA ======
-Fecha: 07/12/2025 01:44:52 p. m.
-Vendedor: as
-Ticket: 1004
-Tienda: Mini Super Kokona
-Direccion: Alguna
-RFC: 01100011 01110101 01101110 01101110 01111001
--------------------------------
-r x1  = $1
-asd x1  = $234
-as x1  = $34
--------------------------------
-TOTAL: $269
+TOTAL: $15000
 ===============================
 END_TICKET

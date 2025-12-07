@@ -41,7 +41,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(85, 157);
+            this.btnAceptar.Location = new System.Drawing.Point(68, 139);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 31);
             this.btnAceptar.TabIndex = 22;
@@ -51,7 +51,7 @@
             // 
             // lblnombre
             // 
-            this.lblnombre.Location = new System.Drawing.Point(27, 129);
+            this.lblnombre.Location = new System.Drawing.Point(10, 111);
             this.lblnombre.Name = "lblnombre";
             this.lblnombre.Size = new System.Drawing.Size(69, 26);
             this.lblnombre.TabIndex = 30;
@@ -59,7 +59,7 @@
             // 
             // lblrol
             // 
-            this.lblrol.Location = new System.Drawing.Point(27, 96);
+            this.lblrol.Location = new System.Drawing.Point(10, 78);
             this.lblrol.Name = "lblrol";
             this.lblrol.Size = new System.Drawing.Size(43, 26);
             this.lblrol.TabIndex = 29;
@@ -67,7 +67,7 @@
             // 
             // lblcontraseña
             // 
-            this.lblcontraseña.Location = new System.Drawing.Point(27, 63);
+            this.lblcontraseña.Location = new System.Drawing.Point(10, 45);
             this.lblcontraseña.Name = "lblcontraseña";
             this.lblcontraseña.Size = new System.Drawing.Size(99, 26);
             this.lblcontraseña.TabIndex = 28;
@@ -75,7 +75,7 @@
             // 
             // lblusuario
             // 
-            this.lblusuario.Location = new System.Drawing.Point(27, 30);
+            this.lblusuario.Location = new System.Drawing.Point(10, 12);
             this.lblusuario.Name = "lblusuario";
             this.lblusuario.Size = new System.Drawing.Size(69, 26);
             this.lblusuario.TabIndex = 27;
@@ -83,7 +83,7 @@
             // 
             // txbNombre
             // 
-            this.txbNombre.Location = new System.Drawing.Point(102, 129);
+            this.txbNombre.Location = new System.Drawing.Point(85, 111);
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(130, 22);
             this.txbNombre.TabIndex = 26;
@@ -91,7 +91,7 @@
             // 
             // txbRol
             // 
-            this.txbRol.Location = new System.Drawing.Point(70, 96);
+            this.txbRol.Location = new System.Drawing.Point(53, 78);
             this.txbRol.Name = "txbRol";
             this.txbRol.Size = new System.Drawing.Size(162, 22);
             this.txbRol.TabIndex = 25;
@@ -99,7 +99,7 @@
             // 
             // txbContraseña
             // 
-            this.txbContraseña.Location = new System.Drawing.Point(132, 63);
+            this.txbContraseña.Location = new System.Drawing.Point(115, 45);
             this.txbContraseña.Name = "txbContraseña";
             this.txbContraseña.Size = new System.Drawing.Size(100, 22);
             this.txbContraseña.TabIndex = 24;
@@ -107,7 +107,7 @@
             // 
             // txbNombreUsuario
             // 
-            this.txbNombreUsuario.Location = new System.Drawing.Point(102, 30);
+            this.txbNombreUsuario.Location = new System.Drawing.Point(85, 12);
             this.txbNombreUsuario.Name = "txbNombreUsuario";
             this.txbNombreUsuario.Size = new System.Drawing.Size(130, 22);
             this.txbNombreUsuario.TabIndex = 23;
@@ -117,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(265, 227);
+            this.ClientSize = new System.Drawing.Size(225, 173);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.lblnombre);
             this.Controls.Add(this.lblrol);
