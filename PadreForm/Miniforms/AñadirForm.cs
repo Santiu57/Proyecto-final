@@ -82,10 +82,17 @@ namespace PadreForm
                     txbproovedor.Text,
                     DateTime.Now
                 );
-                PadreForm.Productos.Add(producto);
-                PadreForm.categoriasProductosAdd(cbcategoria);
-                PadreForm.fullregistration();
-                Clear();
+                if (!PadreForm.productoRepetido(producto))
+                {
+                    PadreForm.Productos.Add(producto);
+                    PadreForm.categoriasProductosAdd(cbcategoria);
+                    PadreForm.fullregistration();
+                    Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Ya hay otro producto con el mismo codigo");
+                }
             }
         }
 

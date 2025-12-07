@@ -31,8 +31,15 @@ namespace PadreForm
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            PadreForm.registraUsuario(txbNombreUsuario.Text, txbContraseña.Text, txbRol.Text, txbNombre.Text);
-            txbContraseña.Clear(); txbNombre.Clear(); txbNombreUsuario.Clear(); txbRol.Clear();
+            agregar();
+        }
+
+        private void agregar()
+        {
+            if(PadreForm.registraUsuario(txbNombreUsuario.Text, txbContraseña.Text, txbRol.Text, txbNombre.Text))
+            {
+                txbContraseña.Clear(); txbNombre.Clear(); txbNombreUsuario.Clear(); txbRol.Clear();
+            }
         }
 
         private void txbNombreUsuario_TextChanged(object sender, EventArgs e)
@@ -59,6 +66,14 @@ namespace PadreForm
         {
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
             PadreForm.SetFontSize(this);
+        }
+
+        private void AgregarUsuarioForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                agregar();
+            }
         }
     }
 }

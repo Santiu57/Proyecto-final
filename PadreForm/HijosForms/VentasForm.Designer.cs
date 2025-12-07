@@ -49,10 +49,10 @@
             this.btneliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lbltotal = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pblogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvinventarioventas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvproductosregistrados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pblogo)).BeginInit();
             this.SuspendLayout();
             // 
             // txbbuscador
@@ -257,15 +257,15 @@
             this.lbltotal.Text = "$0.00";
             this.lbltotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // pictureBox1
+            // pblogo
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(652, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 44);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.pblogo.Image = ((System.Drawing.Image)(resources.GetObject("pblogo.Image")));
+            this.pblogo.Location = new System.Drawing.Point(652, 4);
+            this.pblogo.Name = "pblogo";
+            this.pblogo.Size = new System.Drawing.Size(48, 44);
+            this.pblogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pblogo.TabIndex = 7;
+            this.pblogo.TabStop = false;
             // 
             // VentasForm
             // 
@@ -275,7 +275,7 @@
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbltotal);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pblogo);
             this.Controls.Add(this.dgvinventarioventas);
             this.Controls.Add(this.cbcategoria);
             this.Controls.Add(this.btnfinalizarVenta);
@@ -294,7 +294,7 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.VentasForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dgvinventarioventas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvproductosregistrados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pblogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,7 +313,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn proovedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pblogo;
         private System.Windows.Forms.DataGridView dgvproductosregistrados;
         private System.Windows.Forms.DataGridViewTextBoxColumn producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;

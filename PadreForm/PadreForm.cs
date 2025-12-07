@@ -29,7 +29,7 @@ namespace PadreForm
         public static string direccionTienda = "Alguna";
         public static string rfcTienda = "MSK230606ABC";
         public static System.Drawing.Image logo = null;
-        public static Color colorFondo = Color.Black;
+        public static Color colorFondo = Color.White;
         public static Color colorLetra = Color.FromArgb(-50375);
         public static float tamanoLetra = 10f;
 
@@ -68,16 +68,27 @@ namespace PadreForm
                 }
                 else
                 {
-                    var ts = control as ToolStrip;
-                    if (ts != null)
+                    var pb = control as PictureBox;
+                    if (pb != null)
                     {
-                        ts.BackColor = back;
-                        ts.ForeColor = fore;
-
-                        foreach (ToolStripItem item in ts.Items)
+                        if (pb.Name.Contains("logo"))
                         {
-                            item.ForeColor = fore;
-                            item.BackColor = back;
+                            pb.Image = logo;
+                        }
+                    }
+                    else
+                    {
+                        var ts = control as ToolStrip;
+                        if (ts != null)
+                        {
+                            ts.BackColor = back;
+                            ts.ForeColor = fore;
+
+                            foreach (ToolStripItem item in ts.Items)
+                            {
+                                item.ForeColor = fore;
+                                item.BackColor = back;
+                            }
                         }
                     }
                 }
@@ -220,6 +231,16 @@ namespace PadreForm
             }
         }
 
+        public static Icon ImageToIcon(Image img)
+        {
+            Bitmap bmp = new Bitmap(img);
+
+            // Convertimos la imagen en un icono a partir del HICON
+            Icon icon = Icon.FromHandle(bmp.GetHicon());
+
+            return icon;
+        }
+
         public static void registrarTickets() // Guarda los tickets en un archivo de texto
         {
             StreamWriter Ticketsfile = new StreamWriter("Tickets");
@@ -326,16 +347,21 @@ namespace PadreForm
 
         }
 
-        public static void registraUsuario(
+        public static bool registraUsuario(
             string nombreUsuario,
             string contraseña,
             string rol,
             string nombre)
         {
             Usuario usuario = new Usuario(nombreUsuario, contraseña, rol, nombre);
-            Usuarios.Add(usuario);
-            registrarUsuarios();
-            importacionUsuarios();
+            if (!usuarioRepetido(usuario))
+            {
+                Usuarios.Add(usuario);
+                registrarUsuarios();
+                importacionUsuarios();
+                return true;
+            }
+            return false;
         }
 
         public static void eliminaUsuario(string nombre)
@@ -578,6 +604,31 @@ namespace PadreForm
             PadreForm.importacionProductos();
         }
 
+        public static bool productoRepetido(Producto p)
+        {
+            foreach(var pr in Productos)
+            {
+                if(pr.Codigo == p.Codigo)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static bool usuarioRepetido(Usuario u)
+        {
+            foreach (var us in Usuarios)
+            {
+                if (us.NombreUsuario == u.NombreUsuario)
+                {
+                    MessageBox.Show("Ya hay otro usuario con el mismo nombre de usuario");
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public static void FiltrarInventario(
         DataGridView tabla,
         string categoria,
@@ -718,6 +769,8 @@ namespace PadreForm
             tssUsuarioActual.Text = "Usuario Actual: " + usuarioActual;
             CambiarColores(this, colorLetra, colorFondo);
             SetFontSize(this);
+            this.Icon = ImageToIcon(logo);
+            this.Text = nombreTienda;
             Play("Polyphonic.mp3");
             try
             {
