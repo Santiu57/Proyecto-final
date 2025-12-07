@@ -127,9 +127,11 @@
             this.Controls.Add(this.txbRol);
             this.Controls.Add(this.txbContraseña);
             this.Controls.Add(this.txbNombreUsuario);
+            this.KeyPreview = true;
             this.Name = "EditarUsuarioForm";
             this.Text = "Editar Usuario";
             this.Load += new System.EventHandler(this.EditarUsuarioForm_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EditarUsuarioForm_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

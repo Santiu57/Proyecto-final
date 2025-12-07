@@ -214,9 +214,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "EditarForm";
             this.Text = "Editar Producto";
             this.Load += new System.EventHandler(this.EditarForm_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EditarForm_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

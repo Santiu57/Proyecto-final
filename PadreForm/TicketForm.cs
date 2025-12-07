@@ -28,5 +28,13 @@ namespace PadreForm
         {
             
         }
+
+        private void TicketForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                this.Close();
+            }
+        }
     }
 }

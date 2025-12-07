@@ -154,10 +154,12 @@
             this.Controls.Add(this.cbusuarios);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "InicioSesionForm";
             this.Text = "Inicio de Sesion";
             this.Load += new System.EventHandler(this.InicioSesionForm_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InicioSesionForm_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -519,6 +519,7 @@ namespace PadreForm
 
         public static void categoriasProductosAdd(ComboBox caja)
         {
+            caja.Items.Clear();
             for (int i = 0; i < Productos.Count(); i++)
             {
                 if (!caja.Items.Contains(Productos[i].Categoria))
@@ -530,6 +531,7 @@ namespace PadreForm
 
         public static void usuariosAdd(ComboBox caja)
         {
+            caja.Items.Clear();
             for (int i = 0; i < Usuarios.Count(); i++)
             {
                 if (!caja.Items.Contains(Usuarios[i].NombreUsuario))
@@ -541,6 +543,7 @@ namespace PadreForm
 
         public static void rolesUsuariosAdd(ComboBox caja)
         {
+            caja.Items.Clear();
             for (int i = 0; i < Usuarios.Count(); i++)
             {
                 if (!caja.Items.Contains(Usuarios[i].Rol))

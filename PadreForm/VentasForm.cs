@@ -124,6 +124,7 @@ namespace PadreForm
 
                 // Guardar cambios
                 PadreForm.fullregistration();
+                MessageBox.Show("Venta finalizada con Exito");
             }
             catch (Exception ex)
             {
@@ -219,6 +220,25 @@ namespace PadreForm
             fila.Cells[5].Value = cantidadInventario - 1;
 
             CalcularTotal();
+        }
+
+        // Para que al presionar (CTRL + Enter) Finalize la venta
+        HashSet<Keys> teclasPresionadas = new HashSet<Keys>();
+        private void VentasForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            teclasPresionadas.Add(e.KeyCode);
+
+            if (teclasPresionadas.Contains(Keys.ControlKey) &&
+                teclasPresionadas.Contains(Keys.Enter))
+            {
+                GenerarTicket(dgvproductosregistrados);
+                FinalizarVenta(dgvproductosregistrados);
+            }
+        }
+
+        private void VentasForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            teclasPresionadas.Remove(e.KeyCode);
         }
     }
 }

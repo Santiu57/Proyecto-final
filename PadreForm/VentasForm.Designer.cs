@@ -41,7 +41,6 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.proovedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvproductosregistrados = new System.Windows.Forms.DataGridView();
             this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,9 +49,10 @@
             this.btneliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lbltotal = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvinventarioventas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvproductosregistrados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txbbuscador
@@ -172,16 +172,6 @@
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             this.dataGridViewTextBoxColumn7.Width = 125;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(652, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 44);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
             // dgvproductosregistrados
             // 
             this.dgvproductosregistrados.AllowUserToAddRows = false;
@@ -264,8 +254,18 @@
             this.lbltotal.Name = "lbltotal";
             this.lbltotal.Size = new System.Drawing.Size(246, 16);
             this.lbltotal.TabIndex = 7;
-            this.lbltotal.Text = "00";
+            this.lbltotal.Text = "$0.00";
             this.lbltotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(652, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 44);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // VentasForm
             // 
@@ -283,15 +283,18 @@
             this.Controls.Add(this.dgvproductosregistrados);
             this.Controls.Add(this.txbbuscador);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "VentasForm";
             this.Text = "Ventas";
             this.Activated += new System.EventHandler(this.VentasForm_Activated);
             this.Load += new System.EventHandler(this.VentasForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VentasForm_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.VentasForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dgvinventarioventas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvproductosregistrados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

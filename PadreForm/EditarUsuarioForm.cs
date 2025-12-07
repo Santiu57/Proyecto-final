@@ -41,7 +41,19 @@ namespace PadreForm
             allfieldsfilled();
         }
 
+        private void EditarUsuarioForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                editar();
+            }
+        }
+
         private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            editar();
+        }
+        private void editar()
         {
             if (esAdmin && rol != "Admin" && PadreForm.adminscount() < 1)
             {

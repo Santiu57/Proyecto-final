@@ -64,6 +64,11 @@ namespace PadreForm
 
         private void btnañadir_Click(object sender, EventArgs e)
         {
+            añadir();
+        }
+
+        private void añadir()
+        {
             if (allTxbfull())
             {
                 PadreForm.Producto producto = new PadreForm.Producto
@@ -94,6 +99,14 @@ namespace PadreForm
         private void cbcategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
             PadreForm.comboboxToTextbox(cbcategoria, txbcategoria);
+        }
+
+        private void AñadirForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                añadir();
+            }
         }
     }
 }

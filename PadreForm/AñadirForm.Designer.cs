@@ -215,10 +215,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AñadirForm";
             this.Text = "Añadir Producto";
             this.Load += new System.EventHandler(this.AñadirForm_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AñadirForm_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

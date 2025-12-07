@@ -85,8 +85,8 @@ namespace PadreForm
             PadreForm papa = new PadreForm();
             papa.Show();
         }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
+        
+        private void Aceptar()
         {
             if (isFirstSesion())
             {
@@ -103,19 +103,39 @@ namespace PadreForm
                 txbRol.Text = "x"; txbNombre.Text = "x";
                 if (dataVerification())
                 {
-                    int index = cbusuarios.SelectedIndex;
+                    int index = -1;
+                    foreach (var n in PadreForm.Usuarios)
+                    {
+                        if (n.NombreUsuario == txbNombreUsuario.Text)
+                        {
+                            index = PadreForm.Usuarios.IndexOf(n);
+                            break;
+                        }
+                    }
                     if (txbContraseña.Text == PadreForm.Usuarios[index].Contraseña)
                     {
                         PadreForm.usuarioActual = PadreForm.Usuarios[index].NombreUsuario;
                         openPadre();
-                    } 
+                    }
                 }
             }
+        }
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            Aceptar();
         }
 
         private void cbusuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
             PadreForm.comboboxToTextbox(cbusuarios, txbNombreUsuario);
+        }
+
+        private void InicioSesionForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                Aceptar();
+            }
         }
     }
 }

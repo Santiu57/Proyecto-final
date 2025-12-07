@@ -47,9 +47,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 421);
             this.Controls.Add(this.txbticket);
+            this.KeyPreview = true;
             this.Name = "TicketForm";
             this.Text = "Ticket";
             this.Load += new System.EventHandler(this.TicketForm_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TicketForm_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

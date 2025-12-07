@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PadreForm.PadreForm;
 
 namespace PadreForm
 {
@@ -18,12 +20,12 @@ namespace PadreForm
             this.Resize += (s, e) => PadreForm.EscalarControles(this);
         }
 
-        private void fullErase(int index)
+        private void fullErase(string producto)
         {
             try
             {
+                int index = getProductIndex(producto);
                 PadreForm.Productos.RemoveAt(index);
-                dgvinventario.Rows.RemoveAt(index);
                 PadreForm.registraProductos();
             }
             catch(Exception ex)
@@ -32,16 +34,30 @@ namespace PadreForm
             }
         }
 
+        private int getProductIndex(string nombre)
+        {
+            int index = -1;
+            foreach (var p in PadreForm.Productos)
+            {
+                if (p.Codigo == nombre)
+                {
+                    index = PadreForm.Productos.IndexOf(p);
+                    break;
+                }
+            }
+            return index;
+        }
+
         private void openAgregar()
         {
             AñadirForm añadir = new AñadirForm();
             añadir.ShowDialog();
         }
 
-        private void openEditar(int index)
+        private void openEditar(string nombre)
         {
             EditarForm editar = new EditarForm();
-            editar.indice = index;
+            editar.indice = getProductIndex(nombre);
             editar.ShowDialog();
         }
 
@@ -54,7 +70,9 @@ namespace PadreForm
         {
             try
             {
-                fullErase(dgvinventario.CurrentRow.Index);
+                string producto = dgvinventario.CurrentRow.Cells[0].Value.ToString();
+                fullErase(producto);
+                dgvinventario.Rows.RemoveAt(dgvinventario.CurrentRow.Index);
                 PadreForm.fullregistration();
             }
             catch(Exception ex)
@@ -81,8 +99,9 @@ namespace PadreForm
         private void btneditar_Click(object sender, EventArgs e)
         {
             if(dgvinventario.CurrentRow != null)
-            openEditar(dgvinventario.CurrentRow.Index);
-            PadreForm.fullregistration();
+                openEditar(dgvinventario.CurrentRow.Cells[0].Value.ToString());
+                PadreForm.fullregistration();
+                actualizarTabla();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

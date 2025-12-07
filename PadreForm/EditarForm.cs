@@ -43,6 +43,11 @@ namespace PadreForm
 
         private void btneditar_Click(object sender, EventArgs e)
         {
+            editar();
+        }
+
+        private void editar()
+        {
             PadreForm.Productos[indice].Codigo = txbcodigo.Text;
             PadreForm.Productos[indice].Nombre = txbnombre.Text;
             PadreForm.Productos[indice].Categoria = txbcategoria.Text;
@@ -52,6 +57,14 @@ namespace PadreForm
             PadreForm.Productos[indice].Proveedor = txbproovedor.Text;
             PadreForm.Productos[indice].FechaRegistro = DateTime.Now;
             this.Close();
+        }
+
+        private void EditarForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                editar();
+            }
         }
     }
 }
