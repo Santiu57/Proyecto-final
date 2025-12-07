@@ -60,6 +60,7 @@ namespace PadreForm
 
         private void btnborrar_Click(object sender, EventArgs e)
         {
+            string nombreUsuario = dgvusuarios.CurrentRow.Cells[0].Value.ToString();
             if (dgvusuarios.CurrentRow.Cells[1].Value.ToString() == "Admin")
             {
                 if (MessageBox.Show("Este usuario es un administrador, ¿Está seguro de eliminarlo?", "Confirmar eliminación", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -69,7 +70,7 @@ namespace PadreForm
                     {
                         restart = true;
                     }
-                    PadreForm.eliminaUsuario(dgvusuarios.CurrentRow.Index);
+                    PadreForm.eliminaUsuario(nombreUsuario);
                     PadreForm.importacionUsuariosDTG(dgvusuarios);
                     MessageBox.Show("Se ha eliminado el usuario");
                     if (restart)
@@ -80,7 +81,7 @@ namespace PadreForm
             }
             else
             {
-                PadreForm.eliminaUsuario(dgvusuarios.CurrentRow.Index);
+                PadreForm.eliminaUsuario(nombreUsuario);
                 PadreForm.importacionUsuariosDTG(dgvusuarios);
                 MessageBox.Show("Se ha eliminado el usuario");
             }

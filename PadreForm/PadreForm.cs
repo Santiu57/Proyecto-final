@@ -338,8 +338,16 @@ namespace PadreForm
             importacionUsuarios();
         }
 
-        public static void eliminaUsuario(int indice)
+        public static void eliminaUsuario(string nombre)
         {
+            int indice = -1;
+            foreach (var n in Usuarios)
+            {
+                if(n.NombreUsuario == nombre)
+                {
+                    indice = Usuarios.IndexOf(n);
+                }
+            }
             Usuarios.RemoveAt(indice);
             registrarUsuarios();
             importacionUsuarios();
