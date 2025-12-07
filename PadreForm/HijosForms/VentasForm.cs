@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PadreForm.Miniforms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,27 +37,31 @@ namespace PadreForm
         {
             PadreForm.FiltrarInventario(dgvinventarioventas, cbcategoria.Text, txbbuscador.Text);
         }
-        private void AgregarProductoAVenta(string nombre, string precio)
+        private void AgregarProductoAVenta(string nombre, string precio) //agrega el producto desde el inventario al carrito
         {
             foreach (DataGridViewRow fila in dgvproductosregistrados.Rows)
             {
-                if (fila.Cells[0].Value != null &&
+                if (fila.Cells[0].Value != null && //Si existe ya, solo le suma uno a la cantidad
                     fila.Cells[0].Value.ToString() == nombre)
                 {
-                    int cant = int.Parse(fila.Cells["Cantidad"].Value.ToString());
+                    int cant = int.Parse(fila.Cells[2].Value.ToString());
                     fila.Cells[2].Value = cant + 1;
                     return;
                 }
             }
 
-            dgvproductosregistrados.Rows.Add(nombre, precio, 1);
+            dgvproductosregistrados.Rows.Add(nombre, precio, 1);//Si no existia ya, lo agrega
         }
 
-        private void btneliminar_Click(object sender, EventArgs e)
+        private void btneliminar_Click(object sender, EventArgs e)//Elimina el producto seleccionado
         {
             if (!PadreForm.isAdmin())
             {
-                return;
+                AccesoForm a = new AccesoForm();
+                if(!(a.ShowDialog() == DialogResult.OK))
+                {
+                    return;
+                }
             }
 
             if (dgvproductosregistrados.CurrentRow == null) return;

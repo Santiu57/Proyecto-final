@@ -19,21 +19,21 @@ namespace PadreForm
             InitializeComponent();
         }
 
-        public static List<Producto> Productos = new List<Producto> { };
-        public static List<Usuario> Usuarios = new List<Usuario> { };
-        public static List<Ticket> Tickets = new List<Ticket> { };
-        public static int numeroTicket = 1000;
+        public static List<Producto> Productos = new List<Producto> { }; //Guarda los productos registrados
+        public static List<Usuario> Usuarios = new List<Usuario> { }; //Guarda los usuarios registrados
+        public static List<Ticket> Tickets = new List<Ticket> { }; //Guarda los tickets registrados
+        public static int numeroTicket = 1000; //Mantiene los numeros de los tickets
 
-        public static string usuarioActual;
+        public static string usuarioActual; //Guarda cual es el usuario Actual
         public static string nombreTienda = "Mini Super Kokona";
         public static string direccionTienda = "Alguna";
         public static string rfcTienda = "MSK230606ABC";
-        public static System.Drawing.Image logo = null;
+        public static System.Drawing.Image logo = null; //Guarda el logo
         public static Color colorFondo = Color.White;
         public static Color colorLetra = Color.FromArgb(-50375);
         public static float tamanoLetra = 10f;
 
-        public static void CambiarColores(Control control, Color fore, Color back)
+        public static void CambiarColores(Control control, Color fore, Color back) //Cambia el color de letra y fondo por los globales
         {
             // Cambiar color del control actual
             control.ForeColor = fore;
@@ -68,7 +68,7 @@ namespace PadreForm
                 }
                 else
                 {
-                    var pb = control as PictureBox;
+                    var pb = control as PictureBox; //si el picture box contiene en el nombre "logo", su imagen se cambiara al logo
                     if (pb != null)
                     {
                         if (pb.Name.Contains("logo"))
@@ -100,7 +100,7 @@ namespace PadreForm
                 CambiarColores(hijo, fore, back);
             }
         }
-        public static void SetFontSize(Form form)
+        public static void SetFontSize(Form form)// Aplica tamaño de letra global
         {
             if (form.Tag == null)
                 form.Tag = new SizeF(form.Width, form.Height); // Tamaño original del form
@@ -110,7 +110,7 @@ namespace PadreForm
                 if (c.Tag == null)
                     c.Tag = new object[] { c.Location, c.Size, c.Font.Size }; // Valores originales
 
-                // Aplicar tamaño de letra global SOLO en el Load
+                
                 c.Font = new Font(c.Font.FontFamily, PadreForm.tamanoLetra, c.Font.Style);
             }
 
@@ -118,7 +118,7 @@ namespace PadreForm
         }
 
 
-        public static void EscalarControles(Form form)
+        public static void EscalarControles(Form form)//Escala los controles al cambiar el tamaño del form
         {
             if (form.Tag == null)
                 return;
@@ -156,7 +156,7 @@ namespace PadreForm
         }
 
 
-        public static bool noRepeatForms(Form mdiParent, Type formType)
+        public static bool noRepeatForms(Form mdiParent, Type formType) // Verifica si hay un tipo de form especifico en el PadreForm
         {
             foreach (Form form in mdiParent.MdiChildren)
             {
@@ -196,7 +196,7 @@ namespace PadreForm
 
                 try
                 {
-                    if (File.Exists("logo.png"))
+                    if (File.Exists("logo.png")) // verifica que haya un logo
                     {
                         logo = Image.FromFile("logo.png");
                     }
@@ -231,7 +231,7 @@ namespace PadreForm
             }
         }
 
-        public static Icon ImageToIcon(Image img)
+        public static Icon ImageToIcon(Image img) // Genera un icono dedsde la imagen
         {
             if (img == null)
             {
@@ -277,7 +277,7 @@ namespace PadreForm
             Usuariosfile.Close();
         }
 
-        public static void importacionTickets()
+        public static void importacionTickets() // Importa los tickets desde el archivo de texto
         {
             try
             {
@@ -353,7 +353,7 @@ namespace PadreForm
 
         }
 
-        public static bool registraUsuario(
+        public static bool registraUsuario( // Simplifica la manera de registrar un nuevo usuario
             string nombreUsuario,
             string contraseña,
             string rol,
@@ -370,7 +370,7 @@ namespace PadreForm
             return false;
         }
 
-        public static void eliminaUsuario(string nombre)
+        public static void eliminaUsuario(string nombre) //Elimina el usuario seleccionado, lo busca por nombre para evitar eliminar el equivocado
         {
             int indice = -1;
             foreach (var n in Usuarios)
@@ -385,7 +385,7 @@ namespace PadreForm
             importacionUsuarios();
         }
 
-        public static int adminscount()
+        public static int adminscount() // devuelve la cantidad de Admins que hay
         {
             int count = 0;
             for (int i = 0; i < Usuarios.Count(); i++)
@@ -398,7 +398,7 @@ namespace PadreForm
             return count;
         }
 
-        public static void modificaUsuario(
+        public static void modificaUsuario( // Simplifica la manera de modificar un Usuario
             int indice,
             string nombreUsuario,
             string contraseña,
@@ -430,7 +430,7 @@ namespace PadreForm
             return false;
         }
 
-        public static void importacionUsuarios()
+        public static void importacionUsuarios()// Importa los usuarios
         {
             Usuarios.Clear();
 
@@ -445,7 +445,7 @@ namespace PadreForm
             }
         }
 
-        public static void importacioTicketsDTG(DataGridView tabla)
+        public static void importacioTicketsDTG(DataGridView tabla) //Inserta ciertos datos a un dtg sobre los tickets
         {
             try
             {
@@ -464,7 +464,7 @@ namespace PadreForm
                 MessageBox.Show(ex.Message);
             }
         }
-        public static void importacionUsuariosDTG(DataGridView tabla)
+        public static void importacionUsuariosDTG(DataGridView tabla) //Inserta ciertos datos a un dtg sobre los Usuarios
         {
             try
             {
@@ -488,7 +488,7 @@ namespace PadreForm
             }
         }
 
-        public static void importacionProductosInventario(DataGridView tabla)
+        public static void importacionProductosInventario(DataGridView tabla)//Inserta todos los datos a un dtg sobre los productos
         {
             try
             {
@@ -518,7 +518,7 @@ namespace PadreForm
             }
         }
 
-        public static void importacionProductos()
+        public static void importacionProductos()// llena la lista de Productos con los datos del archivo de texto
         {
             try
             {
@@ -549,7 +549,7 @@ namespace PadreForm
             }
         }
 
-        public static void categoriasProductosAdd(ComboBox caja)
+        public static void categoriasProductosAdd(ComboBox caja)//Añade todas las categorias existentes en un cb
         {
             caja.Items.Clear();
             for (int i = 0; i < Productos.Count(); i++)
@@ -561,7 +561,19 @@ namespace PadreForm
             }
         }
 
-        public static void usuariosAdd(ComboBox caja)
+        public static void AdminsAdd(ComboBox caja)//Añade todos los Admins existentes en un cb
+        {
+            caja.Items.Clear();
+            for (int i = 0; i < Usuarios.Count(); i++)
+            {
+                if (!caja.Items.Contains(Usuarios[i].NombreUsuario) && Usuarios[i].Rol == "Admin")
+                {
+                    caja.Items.Add(Usuarios[i].NombreUsuario);
+                }
+            }
+        }
+
+        public static void usuariosAdd(ComboBox caja)//Añade todos los Usuarios existentes en un cb
         {
             caja.Items.Clear();
             for (int i = 0; i < Usuarios.Count(); i++)
@@ -573,7 +585,7 @@ namespace PadreForm
             }
         }
 
-        public static void rolesUsuariosAdd(ComboBox caja)
+        public static void rolesUsuariosAdd(ComboBox caja)//Añade todos los Roles existentes en un cb
         {
             caja.Items.Clear();
             for (int i = 0; i < Usuarios.Count(); i++)
@@ -585,7 +597,7 @@ namespace PadreForm
             }
         }
 
-        public static void registraProductos()
+        public static void registraProductos()//Registra los productos en un archivo de texto
         {
             StreamWriter Productosfile = new StreamWriter("Productos");
             foreach (var p in Productos)
@@ -604,13 +616,13 @@ namespace PadreForm
             Productosfile.Close();
         }
 
-        public static void fullregistration()
+        public static void fullregistration()//Registra e importa los productos
         {
             PadreForm.registraProductos();
             PadreForm.importacionProductos();
         }
 
-        public static bool productoRepetido(Producto p)
+        public static bool productoRepetido(Producto p)//verifica que el producto no tenga el mismo codigo de otro
         {
             foreach(var pr in Productos)
             {
@@ -622,7 +634,7 @@ namespace PadreForm
             return false;
         }
 
-        public static bool usuarioRepetido(Usuario u)
+        public static bool usuarioRepetido(Usuario u)//verifica que el usuario no tenga el mismo Nombre de Usuario de otro
         {
             foreach (var us in Usuarios)
             {
@@ -635,7 +647,7 @@ namespace PadreForm
             return false;
         }
 
-        public static void FiltrarInventario(
+        public static void FiltrarInventario(//Filtro para el inventario de productos
         DataGridView tabla,
         string categoria,
         string buscador)
@@ -657,7 +669,7 @@ namespace PadreForm
                         Productos[i].Categoria.ToUpper().Contains(categoriaFiltro);
                 }
 
-                // Filtrar por código o nombre
+                // Filtrar por código, nombre o proveedor
                 if (!string.IsNullOrWhiteSpace(buscador))
                 {
                     coincideBusqueda =
@@ -683,7 +695,7 @@ namespace PadreForm
             }
         }
 
-        public static void FiltrarUsuarios(
+        public static void FiltrarUsuarios(//Filtro para Usuarios
         DataGridView tabla,
         string categoria,
         string buscador)
@@ -726,15 +738,15 @@ namespace PadreForm
         }
 
 
-        public static void comboboxToTextbox(ComboBox caja, TextBox cajaTexto)
+        public static void comboboxToTextbox(ComboBox c, TextBox t)//Establece el texto del txb al del cb
         {
-            if (caja.SelectedItem != null)
+            if (c.SelectedItem != null)
             {
-                cajaTexto.Text = caja.SelectedItem.ToString();
+                t.Text = c.SelectedItem.ToString();
             }
         }
 
-        private void openVentas()
+        private void openVentas()//Abre el form Ventas como hijo del padreForm si no esta ya abierto
         {
             if (!noRepeatForms(this, typeof(VentasForm))) return;
             VentasForm ventas = new VentasForm();
@@ -742,7 +754,7 @@ namespace PadreForm
             ventas.Show();
         }
 
-        private void openInventario()
+        private void openInventario()//Abre el form Inventario como hijo del padreForm si no esta ya abierto
         {
             if (!noRepeatForms(this, typeof(InventarioForm))) return;
             InventarioForm inventario = new InventarioForm();
@@ -750,7 +762,7 @@ namespace PadreForm
             inventario.Show();
         }
 
-        private void openUsuarios()
+        private void openUsuarios()//Abre el form Usuarios como hijo del padreForm si no esta ya abierto y si eres Admin
         {
             if (isAdmin())
             {
@@ -760,7 +772,7 @@ namespace PadreForm
                 usuarios.Show();
             }
         }
-        private void openReportes()
+        private void openReportes()//Abre el form Reportes como hijo del padreForm si no esta ya abierto
         {
             if (!noRepeatForms(this, typeof(ReportesForm))) return;
             ReportesForm reportes = new ReportesForm();
@@ -778,7 +790,7 @@ namespace PadreForm
             this.Icon = ImageToIcon(logo);
             this.Text = nombreTienda;
             Play("Polyphonic.mp3");
-            try
+            try //Carga los tickets desde antes por si se hace una venta antes de abrir los tickets
             {
                 PadreForm.importacionTickets();
             }
@@ -790,7 +802,7 @@ namespace PadreForm
 
         // Metodos de los sonidos
         public static WindowsMediaPlayer wmp = new WindowsMediaPlayer();
-        public void Play(string archivo)
+        public void Play(string archivo) //Reproduce un sonido especifico de la carpeta "sonidos"
         {
             string ruta = Path.Combine(Application.StartupPath, "sonidos", archivo);
             wmp.URL = ruta;
@@ -803,7 +815,7 @@ namespace PadreForm
             Application.Exit();
         }
 
-        private void tmractualizaciondeDatos_Tick(object sender, EventArgs e)
+        private void tmractualizaciondeDatos_Tick(object sender, EventArgs e) //Timer que solo actualiza la hora
         {
             tlshora.Text = DateTime.Now.ToLongTimeString();
         }
@@ -827,7 +839,7 @@ namespace PadreForm
         {
             openUsuarios();
         }
-        private void openConfig()
+        private void openConfig()//Abre el form Condiguracion como hijo del padreForm si no esta ya abierto y si el usuario es admin
         {
             if (!noRepeatForms(this, typeof(ConfiguracionForm))) return;
             if (!isAdmin()) return;
@@ -835,7 +847,9 @@ namespace PadreForm
             config.MdiParent = this;
             config.Show();
         }
-        public class Ticket
+
+        //Clases
+        public class Ticket //Para guardar todos los datos de los tickets
         {
             public string Contenido { get; set; }
             public string Vendedor { get; set; }
@@ -858,7 +872,7 @@ namespace PadreForm
                 RFC = rfc;
             }
         }
-        public class Producto
+        public class Producto //Para guardar todos los datos de los productos
         {
             public string Codigo { get; set; }
             public string Nombre { get; set; }
@@ -880,7 +894,7 @@ namespace PadreForm
                 FechaRegistro = fechaRegistro;
             }
         }
-        public class Usuario
+        public class Usuario //Para guardar todos los datos de los Usuarios
         {
             public string NombreUsuario { get; set; }
             public string Contraseña { get; set; }
@@ -921,7 +935,7 @@ namespace PadreForm
             openInventario();
         }
 
-        private void limpiarToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void limpiarToolStripMenuItem1_Click(object sender, EventArgs e)//si el usuario es admin puede limpiar todos los productos
         {
             if (!isAdmin()) return;
             Productos.Clear();
@@ -938,7 +952,7 @@ namespace PadreForm
             openReportes();
         }
 
-        private void limpiarToolStripMenuItem3_Click(object sender, EventArgs e)
+        private void limpiarToolStripMenuItem3_Click(object sender, EventArgs e)//si el usuario es admin puede limpiar todos los tickets, el numero de ticket no se ve afectado
         {
             if (!isAdmin()) return;
             Tickets.Clear();

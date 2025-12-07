@@ -43,3 +43,4 @@ C:\Users\santi\Downloads\Proyecto final\PadreForm\obj\Debug\proyecto final.cspro
 C:\Users\santi\Downloads\Proyecto final\PadreForm\obj\Debug\proyecto final.csproj.CoreCompileInputs.cache
 C:\Users\santi\Downloads\Proyecto final\PadreForm\obj\Debug\PadreForm.exe
 C:\Users\santi\Downloads\Proyecto final\PadreForm\obj\Debug\PadreForm.pdb
+C:\Users\santi\Downloads\Proyecto final\PadreForm\obj\Debug\PadreForm.Miniforms.AccesoForm.resources
