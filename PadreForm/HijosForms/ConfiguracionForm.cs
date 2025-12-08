@@ -27,6 +27,7 @@ namespace PadreForm
             PadreForm.colorLetra = cdletra.Color;
             PadreForm.colorFondo = cdfondo.Color;
             PadreForm.wmp.settings.volume = trbVolumen.Value;
+            PadreForm.musica = cbxmusica.Checked;
 
             if (PadreForm.logo != null)// Si el logo cambio, lo guarda
             {
@@ -90,6 +91,7 @@ namespace PadreForm
             cdletra.Color = PadreForm.colorLetra;
             trbVolumen.Value = PadreForm.wmp.settings.volume;
             tkbLetraTamaño.Value = (int)PadreForm.tamanoLetra;
+            cbxmusica.Checked = PadreForm.musica;
 
             txbnombretienda.Text = PadreForm.nombreTienda;
             txbubicaciontienda.Text = PadreForm.direccionTienda;
@@ -108,6 +110,11 @@ namespace PadreForm
         {
             PadreForm.tamanoLetra = tkbLetraTamaño.Value;
             PadreForm.SetFontSize(this);
+        }
+
+        private void cbxmusica_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

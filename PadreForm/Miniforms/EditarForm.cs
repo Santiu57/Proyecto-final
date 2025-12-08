@@ -70,5 +70,20 @@ namespace PadreForm
                 editar();
             }
         }
+
+        private void txbPcompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            PadreForm.onlynums(e,sender);
+        }
+
+        private void txbPventa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            PadreForm.onlynums(e, sender);
+        }
+
+        private void txbCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            PadreForm.onlynums(e, sender);
+        }
     }
 }

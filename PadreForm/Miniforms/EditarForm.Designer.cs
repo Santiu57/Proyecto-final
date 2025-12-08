@@ -53,6 +53,7 @@
             this.txbCantidad.Name = "txbCantidad";
             this.txbCantidad.Size = new System.Drawing.Size(132, 22);
             this.txbCantidad.TabIndex = 27;
+            this.txbCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbCantidad_KeyPress);
             // 
             // label6
             // 
@@ -92,6 +93,7 @@
             this.txbPventa.Name = "txbPventa";
             this.txbPventa.Size = new System.Drawing.Size(132, 22);
             this.txbPventa.TabIndex = 23;
+            this.txbPventa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbPventa_KeyPress);
             // 
             // txbPcompra
             // 
@@ -100,6 +102,7 @@
             this.txbPcompra.Name = "txbPcompra";
             this.txbPcompra.Size = new System.Drawing.Size(132, 22);
             this.txbPcompra.TabIndex = 22;
+            this.txbPcompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbPcompra_KeyPress);
             // 
             // txbcategoria
             // 

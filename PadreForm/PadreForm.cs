@@ -33,6 +33,7 @@ namespace PadreForm
         public static Color colorFondo = Color.White;
         public static Color colorLetra = Color.FromArgb(-50375);
         public static float tamanoLetra = 10f;
+        public static bool musica = true;
 
         public static void CambiarColores(Control control, Color fore, Color back) //Cambia el color de letra y fondo por los globales
         {
@@ -183,7 +184,7 @@ namespace PadreForm
         {
             using (var fs = new StreamWriter("Configuracion"))
             {
-                string config = nombreTienda + "/" + direccionTienda + "/" + colorFondo.ToArgb() + "/" + colorLetra.ToArgb() + "/" + wmp.settings.volume.ToString() + "/" + numeroTicket.ToString() + "/" + rfcTienda + "/" + tamanoLetra.ToString();
+                string config = nombreTienda + "/" + direccionTienda + "/" + colorFondo.ToArgb() + "/" + colorLetra.ToArgb() + "/" + wmp.settings.volume.ToString() + "/" + numeroTicket.ToString() + "/" + rfcTienda + "/" + tamanoLetra.ToString() + "/" + musica.ToString();
                 fs.WriteLine(config);
             }
         }
@@ -204,6 +205,7 @@ namespace PadreForm
                 numeroTicket = int.Parse(valores[5]);
                 rfcTienda = valores[6];
                 tamanoLetra = float.Parse(valores[7]);
+                musica = bool.Parse(valores[8]);
 
                 try
                 {
@@ -751,6 +753,20 @@ namespace PadreForm
             }
         }
 
+        public static void onlynums(KeyPressEventArgs e, object sender)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+                e.Handled = true;
+
+            // Evitar dos puntos decimales
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+                e.Handled = true;
+        }
+
+
 
         public static void comboboxToTextbox(ComboBox c, TextBox t)//Establece el texto del txb al del cb
         {
@@ -807,7 +823,10 @@ namespace PadreForm
             SetFontSize(this);
             this.Icon = ImageToIcon(logo);
             this.Text = nombreTienda;
-            PlayBg("Irasshaimase.mp3");
+            if (musica)
+            {
+                PlayBg("Irasshaimase.mp3");
+            }
             try //Carga los tickets desde antes por si se hace una venta antes de abrir los tickets
             {
                 PadreForm.importacionTickets();

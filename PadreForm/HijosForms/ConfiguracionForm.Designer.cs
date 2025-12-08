@@ -51,6 +51,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.tkbLetraTamaño = new System.Windows.Forms.TrackBar();
             this.label8 = new System.Windows.Forms.Label();
+            this.cbxmusica = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pblogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbVolumen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tkbLetraTamaño)).BeginInit();
@@ -229,12 +230,24 @@
             this.label8.TabIndex = 18;
             this.label8.Text = "Tamaño de Letra:";
             // 
+            // cbxmusica
+            // 
+            this.cbxmusica.AutoSize = true;
+            this.cbxmusica.Location = new System.Drawing.Point(326, 71);
+            this.cbxmusica.Name = "cbxmusica";
+            this.cbxmusica.Size = new System.Drawing.Size(72, 20);
+            this.cbxmusica.TabIndex = 21;
+            this.cbxmusica.Text = "Musica";
+            this.cbxmusica.UseVisualStyleBackColor = true;
+            this.cbxmusica.CheckedChanged += new System.EventHandler(this.cbxmusica_CheckedChanged);
+            // 
             // ConfiguracionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(459, 382);
+            this.Controls.Add(this.cbxmusica);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.tkbLetraTamaño);
             this.Controls.Add(this.label8);
@@ -292,5 +305,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TrackBar tkbLetraTamaño;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox cbxmusica;
     }
 }
