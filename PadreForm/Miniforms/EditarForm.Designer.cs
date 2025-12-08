@@ -44,11 +44,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txbproovedor = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.cbproveedores = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txbCantidad
             // 
-            this.txbCantidad.Location = new System.Drawing.Point(330, 137);
+            this.txbCantidad.Location = new System.Drawing.Point(330, 124);
             this.txbCantidad.Margin = new System.Windows.Forms.Padding(4);
             this.txbCantidad.Name = "txbCantidad";
             this.txbCantidad.Size = new System.Drawing.Size(132, 22);
@@ -57,7 +58,7 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(330, 118);
+            this.label6.Location = new System.Drawing.Point(330, 105);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(132, 16);
@@ -78,6 +79,7 @@
             // 
             // cbcategoria
             // 
+            this.cbcategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbcategoria.FormattingEnabled = true;
             this.cbcategoria.Location = new System.Drawing.Point(330, 75);
             this.cbcategoria.Margin = new System.Windows.Forms.Padding(4);
@@ -88,7 +90,7 @@
             // 
             // txbPventa
             // 
-            this.txbPventa.Location = new System.Drawing.Point(179, 137);
+            this.txbPventa.Location = new System.Drawing.Point(179, 124);
             this.txbPventa.Margin = new System.Windows.Forms.Padding(4);
             this.txbPventa.Name = "txbPventa";
             this.txbPventa.Size = new System.Drawing.Size(132, 22);
@@ -97,7 +99,7 @@
             // 
             // txbPcompra
             // 
-            this.txbPcompra.Location = new System.Drawing.Point(26, 137);
+            this.txbPcompra.Location = new System.Drawing.Point(26, 124);
             this.txbPcompra.Margin = new System.Windows.Forms.Padding(4);
             this.txbPcompra.Name = "txbPcompra";
             this.txbPcompra.Size = new System.Drawing.Size(132, 22);
@@ -130,7 +132,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(23, 118);
+            this.label5.Location = new System.Drawing.Point(23, 105);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(135, 16);
@@ -150,7 +152,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(181, 118);
+            this.label3.Location = new System.Drawing.Point(181, 105);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(130, 16);
@@ -180,7 +182,7 @@
             // 
             // txbproovedor
             // 
-            this.txbproovedor.Location = new System.Drawing.Point(179, 207);
+            this.txbproovedor.Location = new System.Drawing.Point(179, 176);
             this.txbproovedor.Margin = new System.Windows.Forms.Padding(4);
             this.txbproovedor.Name = "txbproovedor";
             this.txbproovedor.Size = new System.Drawing.Size(132, 22);
@@ -188,7 +190,7 @@
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(181, 187);
+            this.label7.Location = new System.Drawing.Point(181, 156);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(130, 16);
@@ -196,11 +198,23 @@
             this.label7.Text = "Proovedor";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // cbproveedores
+            // 
+            this.cbproveedores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbproveedores.FormattingEnabled = true;
+            this.cbproveedores.Location = new System.Drawing.Point(179, 205);
+            this.cbproveedores.Margin = new System.Windows.Forms.Padding(4);
+            this.cbproveedores.Name = "cbproveedores";
+            this.cbproveedores.Size = new System.Drawing.Size(132, 24);
+            this.cbproveedores.TabIndex = 30;
+            this.cbproveedores.SelectedIndexChanged += new System.EventHandler(this.cbproveedores_SelectedIndexChanged);
+            // 
             // EditarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 271);
+            this.Controls.Add(this.cbproveedores);
             this.Controls.Add(this.txbproovedor);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txbCantidad);
@@ -245,5 +259,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txbproovedor;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbproveedores;
     }
 }

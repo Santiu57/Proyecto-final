@@ -101,6 +101,7 @@ namespace PadreForm
         private void AñadirForm_Load(object sender, EventArgs e)
         {
             PadreForm.categoriasProductosAdd(cbcategoria);
+            PadreForm.proveedoresProductosAdd(cbproveedores);
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
             PadreForm.SetFontSize(this);
             PadreForm.EscalarControles(this);
@@ -133,6 +134,11 @@ namespace PadreForm
         private void txbCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             PadreForm.onlynums(e, sender);
+        }
+
+        private void cbproveedores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PadreForm.comboboxToTextbox(cbproveedores, txbproovedor);
         }
     }
 }

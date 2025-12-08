@@ -577,6 +577,18 @@ namespace PadreForm
             }
         }
 
+        public static void proveedoresProductosAdd(ComboBox caja)//Añade todas las categorias existentes en un cb
+        {
+            caja.Items.Clear();
+            for (int i = 0; i < Productos.Count(); i++)
+            {
+                if (!caja.Items.Contains(Productos[i].Proveedor))
+                {
+                    caja.Items.Add(Productos[i].Proveedor);
+                }
+            }
+        }
+
         public static void AdminsAdd(ComboBox caja)//Añade todos los Admins existentes en un cb
         {
             caja.Items.Clear();

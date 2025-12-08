@@ -28,6 +28,7 @@ namespace PadreForm
             PadreForm.EscalarControles(this);
             this.Icon = PadreForm.ImageToIcon(PadreForm.logo);
             PadreForm.categoriasProductosAdd(cbcategoria);
+            PadreForm.proveedoresProductosAdd(cbproveedores);
             if (indice != -1) //llena los campos con los datos del producto
             {
                 txbcodigo.Text = PadreForm.Productos[indice].Codigo;
@@ -84,6 +85,11 @@ namespace PadreForm
         private void txbCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             PadreForm.onlynums(e, sender);
+        }
+
+        private void cbproveedores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PadreForm.comboboxToTextbox(cbproveedores, txbproovedor);
         }
     }
 }
