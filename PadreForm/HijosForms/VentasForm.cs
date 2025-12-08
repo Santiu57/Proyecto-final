@@ -192,9 +192,21 @@ namespace PadreForm
 
         private void btnfinalizarVenta_Click(object sender, EventArgs e)
         {
-            GenerarTicket(dgvproductosregistrados);
-            FinalizarVenta(dgvproductosregistrados);
+            Finalizar();
         }
+        private void Finalizar()
+        {
+            if(dgvproductosregistrados.Rows.Count > 0)
+            {
+                GenerarTicket(dgvproductosregistrados);
+                FinalizarVenta(dgvproductosregistrados);
+            }
+            else
+            {
+                MessageBox.Show("Carrito vacio");
+            }
+        }
+
 
         private void VentasForm_Activated(object sender, EventArgs e) //Actualiza datos al tener el foco de nuevo
         {
@@ -235,8 +247,7 @@ namespace PadreForm
             if (teclasPresionadas.Contains(Keys.ControlKey) &&
                 teclasPresionadas.Contains(Keys.Enter))
             {
-                GenerarTicket(dgvproductosregistrados);
-                FinalizarVenta(dgvproductosregistrados);
+                Finalizar();
             }
         }
 
