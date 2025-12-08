@@ -16,6 +16,7 @@ namespace PadreForm
         {
             InitializeComponent();
             this.Resize += (s, e) => PadreForm.EscalarControles(this);
+            this.FormClosed += (s, e) => PadreForm.randomSound(PadreForm.closeSounds);
         }
 
         public int indice = -1;

@@ -16,10 +16,13 @@ namespace PadreForm
         {
             InitializeComponent();
             this.Resize += (s, e) => PadreForm.EscalarControles(this);
+            this.FormClosed += (s, e) => PadreForm.randomSound(PadreForm.closeSounds);
         }
 
         private void openTicket(int numTicket) //Abre el ticet en el ticket Form, buscando por numero de ticket
-        { 
+        {
+            PadreForm.randomSound(PadreForm.openSounds);
+
             TicketForm ticketForm = new TicketForm();
             
             int index = -1;

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.IO;
 using WMPLib;
 using System.Windows.Forms;
+using System.Data.SqlTypes;
 
 namespace PadreForm
 {
@@ -74,20 +75,29 @@ namespace PadreForm
                         if (pb.Name.Contains("logo"))
                         {
                             pb.Image = logo;
+                            pb.Click += (s, e) => PadreForm.Play("cat.mp3");
                         }
                     }
                     else
                     {
-                        var ts = control as ToolStrip;
-                        if (ts != null)
+                        var btn = control as Button; //Añade sonido al presionar botones
+                        if (btn != null)
                         {
-                            ts.BackColor = back;
-                            ts.ForeColor = fore;
-
-                            foreach (ToolStripItem item in ts.Items)
+                            btn.Click += (s, e) => PadreForm.randomSound(openSounds);
+                        }
+                        else
+                        {
+                            var ts = control as ToolStrip;
+                            if (ts != null)
                             {
-                                item.ForeColor = fore;
-                                item.BackColor = back;
+                                ts.BackColor = back;
+                                ts.ForeColor = fore;
+
+                                foreach (ToolStripItem item in ts.Items)
+                                {
+                                    item.ForeColor = fore;
+                                    item.BackColor = back;
+                                }
                             }
                         }
                     }
@@ -190,6 +200,7 @@ namespace PadreForm
                 colorFondo = Color.FromArgb(int.Parse(valores[2]));
                 colorLetra = Color.FromArgb(int.Parse(valores[3]));
                 wmp.settings.volume = int.Parse(valores[4]);
+                wmpbg.settings.volume = int.Parse(valores[4]);
                 numeroTicket = int.Parse(valores[5]);
                 rfcTienda = valores[6];
                 tamanoLetra = float.Parse(valores[7]);
@@ -755,6 +766,7 @@ namespace PadreForm
             VentasForm ventas = new VentasForm();
             ventas.MdiParent = this;
             ventas.Show();
+            randomSound(openSounds);
         }
 
         private void openInventario()//Abre el form Inventario como hijo del padreForm si no esta ya abierto
@@ -763,6 +775,7 @@ namespace PadreForm
             InventarioForm inventario = new InventarioForm();
             inventario.MdiParent = this;
             inventario.Show();
+            randomSound(openSounds);
         }
 
         private void openUsuarios()//Abre el form Usuarios como hijo del padreForm si no esta ya abierto y si eres Admin
@@ -773,6 +786,7 @@ namespace PadreForm
                 UsuariosForm usuarios = new UsuariosForm();
                 usuarios.MdiParent = this;
                 usuarios.Show();
+                randomSound(openSounds);
             }
         }
         private void openReportes()//Abre el form Reportes como hijo del padreForm si no esta ya abierto
@@ -781,6 +795,7 @@ namespace PadreForm
             ReportesForm reportes = new ReportesForm();
             reportes.MdiParent = this;
             reportes.Show();
+            randomSound(openSounds);
         }
 
         private void PadreForm_Load(object sender, EventArgs e)
@@ -792,7 +807,7 @@ namespace PadreForm
             SetFontSize(this);
             this.Icon = ImageToIcon(logo);
             this.Text = nombreTienda;
-            Play("Polyphonic.mp3");
+            PlayBg("Polyphonic.mp3");
             try //Carga los tickets desde antes por si se hace una venta antes de abrir los tickets
             {
                 PadreForm.importacionTickets();
@@ -805,15 +820,32 @@ namespace PadreForm
 
         // Metodos de los sonidos
         public static WindowsMediaPlayer wmp = new WindowsMediaPlayer();
-        public void Play(string archivo) //Reproduce un sonido especifico de la carpeta "sonidos"
+        public static WindowsMediaPlayer wmpbg = new WindowsMediaPlayer();
+        public static List<string> openSounds = new List<string> {"open1.mp3", "open2.mp3", "open3.mp3", "open4.mp3"};
+        public static List<string> closeSounds = new List<string> {"close1.mp3", "close2.mp3"};
+        public static void randomSound(List<string> soundList) //Reproduce un sonido aleatorio de la lista proporcionada
+        {
+            Random rng = new Random();
+            int ran = rng.Next(0, soundList.Count());
+            Play(soundList[ran]);
+        }
+        public static void Play(string archivo) //Reproduce un sonido especifico de la carpeta "sonidos"
         {
             string ruta = Path.Combine(Application.StartupPath, "sonidos", archivo);
             wmp.URL = ruta;
             wmp.controls.play();
         }
+        public static void PlayBg(string archivo) //Reproduce un sonido especifico de la carpeta "sonidos"
+        {
+            string ruta = Path.Combine(Application.StartupPath, "sonidos", archivo);
+            wmpbg.settings.setMode("loop", true);
+            wmpbg.URL = ruta;
+            wmpbg.controls.play();
+        }
 
         private void PadreForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            randomSound(closeSounds);
             configSafe();
             Application.Exit();
         }
@@ -849,6 +881,7 @@ namespace PadreForm
             ConfiguracionForm config = new ConfiguracionForm();
             config.MdiParent = this;
             config.Show();
+            randomSound(openSounds);
         }
 
         //Clases
@@ -960,6 +993,11 @@ namespace PadreForm
             if (!isAdmin()) return;
             Tickets.Clear();
             registrarTickets();
+        }
+
+        private void tsbCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }

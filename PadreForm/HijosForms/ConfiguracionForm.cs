@@ -16,6 +16,7 @@ namespace PadreForm
         public ConfiguracionForm()
         {
             InitializeComponent();
+            this.FormClosed += (s, e) => PadreForm.randomSound(PadreForm.closeSounds);
         }
 
         private void btnAceptar_Click(object sender, EventArgs e) //Reemplaza los valores globales
@@ -45,6 +46,7 @@ namespace PadreForm
 
         private void btnlogo_Click(object sender, EventArgs e)
         {
+            PadreForm.randomSound(PadreForm.openSounds);
             if (ofdlogo.ShowDialog() == DialogResult.OK)//Mustra el ofd para el logo y lo guarda
             {
                 try
@@ -72,6 +74,7 @@ namespace PadreForm
         
         private void btnfondo_Click(object sender, EventArgs e)// muetra el cd para el fondo y cambia el color del pnl como previsualizacion
         {
+            PadreForm.randomSound(PadreForm.openSounds);
             cdfondo.ShowDialog();
             pnlfondo.BackColor = cdfondo.Color;
         }
@@ -95,6 +98,7 @@ namespace PadreForm
 
         private void btnletra_Click(object sender, EventArgs e)// muetra el cd para el letra y cambia el color del pnl como previsualizacion
         {
+            PadreForm.randomSound(PadreForm.openSounds);
             cdletra.ShowDialog();
             pnlletra.BackColor = cdletra.Color;
         }

@@ -34,6 +34,11 @@
             this.tssUsuarioActual = new System.Windows.Forms.ToolStripStatusLabel();
             this.tlshora = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tlsbVentas = new System.Windows.Forms.ToolStripButton();
+            this.tlsbinventario = new System.Windows.Forms.ToolStripButton();
+            this.tlsbreportes = new System.Windows.Forms.ToolStripButton();
+            this.tlsbusuarios = new System.Windows.Forms.ToolStripButton();
+            this.tlsbconfiguracion = new System.Windows.Forms.ToolStripButton();
             this.tlslusuarioActual = new System.Windows.Forms.ToolStripLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,11 +55,8 @@
             this.abrirToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.limpiarToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.tmractualizaciondeDatos = new System.Windows.Forms.Timer(this.components);
-            this.tlsbVentas = new System.Windows.Forms.ToolStripButton();
-            this.tlsbinventario = new System.Windows.Forms.ToolStripButton();
-            this.tlsbreportes = new System.Windows.Forms.ToolStripButton();
-            this.tlsbusuarios = new System.Windows.Forms.ToolStripButton();
-            this.tlsbconfiguracion = new System.Windows.Forms.ToolStripButton();
+            this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbCerrarSesion = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -94,12 +96,68 @@
             this.tlsbreportes,
             this.tlsbusuarios,
             this.tlsbconfiguracion,
+            this.tsbCerrarSesion,
             this.tlslusuarioActual});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1332, 27);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tlsbVentas
+            // 
+            this.tlsbVentas.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tlsbVentas.Image = ((System.Drawing.Image)(resources.GetObject("tlsbVentas.Image")));
+            this.tlsbVentas.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tlsbVentas.Name = "tlsbVentas";
+            this.tlsbVentas.Size = new System.Drawing.Size(29, 24);
+            this.tlsbVentas.Text = "toolStripButton1";
+            this.tlsbVentas.ToolTipText = "Ventas";
+            this.tlsbVentas.Click += new System.EventHandler(this.tlsbVentas_Click);
+            // 
+            // tlsbinventario
+            // 
+            this.tlsbinventario.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tlsbinventario.Image = ((System.Drawing.Image)(resources.GetObject("tlsbinventario.Image")));
+            this.tlsbinventario.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tlsbinventario.Name = "tlsbinventario";
+            this.tlsbinventario.Size = new System.Drawing.Size(29, 24);
+            this.tlsbinventario.Text = "toolStripButton2";
+            this.tlsbinventario.ToolTipText = "Inventario";
+            this.tlsbinventario.Click += new System.EventHandler(this.tlsbinventario_Click);
+            // 
+            // tlsbreportes
+            // 
+            this.tlsbreportes.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tlsbreportes.Image = ((System.Drawing.Image)(resources.GetObject("tlsbreportes.Image")));
+            this.tlsbreportes.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tlsbreportes.Name = "tlsbreportes";
+            this.tlsbreportes.Size = new System.Drawing.Size(29, 24);
+            this.tlsbreportes.Text = "toolStripButton3";
+            this.tlsbreportes.ToolTipText = "Reportes";
+            this.tlsbreportes.Click += new System.EventHandler(this.tlsbreportes_Click);
+            // 
+            // tlsbusuarios
+            // 
+            this.tlsbusuarios.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tlsbusuarios.Image = ((System.Drawing.Image)(resources.GetObject("tlsbusuarios.Image")));
+            this.tlsbusuarios.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tlsbusuarios.Name = "tlsbusuarios";
+            this.tlsbusuarios.Size = new System.Drawing.Size(29, 24);
+            this.tlsbusuarios.Text = "toolStripButton4";
+            this.tlsbusuarios.ToolTipText = "Usuarios";
+            this.tlsbusuarios.Click += new System.EventHandler(this.tlsbusuarios_Click);
+            // 
+            // tlsbconfiguracion
+            // 
+            this.tlsbconfiguracion.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tlsbconfiguracion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tlsbconfiguracion.Image = ((System.Drawing.Image)(resources.GetObject("tlsbconfiguracion.Image")));
+            this.tlsbconfiguracion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tlsbconfiguracion.Name = "tlsbconfiguracion";
+            this.tlsbconfiguracion.Size = new System.Drawing.Size(29, 24);
+            this.tlsbconfiguracion.ToolTipText = "Configuracion";
+            this.tlsbconfiguracion.Click += new System.EventHandler(this.tlsbconfiguracion_Click);
             // 
             // tlslusuarioActual
             // 
@@ -127,7 +185,8 @@
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.salirToolStripMenuItem,
-            this.salirToolStripMenuItem1});
+            this.salirToolStripMenuItem1,
+            this.cerrarSesionToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.archivoToolStripMenuItem.Text = "Archivo";
@@ -135,14 +194,14 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.salirToolStripMenuItem.Text = "Configuracion";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem1
             // 
             this.salirToolStripMenuItem1.Name = "salirToolStripMenuItem1";
-            this.salirToolStripMenuItem1.Size = new System.Drawing.Size(185, 26);
+            this.salirToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.salirToolStripMenuItem1.Text = "Salir";
             this.salirToolStripMenuItem1.Click += new System.EventHandler(this.salirToolStripMenuItem1_Click);
             // 
@@ -227,60 +286,22 @@
             this.tmractualizaciondeDatos.Enabled = true;
             this.tmractualizaciondeDatos.Tick += new System.EventHandler(this.tmractualizaciondeDatos_Tick);
             // 
-            // tlsbVentas
+            // cerrarSesionToolStripMenuItem
             // 
-            this.tlsbVentas.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tlsbVentas.Image = ((System.Drawing.Image)(resources.GetObject("tlsbVentas.Image")));
-            this.tlsbVentas.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tlsbVentas.Name = "tlsbVentas";
-            this.tlsbVentas.Size = new System.Drawing.Size(29, 24);
-            this.tlsbVentas.Text = "toolStripButton1";
-            this.tlsbVentas.ToolTipText = "Ventas";
-            this.tlsbVentas.Click += new System.EventHandler(this.tlsbVentas_Click);
+            this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             // 
-            // tlsbinventario
+            // tsbCerrarSesion
             // 
-            this.tlsbinventario.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tlsbinventario.Image = ((System.Drawing.Image)(resources.GetObject("tlsbinventario.Image")));
-            this.tlsbinventario.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tlsbinventario.Name = "tlsbinventario";
-            this.tlsbinventario.Size = new System.Drawing.Size(29, 24);
-            this.tlsbinventario.Text = "toolStripButton2";
-            this.tlsbinventario.ToolTipText = "Inventario";
-            this.tlsbinventario.Click += new System.EventHandler(this.tlsbinventario_Click);
-            // 
-            // tlsbreportes
-            // 
-            this.tlsbreportes.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tlsbreportes.Image = ((System.Drawing.Image)(resources.GetObject("tlsbreportes.Image")));
-            this.tlsbreportes.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tlsbreportes.Name = "tlsbreportes";
-            this.tlsbreportes.Size = new System.Drawing.Size(29, 24);
-            this.tlsbreportes.Text = "toolStripButton3";
-            this.tlsbreportes.ToolTipText = "Reportes";
-            this.tlsbreportes.Click += new System.EventHandler(this.tlsbreportes_Click);
-            // 
-            // tlsbusuarios
-            // 
-            this.tlsbusuarios.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tlsbusuarios.Image = ((System.Drawing.Image)(resources.GetObject("tlsbusuarios.Image")));
-            this.tlsbusuarios.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tlsbusuarios.Name = "tlsbusuarios";
-            this.tlsbusuarios.Size = new System.Drawing.Size(29, 24);
-            this.tlsbusuarios.Text = "toolStripButton4";
-            this.tlsbusuarios.ToolTipText = "Usuarios";
-            this.tlsbusuarios.Click += new System.EventHandler(this.tlsbusuarios_Click);
-            // 
-            // tlsbconfiguracion
-            // 
-            this.tlsbconfiguracion.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tlsbconfiguracion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tlsbconfiguracion.Image = ((System.Drawing.Image)(resources.GetObject("tlsbconfiguracion.Image")));
-            this.tlsbconfiguracion.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tlsbconfiguracion.Name = "tlsbconfiguracion";
-            this.tlsbconfiguracion.Size = new System.Drawing.Size(29, 24);
-            this.tlsbconfiguracion.ToolTipText = "Configuracion";
-            this.tlsbconfiguracion.Click += new System.EventHandler(this.tlsbconfiguracion_Click);
+            this.tsbCerrarSesion.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbCerrarSesion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbCerrarSesion.Image = global::PadreForm.Properties.Resources.imageedit_20_4595952962;
+            this.tsbCerrarSesion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCerrarSesion.Name = "tsbCerrarSesion";
+            this.tsbCerrarSesion.Size = new System.Drawing.Size(29, 24);
+            this.tsbCerrarSesion.Text = "Cerrar Sesion";
+            this.tsbCerrarSesion.Click += new System.EventHandler(this.tsbCerrarSesion_Click);
             // 
             // PadreForm
             // 
@@ -336,6 +357,8 @@
         private System.Windows.Forms.ToolStripMenuItem limpiarToolStripMenuItem3;
         private System.Windows.Forms.ToolStripLabel tlslusuarioActual;
         private System.Windows.Forms.ToolStripButton tlsbinventario;
+        private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton tsbCerrarSesion;
     }
 }
 

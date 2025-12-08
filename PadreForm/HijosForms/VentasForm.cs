@@ -18,6 +18,7 @@ namespace PadreForm
         {
             InitializeComponent();
             this.Resize += (s, e) => PadreForm.EscalarControles(this);
+            this.FormClosed += (s, e) => PadreForm.randomSound(closeSounds);
         }
         private void VentasForm_Load(object sender, EventArgs e)
         {
@@ -58,7 +59,8 @@ namespace PadreForm
             if (!PadreForm.isAdmin())
             {
                 AccesoForm a = new AccesoForm();
-                if(!(a.ShowDialog() == DialogResult.OK))
+                PadreForm.randomSound(PadreForm.openSounds);
+                if (!(a.ShowDialog() == DialogResult.OK))
                 {
                     return;
                 }
@@ -129,6 +131,8 @@ namespace PadreForm
 
                 // Guardar cambios
                 PadreForm.fullregistration();
+
+                PadreForm.Play("venta_finalizada.mp3");
                 MessageBox.Show("Venta finalizada con Exito");
             }
             catch (Exception ex)

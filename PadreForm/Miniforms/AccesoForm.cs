@@ -16,6 +16,7 @@ namespace PadreForm.Miniforms
         {
             InitializeComponent();
             this.Resize += (s, e) => PadreForm.EscalarControles(this);
+            this.FormClosed += (s, e) => PadreForm.randomSound(PadreForm.closeSounds);
         }
 
         private void AccesoForm_Load(object sender, EventArgs e)

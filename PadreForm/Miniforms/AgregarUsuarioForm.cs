@@ -16,6 +16,7 @@ namespace PadreForm
         {
             InitializeComponent();
             this.Resize += (s, e) => PadreForm.EscalarControles(this);
+            this.FormClosed += (s, e) => PadreForm.randomSound(PadreForm.closeSounds);
         }
 
         private void allfieldsfilled() //verifica que todos los campos estan llenos
@@ -68,6 +69,7 @@ namespace PadreForm
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
             PadreForm.SetFontSize(this);
             PadreForm.EscalarControles(this);
+            allfieldsfilled();
             this.Icon = PadreForm.ImageToIcon(PadreForm.logo);
         }
 

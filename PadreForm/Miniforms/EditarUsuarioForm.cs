@@ -16,10 +16,10 @@ namespace PadreForm
         {
             InitializeComponent();
             this.Resize += (s, e) => PadreForm.EscalarControles(this);
+            this.FormClosed += (s, e) => PadreForm.randomSound(PadreForm.closeSounds);
         }
 
         public int indice;
-        public string nombreUsuario, contraseña, rol, nombre;
         bool esAdmin;
 
         private void txbNombreUsuario_TextChanged(object sender, EventArgs e)
@@ -82,11 +82,11 @@ namespace PadreForm
             PadreForm.SetFontSize(this);
             PadreForm.EscalarControles(this);
             this.Icon = PadreForm.ImageToIcon(PadreForm.logo);
-            txbContraseña.Text = contraseña; //Llena los campos con los datos del usuario
-            txbNombre.Text = nombre;
-            txbNombreUsuario.Text = nombreUsuario;
-            txbRol.Text = rol;
-            if (rol == "Admin")
+            txbContraseña.Text = PadreForm.Usuarios[indice].Contraseña; //Llena los campos con los datos del usuario
+            txbNombre.Text = PadreForm.Usuarios[indice].Nombre;
+            txbNombreUsuario.Text = PadreForm.Usuarios[indice].NombreUsuario;
+            txbRol.Text = PadreForm.Usuarios[indice].Rol;
+            if (PadreForm.Usuarios[indice].Rol == "Admin")
             {
                 esAdmin = true;
             }

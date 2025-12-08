@@ -18,6 +18,7 @@ namespace PadreForm
         {
             InitializeComponent();
             this.Resize += (s, e) => PadreForm.EscalarControles(this);
+            this.FormClosed += (s, e) => PadreForm.randomSound(PadreForm.closeSounds);
         }
 
         private void fullErase(string producto) //Elimina el producto seleccionado
@@ -50,12 +51,14 @@ namespace PadreForm
 
         private void openAgregar() //Abre el form agregar
         {
+            PadreForm.randomSound(PadreForm.openSounds);
             AñadirForm añadir = new AñadirForm();
             añadir.ShowDialog();
         }
 
         private void openEditar(string nombre)//Abre el form editar, proporcionando el indice del producto a editar 
         {
+            PadreForm.randomSound(PadreForm.openSounds);
             EditarForm editar = new EditarForm();
             editar.indice = getProductIndex(nombre);
             editar.ShowDialog();

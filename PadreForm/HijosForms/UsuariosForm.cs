@@ -16,22 +16,21 @@ namespace PadreForm
         {
             InitializeComponent();
             this.Resize += (s, e) => PadreForm.EscalarControles(this);
+            this.FormClosed += (s, e) => PadreForm.randomSound(PadreForm.closeSounds);
         }
 
         private void abrirAgregarUsuario()
         {
+            PadreForm.randomSound(PadreForm.openSounds);
             AgregarUsuarioForm agregarUsuario = new AgregarUsuarioForm();
             agregarUsuario.ShowDialog();
         }
 
         private void abrirEditarUsuario(int index) //Abre editar usuarios, mandando toda la informacion del usuario
         {
+            PadreForm.randomSound(PadreForm.openSounds);
             EditarUsuarioForm editarUsuario = new EditarUsuarioForm();
             editarUsuario.indice = index;
-            editarUsuario.nombreUsuario = dgvusuarios.Rows[index].Cells[0].Value.ToString();
-            editarUsuario.contraseña = PadreForm.Usuarios[index].Contraseña;
-            editarUsuario.rol = dgvusuarios.Rows[index].Cells[1].Value.ToString();
-            editarUsuario.nombre = dgvusuarios.Rows[index].Cells[2].Value.ToString();
             editarUsuario.ShowDialog();
         }
         private void txbbuscador_TextChanged(object sender, EventArgs e)
