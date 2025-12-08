@@ -831,13 +831,15 @@ namespace PadreForm
         }
         public static void Play(string archivo) //Reproduce un sonido especifico de la carpeta "sonidos"
         {
-            string ruta = Path.Combine(Application.StartupPath, "sonidos", archivo);
+            string rutaBase = Directory.GetParent(Application.StartupPath).Parent.FullName;
+            string ruta = Path.Combine(rutaBase, "sonidos", archivo);
             wmp.URL = ruta;
             wmp.controls.play();
         }
         public static void PlayBg(string archivo) //Reproduce un sonido especifico de la carpeta "sonidos"
         {
-            string ruta = Path.Combine(Application.StartupPath, "sonidos", archivo);
+            string rutaBase = Directory.GetParent(Application.StartupPath).Parent.FullName;
+            string ruta = Path.Combine(rutaBase, "sonidos", archivo);
             wmpbg.settings.setMode("loop", true);
             wmpbg.URL = ruta;
             wmpbg.controls.play();
