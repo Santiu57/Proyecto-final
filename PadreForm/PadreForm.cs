@@ -200,7 +200,7 @@ namespace PadreForm
                 colorFondo = Color.FromArgb(int.Parse(valores[2]));
                 colorLetra = Color.FromArgb(int.Parse(valores[3]));
                 wmp.settings.volume = int.Parse(valores[4]);
-                wmpbg.settings.volume = int.Parse(valores[4]);
+                wmpbg.settings.volume = int.Parse(valores[4]) - 20;
                 numeroTicket = int.Parse(valores[5]);
                 rfcTienda = valores[6];
                 tamanoLetra = float.Parse(valores[7]);
@@ -807,7 +807,7 @@ namespace PadreForm
             SetFontSize(this);
             this.Icon = ImageToIcon(logo);
             this.Text = nombreTienda;
-            PlayBg("Polyphonic.mp3");
+            PlayBg("Irasshaimase.mp3");
             try //Carga los tickets desde antes por si se hace una venta antes de abrir los tickets
             {
                 PadreForm.importacionTickets();
