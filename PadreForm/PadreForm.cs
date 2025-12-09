@@ -141,7 +141,8 @@ namespace PadreForm
 
             foreach (Control c in form.Controls)
             {
-                if (c.Tag is object[] data)
+                var data = c.Tag as object[];
+                if (data != null)
                 {
                     Point originalLoc = (Point)data[0];
                     Size originalSize = (Size)data[1];

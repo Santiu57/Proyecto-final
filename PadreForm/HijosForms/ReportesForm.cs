@@ -68,7 +68,8 @@ namespace PadreForm
 
                 var value = dgvtickets.Rows[e.RowIndex].Cells[2].Value;
 
-                if (value != null && int.TryParse(value.ToString(), out int n))
+                int n = -1;
+                if (value != null && int.TryParse(value.ToString(), out n))
                 {
                     ticketnumero = n;
                 }
