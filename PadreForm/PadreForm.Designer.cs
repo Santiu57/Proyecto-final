@@ -39,11 +39,13 @@
             this.tlsbreportes = new System.Windows.Forms.ToolStripButton();
             this.tlsbusuarios = new System.Windows.Forms.ToolStripButton();
             this.tlsbconfiguracion = new System.Windows.Forms.ToolStripButton();
+            this.tsbCerrarSesion = new System.Windows.Forms.ToolStripButton();
             this.tlslusuarioActual = new System.Windows.Forms.ToolStripLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,8 +57,6 @@
             this.abrirToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.limpiarToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.tmractualizaciondeDatos = new System.Windows.Forms.Timer(this.components);
-            this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsbCerrarSesion = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -159,6 +159,17 @@
             this.tlsbconfiguracion.ToolTipText = "Configuracion";
             this.tlsbconfiguracion.Click += new System.EventHandler(this.tlsbconfiguracion_Click);
             // 
+            // tsbCerrarSesion
+            // 
+            this.tsbCerrarSesion.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbCerrarSesion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbCerrarSesion.Image = global::PadreForm.Properties.Resources.imageedit_20_4595952962;
+            this.tsbCerrarSesion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCerrarSesion.Name = "tsbCerrarSesion";
+            this.tsbCerrarSesion.Size = new System.Drawing.Size(29, 24);
+            this.tsbCerrarSesion.Text = "Cerrar Sesion";
+            this.tsbCerrarSesion.Click += new System.EventHandler(this.tsbCerrarSesion_Click);
+            // 
             // tlslusuarioActual
             // 
             this.tlslusuarioActual.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -204,6 +215,13 @@
             this.salirToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.salirToolStripMenuItem1.Text = "Salir";
             this.salirToolStripMenuItem1.Click += new System.EventHandler(this.salirToolStripMenuItem1_Click);
+            // 
+            // cerrarSesionToolStripMenuItem
+            // 
+            this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
+            this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
             // ventasToolStripMenuItem
             // 
@@ -285,23 +303,6 @@
             // 
             this.tmractualizaciondeDatos.Enabled = true;
             this.tmractualizaciondeDatos.Tick += new System.EventHandler(this.tmractualizaciondeDatos_Tick);
-            // 
-            // cerrarSesionToolStripMenuItem
-            // 
-            this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
-            // 
-            // tsbCerrarSesion
-            // 
-            this.tsbCerrarSesion.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsbCerrarSesion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbCerrarSesion.Image = global::PadreForm.Properties.Resources.imageedit_20_4595952962;
-            this.tsbCerrarSesion.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCerrarSesion.Name = "tsbCerrarSesion";
-            this.tsbCerrarSesion.Size = new System.Drawing.Size(29, 24);
-            this.tsbCerrarSesion.Text = "Cerrar Sesion";
-            this.tsbCerrarSesion.Click += new System.EventHandler(this.tsbCerrarSesion_Click);
             // 
             // PadreForm
             // 

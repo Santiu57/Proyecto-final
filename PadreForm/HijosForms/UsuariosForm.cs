@@ -55,6 +55,7 @@ namespace PadreForm
         {
             abrirAgregarUsuario();
             PadreForm.importacionUsuariosDTG(dgvusuarios);
+            PadreForm.rolesUsuariosAdd(cbrol);
         }
 
         private void btnborrar_Click(object sender, EventArgs e)//Elimina el usuario, si es admin hay confirmacion, y si es el Usuario actual reinicia
@@ -72,6 +73,7 @@ namespace PadreForm
                     PadreForm.eliminaUsuario(nombreUsuario);
                     PadreForm.importacionUsuariosDTG(dgvusuarios);
                     MessageBox.Show("Se ha eliminado el usuario");
+                    PadreForm.rolesUsuariosAdd(cbrol);
                     if (restart)
                     {
                         Application.Restart();
@@ -83,6 +85,7 @@ namespace PadreForm
                 PadreForm.eliminaUsuario(nombreUsuario);
                 PadreForm.importacionUsuariosDTG(dgvusuarios);
                 MessageBox.Show("Se ha eliminado el usuario");
+                PadreForm.rolesUsuariosAdd(cbrol);
             }
         }
 
@@ -90,6 +93,7 @@ namespace PadreForm
         {
             abrirEditarUsuario(dgvusuarios.CurrentRow.Index);
             PadreForm.importacionUsuariosDTG(dgvusuarios);
+            PadreForm.rolesUsuariosAdd(cbrol);
         }
 
         private void UsuariosForm_Activated(object sender, EventArgs e)

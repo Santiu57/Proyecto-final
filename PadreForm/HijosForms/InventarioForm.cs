@@ -77,6 +77,7 @@ namespace PadreForm
                 fullErase(producto);
                 dgvinventario.Rows.RemoveAt(dgvinventario.CurrentRow.Index);
                 PadreForm.fullregistration();
+                PadreForm.categoriasProductosAdd(cbcategoria);
             }
             catch(Exception ex)
             {
@@ -88,6 +89,7 @@ namespace PadreForm
         {
             openAgregar();
             actualizarTabla();
+            PadreForm.categoriasProductosAdd(cbcategoria);
             PadreForm.fullregistration();
         }
 
@@ -104,6 +106,7 @@ namespace PadreForm
             if(dgvinventario.CurrentRow != null)
                 openEditar(dgvinventario.CurrentRow.Cells[0].Value.ToString());
                 PadreForm.fullregistration();
+                PadreForm.categoriasProductosAdd(cbcategoria);
                 actualizarTabla();
         }
 
