@@ -88,6 +88,7 @@ namespace PadreForm
                 {
                     PadreForm.Productos.Add(producto);
                     PadreForm.categoriasProductosAdd(cbcategoria);
+                    PadreForm.proveedoresProductosAdd(cbproveedores);
                     PadreForm.fullregistration();
                     Clear();
                 }
