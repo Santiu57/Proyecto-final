@@ -88,16 +88,28 @@ namespace PadreForm
                         }
                         else
                         {
-                            var ts = control as ToolStrip;
-                            if (ts != null)
+                            var dtp = control as DateTimePicker;
+                            if (dtp != null)
                             {
-                                ts.BackColor = back;
-                                ts.ForeColor = fore;
-
-                                foreach (ToolStripItem item in ts.Items)
+                                dtp.CalendarForeColor = fore;
+                                dtp.CalendarMonthBackground = back;
+                                dtp.CalendarTitleBackColor = back;
+                                dtp.CalendarTitleForeColor = fore;
+                                dtp.CalendarTrailingForeColor = fore;
+                            }
+                            else
+                            {
+                                var ts = control as ToolStrip;
+                                if (ts != null)
                                 {
-                                    item.ForeColor = fore;
-                                    item.BackColor = back;
+                                    ts.BackColor = back;
+                                    ts.ForeColor = fore;
+
+                                    foreach (ToolStripItem item in ts.Items)
+                                    {
+                                        item.ForeColor = fore;
+                                        item.BackColor = back;
+                                    }
                                 }
                             }
                         }
@@ -183,7 +195,7 @@ namespace PadreForm
 
         public static void configSafe() // Guarda la configuración en un archivo de texto
         {
-            using (var fs = new StreamWriter("Configuracion"))
+            using (var fs = new StreamWriter("Configuracion.txt"))
             {
                 string config = nombreTienda + "/" + direccionTienda + "/" + colorFondo.ToArgb() + "/" + colorLetra.ToArgb() + "/" + wmp.settings.volume.ToString() + "/" + numeroTicket.ToString() + "/" + rfcTienda + "/" + tamanoLetra.ToString() + "/" + musica.ToString();
                 fs.WriteLine(config);
@@ -192,8 +204,8 @@ namespace PadreForm
 
         public static void importacionConfig() // Importa la configuración desde un archivo de texto
         {
-            if (!File.Exists("Configuracion")) return;
-            using (var fr = new StreamReader("Configuracion"))
+            if (!File.Exists("Configuracion.txt")) return;
+            using (var fr = new StreamReader("Configuracion.txt"))
             {
                 string linea = fr.ReadLine();
                 var valores = linea.Split('/');
@@ -263,7 +275,7 @@ namespace PadreForm
 
         public static void registrarTickets() // Guarda los tickets en un archivo de texto
         {
-            StreamWriter Ticketsfile = new StreamWriter("Tickets");
+            StreamWriter Ticketsfile = new StreamWriter("Tickets.txt");
             foreach (var t in Tickets)
             {
                 Ticketsfile.WriteLine("BEGIN_TICKET");
@@ -284,7 +296,7 @@ namespace PadreForm
 
         public static void registrarUsuarios() // Guarda los usuarios en un archivo de texto
         {
-            StreamWriter Usuariosfile = new StreamWriter("Usuarios");
+            StreamWriter Usuariosfile = new StreamWriter("Usuarios.txt");
             foreach (var u in Usuarios)
             {
                 Usuariosfile.WriteLine(u.NombreUsuario + "/" + u.Contraseña + "/" + u.Rol + "/" + u.Nombre);
@@ -297,9 +309,9 @@ namespace PadreForm
             try
             {
 
-                if (!File.Exists("Tickets")) return;
+                if (!File.Exists("Tickets.txt")) return;
                 Tickets.Clear();
-                StreamReader leer = new StreamReader("Tickets");
+                StreamReader leer = new StreamReader("Tickets.txt");
                 string line;
                 string contenido = "";
                 DateTime fecha = DateTime.Now;
@@ -457,9 +469,9 @@ namespace PadreForm
         {
             Usuarios.Clear();
 
-            if (!File.Exists("Usuarios")) return;
+            if (!File.Exists("Usuarios.txt")) return;
 
-            foreach (var linea in File.ReadAllLines("Usuarios"))
+            foreach (var linea in File.ReadAllLines("Usuarios.txt"))
             {
                 if (string.IsNullOrWhiteSpace(linea)) continue;
                 var valores = linea.Split('/');
@@ -491,7 +503,7 @@ namespace PadreForm
         {
             try
             {
-                StreamReader leer = new StreamReader("Usuarios");
+                StreamReader leer = new StreamReader("Usuarios.txt");
                 tabla.Rows.Clear();
                 string linea = leer.ReadLine();
                 while (linea != null)
@@ -516,7 +528,7 @@ namespace PadreForm
             try
             {
                 tabla.Rows.Clear();
-                using (var leer = new StreamReader("Productos"))
+                using (var leer = new StreamReader("Productos.txt"))
                 {
                     string linea = leer.ReadLine();
                     while (linea != null)
@@ -546,7 +558,7 @@ namespace PadreForm
             try
             {
                 Productos.Clear(); 
-                using (var leer = new StreamReader("Productos"))
+                using (var leer = new StreamReader("Productos.txt"))
                 {
                     string linea;
                     while ((linea = leer.ReadLine()) != null)
@@ -634,7 +646,7 @@ namespace PadreForm
 
         public static void registraProductos()//Registra los productos en un archivo de texto
         {
-            StreamWriter Productosfile = new StreamWriter("Productos");
+            StreamWriter Productosfile = new StreamWriter("Productos.txt");
             foreach (var p in Productos)
             {
                 Productosfile.WriteLine(

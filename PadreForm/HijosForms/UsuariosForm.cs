@@ -63,6 +63,7 @@ namespace PadreForm
             string nombreUsuario = dgvusuarios.CurrentRow.Cells[0].Value.ToString();
             if (dgvusuarios.CurrentRow.Cells[1].Value.ToString() == "Admin")
             {
+                if (PadreForm.adminscount() <= 1) { MessageBox.Show("No se puede eliminar, Solo hay un admin"); return; }
                 if (MessageBox.Show("Este usuario es un administrador, ¿Está seguro de eliminarlo?", "Confirmar eliminación", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     bool restart = false;
