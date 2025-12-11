@@ -42,12 +42,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblventasdia = new System.Windows.Forms.Label();
             this.lblproductosvendidos = new System.Windows.Forms.Label();
-            this.lblproductostotalesvendidos = new System.Windows.Forms.Label();
-            this.lblventastotales = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txbnumTicket = new System.Windows.Forms.TextBox();
+            this.lblproductostotalesvendidos = new System.Windows.Forms.Label();
+            this.lblventastotales = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvtickets)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,19 +146,19 @@
             // 
             this.label3.Location = new System.Drawing.Point(537, 115);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 21);
+            this.label3.Size = new System.Drawing.Size(132, 21);
             this.label3.TabIndex = 6;
             this.label3.Text = "Ventas del dia:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
             this.label4.Location = new System.Drawing.Point(672, 115);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 21);
+            this.label4.Size = new System.Drawing.Size(181, 21);
             this.label4.TabIndex = 7;
             this.label4.Text = "Produtos vendidos:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblventasdia
             // 
@@ -178,45 +178,23 @@
             this.lblproductosvendidos.Text = "0";
             this.lblproductosvendidos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblproductostotalesvendidos
-            // 
-            this.lblproductostotalesvendidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblproductostotalesvendidos.Location = new System.Drawing.Point(675, 187);
-            this.lblproductostotalesvendidos.Name = "lblproductostotalesvendidos";
-            this.lblproductostotalesvendidos.Size = new System.Drawing.Size(178, 21);
-            this.lblproductostotalesvendidos.TabIndex = 13;
-            this.lblproductostotalesvendidos.Text = "0";
-            this.lblproductostotalesvendidos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblproductostotalesvendidos.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // lblventastotales
-            // 
-            this.lblventastotales.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblventastotales.Location = new System.Drawing.Point(544, 187);
-            this.lblventastotales.Name = "lblventastotales";
-            this.lblventastotales.Size = new System.Drawing.Size(98, 21);
-            this.lblventastotales.TabIndex = 12;
-            this.lblventastotales.Text = "0";
-            this.lblventastotales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblventastotales.Click += new System.EventHandler(this.label6_Click);
-            // 
             // label7
             // 
             this.label7.Location = new System.Drawing.Point(672, 166);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(177, 21);
+            this.label7.Size = new System.Drawing.Size(181, 21);
             this.label7.TabIndex = 11;
             this.label7.Text = "Produtos Totales vendidos:";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label8
             // 
             this.label8.Location = new System.Drawing.Point(537, 166);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 21);
+            this.label8.Size = new System.Drawing.Size(132, 21);
             this.label8.TabIndex = 10;
             this.label8.Text = "Ventas Totales:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
             // 
@@ -235,15 +213,33 @@
             this.txbnumTicket.TabIndex = 15;
             this.txbnumTicket.TextChanged += new System.EventHandler(this.txbnumTicket_TextChanged);
             // 
+            // lblproductostotalesvendidos
+            // 
+            this.lblproductostotalesvendidos.Location = new System.Drawing.Point(675, 187);
+            this.lblproductostotalesvendidos.Name = "lblproductostotalesvendidos";
+            this.lblproductostotalesvendidos.Size = new System.Drawing.Size(178, 21);
+            this.lblproductostotalesvendidos.TabIndex = 16;
+            this.lblproductostotalesvendidos.Text = "0";
+            this.lblproductostotalesvendidos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblventastotales
+            // 
+            this.lblventastotales.Location = new System.Drawing.Point(541, 187);
+            this.lblventastotales.Name = "lblventastotales";
+            this.lblventastotales.Size = new System.Drawing.Size(101, 21);
+            this.lblventastotales.TabIndex = 17;
+            this.lblventastotales.Text = "0";
+            this.lblventastotales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ReportesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 227);
+            this.Controls.Add(this.lblventastotales);
+            this.Controls.Add(this.lblproductostotalesvendidos);
             this.Controls.Add(this.txbnumTicket);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.lblproductostotalesvendidos);
-            this.Controls.Add(this.lblventastotales);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblproductosvendidos);
@@ -282,11 +278,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblventasdia;
         private System.Windows.Forms.Label lblproductosvendidos;
-        private System.Windows.Forms.Label lblproductostotalesvendidos;
-        private System.Windows.Forms.Label lblventastotales;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txbnumTicket;
+        private System.Windows.Forms.Label lblproductostotalesvendidos;
+        private System.Windows.Forms.Label lblventastotales;
     }
 }
