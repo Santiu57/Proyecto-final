@@ -208,6 +208,7 @@
             this.Controls.Add(this.btnagregar);
             this.Controls.Add(this.dgvinventario);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "InventarioForm";
             this.Text = "Inventario";
             this.Activated += new System.EventHandler(this.InventarioForm_Activated);

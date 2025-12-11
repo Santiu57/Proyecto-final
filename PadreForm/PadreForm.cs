@@ -274,6 +274,7 @@ namespace PadreForm
                 Ticketsfile.WriteLine("TIENDA|" + t.Nombre);
                 Ticketsfile.WriteLine("DIRECCION|" + t.Direccion);
                 Ticketsfile.WriteLine("RFC|" + t.RFC);
+                Ticketsfile.WriteLine("PCANT|" + t.CProductos);
                 Ticketsfile.WriteLine("CONTENIDO|");
                 Ticketsfile.WriteLine(t.Contenido.TrimEnd());
                 Ticketsfile.WriteLine("END_TICKET");
@@ -308,6 +309,7 @@ namespace PadreForm
                 string nombreTienda = "";
                 string direccionTienda = "";
                 string rfcTienda = "";
+                int Pcant = 0;
 
                 while ((line = leer.ReadLine()) != null)
                 {
@@ -343,6 +345,10 @@ namespace PadreForm
                     {
                         rfcTienda = (line.Substring(4));
                     }
+                    else if (line.StartsWith("PCANT|"))
+                    {
+                        Pcant = int.Parse(line.Substring(6));
+                    }
                     else if (line == "CONTENIDO|")
                     {
                         // Leer contenido hasta END_TICKET
@@ -355,7 +361,7 @@ namespace PadreForm
                         }
 
                         // Guardar ticket
-                        Tickets.Add(new Ticket(contenido, fecha, total, vendedor, numTicket, nombreTienda, direccionTienda,rfcTienda));
+                        Tickets.Add(new Ticket(contenido, fecha, total, vendedor, numTicket, nombreTienda, direccionTienda,rfcTienda,Pcant));
                     }
                 }
                 leer.Close();
@@ -766,6 +772,48 @@ namespace PadreForm
             }
         }
 
+        public static void FiltrarTickets(//Filtro para tickets
+        DataGridView tabla,
+        string usuario,
+        string fecha)
+        {
+            tabla.Rows.Clear();
+
+            string usuarioFiltro = usuario?.ToUpper() ?? "";
+            string fechaFiltro = fecha?.ToUpper() ?? "";
+
+            for (int i = 0; i < Tickets.Count; i++)
+            {
+                bool coincideusuario = true;
+                bool coincidefecha = true;
+
+                // Filtrar por roles
+                if (!string.IsNullOrWhiteSpace(usuario))
+                {
+                    coincideusuario =
+                        Tickets[i].Vendedor.ToUpper().Contains(usuarioFiltro);
+                }
+
+                // Filtrar por usuario o nombre
+                if (!string.IsNullOrWhiteSpace(fecha))
+                {
+                    coincidefecha =
+                        Tickets[i].FechaCreacion.ToShortDateString().ToUpper().Contains(fechaFiltro);
+                }
+
+                // Si cumple ambos filtros
+                if (coincidefecha && coincideusuario)
+                {
+                    tabla.Rows.Add(
+                        Tickets[i].FechaCreacion,
+                        Tickets[i].Vendedor,
+                        Tickets[i].NumTicket,
+                        Tickets[i].Total
+                    );
+                }
+            }
+        }
+
         public static void onlynums(KeyPressEventArgs e, object sender)
         {
             if (char.IsControl(e.KeyChar))
@@ -929,8 +977,9 @@ namespace PadreForm
             public string Nombre { get; set; }
             public string Direccion { get; set; }
             public string RFC { get; set; }
+            public int CProductos { get; set; }
 
-            public Ticket(string contenido, DateTime fecha, decimal total, string vendedor, int numTicket, string nombre, string direccion, string rfc)
+            public Ticket(string contenido, DateTime fecha, decimal total, string vendedor, int numTicket, string nombre, string direccion, string rfc, int cproductos)
             {
                 Contenido = contenido;
                 FechaCreacion = fecha;
@@ -940,6 +989,7 @@ namespace PadreForm
                 Nombre = nombre;
                 Direccion = direccion;
                 RFC = rfc;
+                CProductos = cproductos;
             }
         }
         public class Producto //Para guardar todos los datos de los productos

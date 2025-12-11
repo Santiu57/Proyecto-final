@@ -154,6 +154,7 @@ namespace PadreForm
             ticket.AppendLine("-------------------------------");
 
             double total = 0;
+            int Pcantidad = 0;
 
             for (int i = 0; i < tablaVenta.Rows.Count; i++)
             {
@@ -165,6 +166,7 @@ namespace PadreForm
                 total += subtotal;
 
                 ticket.AppendLine($"{nombre} x{cantidad}  = ${subtotal}");
+                Pcantidad += cantidad;
             }
 
             ticket.AppendLine("-------------------------------");
@@ -181,7 +183,8 @@ namespace PadreForm
                 PadreForm.numeroTicket,
                 PadreForm.nombreTienda,
                 PadreForm.direccionTienda,
-                PadreForm.rfcTienda
+                PadreForm.rfcTienda,
+                Pcantidad
             );
             PadreForm.Tickets.Add(newticket);
             PadreForm.registrarTickets();

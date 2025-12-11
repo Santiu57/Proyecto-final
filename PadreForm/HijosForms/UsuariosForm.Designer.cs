@@ -158,6 +158,7 @@
             this.Controls.Add(this.btnborrar);
             this.Controls.Add(this.btnagregar);
             this.Controls.Add(this.dgvusuarios);
+            this.MaximizeBox = false;
             this.Name = "UsuariosForm";
             this.Text = "Usuarios";
             this.Activated += new System.EventHandler(this.UsuariosForm_Activated);

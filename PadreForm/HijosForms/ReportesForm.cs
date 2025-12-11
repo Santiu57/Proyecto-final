@@ -47,7 +47,10 @@ namespace PadreForm
 
         private void ReportesForm_Load(object sender, EventArgs e)
         {
+            PadreForm.usuariosAdd(cbusuarios);
             PadreForm.CambiarColores(this, PadreForm.colorLetra, PadreForm.colorFondo);
+            dtpfecha.Value = DateTime.Now;
+            ActDatos();
             PadreForm.SetFontSize(this);
             try
             {
@@ -58,6 +61,30 @@ namespace PadreForm
             {
                 PadreForm.registrarTickets();
             }
+        }
+
+        private void ActDatos()
+        {
+            string dia = dtpfecha.Value.ToShortDateString();
+            decimal total = 0;
+            int prods = 0;
+            decimal Dtotal = 0;
+            int Dprods = 0;
+            foreach (var t in PadreForm.Tickets)
+            {
+                string Tdia = t.FechaCreacion.ToShortDateString();
+                total += t.Total;
+                prods += t.CProductos;
+                if(dia == Tdia)
+                {
+                    Dtotal += t.Total;
+                    Dprods += t.CProductos;
+                }
+            }
+            lblproductostotalesvendidos.Text = prods.ToString();
+            lblventastotales.Text = total.ToString();
+            lblventasdia.Text = Dtotal.ToString();
+            lblproductosvendidos.Text = Dprods.ToString();
         }
 
         private void dgvtickets_CellContentClick(object sender, DataGridViewCellEventArgs e) //Al clickear en el contenido del dtg, abre su respectivo ticket
@@ -82,6 +109,8 @@ namespace PadreForm
 
         private void ReportesForm_Activated(object sender, EventArgs e)//Cuando el form recupeta el foco, se actualiza
         {
+            PadreForm.usuariosAdd(cbusuarios);
+            ActDatos();
             try
             {
                 PadreForm.importacionTickets();
@@ -91,6 +120,28 @@ namespace PadreForm
             {
                 PadreForm.registrarTickets();
             }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbusuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PadreForm.FiltrarTickets(dgvtickets, cbusuarios.Text, dtpfecha.Value.ToShortDateString());
+            ActDatos();
+        }
+
+        private void dtpfecha_ValueChanged(object sender, EventArgs e)
+        {
+            PadreForm.FiltrarTickets(dgvtickets, cbusuarios.Text, dtpfecha.Value.ToShortDateString());
+            ActDatos();
         }
     }
 }

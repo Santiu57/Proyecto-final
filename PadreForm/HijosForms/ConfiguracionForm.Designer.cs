@@ -269,6 +269,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "ConfiguracionForm";
             this.Text = "Configuracion";
             this.Load += new System.EventHandler(this.ConfiguracionForm_Load);
