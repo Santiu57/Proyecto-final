@@ -81,10 +81,10 @@ namespace PadreForm
                     Dprods += t.CProductos;
                 }
             }
-            lblproductostotalesvendidos.Text = prods.ToString();
-            lblventastotales.Text = total.ToString();
-            lblventasdia.Text = Dtotal.ToString();
-            lblproductosvendidos.Text = Dprods.ToString();
+            lblproductostotalesvendidos.Text = prods.ToString() + " Productos";
+            lblventastotales.Text = total.ToString("C");
+            lblventasdia.Text = Dtotal.ToString("C");
+            lblproductosvendidos.Text = Dprods.ToString() + " Productos";
         }
 
         private void dgvtickets_CellContentClick(object sender, DataGridViewCellEventArgs e) //Al clickear en el contenido del dtg, abre su respectivo ticket
@@ -134,14 +134,19 @@ namespace PadreForm
 
         private void cbusuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PadreForm.FiltrarTickets(dgvtickets, cbusuarios.Text, dtpfecha.Value.ToShortDateString());
+            PadreForm.FiltrarTickets(dgvtickets, cbusuarios.Text, dtpfecha.Value.ToShortDateString(), txbnumTicket.Text);
             ActDatos();
         }
 
         private void dtpfecha_ValueChanged(object sender, EventArgs e)
         {
-            PadreForm.FiltrarTickets(dgvtickets, cbusuarios.Text, dtpfecha.Value.ToShortDateString());
+            PadreForm.FiltrarTickets(dgvtickets, cbusuarios.Text, dtpfecha.Value.ToShortDateString(), txbnumTicket.Text);
             ActDatos();
+        }
+
+        private void txbnumTicket_TextChanged(object sender, EventArgs e)
+        {
+            PadreForm.FiltrarTickets(dgvtickets, cbusuarios.Text, dtpfecha.Value.ToShortDateString(), txbnumTicket.Text);
         }
     }
 }

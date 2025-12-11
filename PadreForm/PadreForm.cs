@@ -775,7 +775,9 @@ namespace PadreForm
         public static void FiltrarTickets(//Filtro para tickets
         DataGridView tabla,
         string usuario,
-        string fecha)
+        string fecha,
+        string num
+        )
         {
             tabla.Rows.Clear();
 
@@ -786,29 +788,37 @@ namespace PadreForm
             {
                 bool coincideusuario = true;
                 bool coincidefecha = true;
+                bool coincidenum = true;
 
-                // Filtrar por roles
+                // Filtrar por vendedor
                 if (!string.IsNullOrWhiteSpace(usuario))
                 {
                     coincideusuario =
                         Tickets[i].Vendedor.ToUpper().Contains(usuarioFiltro);
                 }
 
-                // Filtrar por usuario o nombre
+                // Filtrar por fecha
                 if (!string.IsNullOrWhiteSpace(fecha))
                 {
                     coincidefecha =
                         Tickets[i].FechaCreacion.ToShortDateString().ToUpper().Contains(fechaFiltro);
                 }
 
+                // Filtrar por numero
+                if (!string.IsNullOrWhiteSpace(num))
+                {
+                    coincidefecha =
+                        Tickets[i].NumTicket.ToString().Contains(num);
+                }
+
                 // Si cumple ambos filtros
-                if (coincidefecha && coincideusuario)
+                if (coincidefecha && coincideusuario && coincidenum)
                 {
                     tabla.Rows.Add(
                         Tickets[i].FechaCreacion,
                         Tickets[i].Vendedor,
                         Tickets[i].NumTicket,
-                        Tickets[i].Total
+                        Tickets[i].Total.ToString("C")
                     );
                 }
             }
